@@ -1,8 +1,10 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+eval "$(sheldon source)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,6 +75,7 @@ ZSH_THEME="headline"
 plugins=(
 	git
 	zsh-autosuggestions
+	direnv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,10 +103,19 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias code=code --disable-gpu-sandbox
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+#alias code=code --disable-gpu-sandbox
+alias ls='exa'
+alias ll='exa --long'
 
 export CXX=/usr/bin/clang++
 export CC=/usr/bin/clang
 
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+please
