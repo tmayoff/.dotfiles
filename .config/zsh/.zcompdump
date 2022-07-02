@@ -2035,6 +2035,3 @@ autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
-
-#omz revision: 50550c70eaa36e79fdf380bdc4ddad4a1ad581a0
-#omz fpath: /home/tyler/.config/zsh/oh-my-zsh/plugins/direnv /home/tyler/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions /home/tyler/.config/zsh/oh-my-zsh/plugins/git /home/tyler/.config/zsh/oh-my-zsh/functions /home/tyler/.config/zsh/oh-my-zsh/completions /home/tyler/.config/zsh/oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.8.1/functions /home/tyler/.local/share/sheldon/repos/github.com/zdharma-continuum/fast-syntax-highlighting
