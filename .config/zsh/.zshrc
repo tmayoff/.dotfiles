@@ -6,20 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 eval "$(sheldon source)"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="headline"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -102,24 +89,37 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
+
+alias zshconfig="vim $HOME/.config/zsh/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-#alias code=code --disable-gpu-sandbox
 alias ls='exa'
 alias ll='exa --long'
+alias lla='exa --long -a'
+
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
+# yarn
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 export CXX=/usr/bin/clang++
 export CC=/usr/bin/clang
 
+# XDG Directories
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
 
+# ZSH 
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
-please
+
+# Wine
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+please
