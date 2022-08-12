@@ -28,6 +28,8 @@ plugins=(
 	direnv
 )
 
+export ZSH_CUSTOM="$XDG_CONFIG_HOME"/zsh/custom
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

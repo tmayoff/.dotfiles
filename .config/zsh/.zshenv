@@ -15,3 +15,4 @@ export fpath=("~/.config/zsh/zfunc" $fpath)
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 . "$XDG_DATA_HOME/cargo/env"
+
