@@ -7,3 +7,5 @@
 [user]
 	email = tyler@tylermayoff.com
 	name = Tyler Mayoff
+[pull]
+	rebase = false
