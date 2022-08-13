@@ -24,7 +24,6 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(
 	git
-	zsh-autosuggestions
 	direnv
 )
 

@@ -17,6 +17,9 @@ shell = "zsh"
 [plugins.fast-syntax-highlighting]
 github = 'zdharma-continuum/fast-syntax-highlighting'
 
+[plugins.zsh-autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+
 # For example:
 #
 # [plugins.base16]
