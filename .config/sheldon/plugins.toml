@@ -20,6 +20,9 @@ github = 'zdharma-continuum/fast-syntax-highlighting'
 [plugins.zsh-autosuggestions]
 github = 'zsh-users/zsh-autosuggestions'
 
+[plugins.headline]
+github = 'Moarram/headline'
+
 # For example:
 #
 # [plugins.base16]
