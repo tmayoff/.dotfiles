@@ -1,3 +1,6 @@
+export CXX=/usr/bin/g++
+export CC=/usr/bin/gcc
+
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
