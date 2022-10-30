@@ -65,9 +65,6 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 # yarn
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
-export CXX=/usr/bin/clang++
-export CC=/usr/bin/clang
-
 # XDG Directories
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
