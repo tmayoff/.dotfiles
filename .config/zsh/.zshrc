@@ -65,28 +65,6 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 # yarn
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
-export CXX=/usr/bin/clang++
-export CC=/usr/bin/clang
-
-# XDG Directories
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_STATE_HOME=$HOME/.local/state
-export XDG_CACHE_HOME=$HOME/.cache
-
-# ZSH 
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
-
-# Wine
-export WINEPREFIX="$XDG_DATA_HOME"/wine
-
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"***REMOVED*** This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"***REMOVED*** This loads nvm bash_completion
-
-
 # Debian maintainers
 if [ -f /usr/lib/mc/mc.sh ]; then
   . /usr/lib/mc/mc.sh
@@ -95,5 +73,6 @@ fi
 alias dquilt="quilt --quiltrc=$***REMOVED***HOME***REMOVED***/.config/quiltrc-dpkg"
 #. /usr/share/bash-completion/completions/quilt
 # complete -F _quilt_completion $_quilt_complete_opt dquilt
+
 
 please
