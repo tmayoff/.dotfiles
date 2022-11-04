@@ -16,3 +16,7 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 . "$XDG_DATA_HOME/cargo/env"
 
+export PATH="$HOME/go/bin:$XDG_DATA_HOME/cargo/bin:$PATH"
+
+export DEBEMAIL="tyler@tylermayoff.com"
+export DEBFULLNAME="Tyler Mayoff"

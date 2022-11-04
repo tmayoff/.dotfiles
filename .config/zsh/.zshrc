@@ -86,4 +86,14 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+# Debian maintainers
+if [ -f /usr/lib/mc/mc.sh ]; then
+  . /usr/lib/mc/mc.sh
+fi
+
+alias dquilt="quilt --quiltrc=${HOME}/.config/quiltrc-dpkg"
+#. /usr/share/bash-completion/completions/quilt
+# complete -F _quilt_completion $_quilt_complete_opt dquilt
+
 please
