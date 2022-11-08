@@ -1,5 +1,5 @@
 configuration {
-  modi: "window,run,ssh";
+  modi: "window,run,ssh,combi";
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -32,7 +32,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-/*	combi-modi: "window,run";*/
+	combi-modi: "window,run,drun";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -145,4 +145,5 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+@theme "/usr/share/rofi/themes/solarized_alternate.rasi"
