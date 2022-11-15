@@ -185,5 +185,6 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
 
-
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/grand_basilica.jpg
+
+exec_always --no-startup-id guake
