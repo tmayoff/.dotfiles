@@ -15,7 +15,9 @@ set $mod Mod4
 # is used in the bar ***REMOVED******REMOVED*** block below.
 font pango:monospace 8
 
-gaps inner 10
+hide_edge_borders smart
+
+#gaps inner 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
