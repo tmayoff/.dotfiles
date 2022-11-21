@@ -2,6 +2,7 @@
 
 
 ## Required programs
+- `i3` : Window manager
+- `picom` : compositor
 - `playerctl` : Media Keys
 - `polybar` : topbar
-- `picom` : compositor
