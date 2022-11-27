@@ -1,1 +1,1 @@
-export BACKUP_LOCATION=/media/Backups/Fedora
+export BACKUP_LOCATION=/media/Backups/Fedora/restic
