@@ -40,3 +40,9 @@ export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
+
+# Node version manager
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+source $XDG_CONFIG_HOME/zsh/zshenv-machine
