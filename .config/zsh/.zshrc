@@ -1,16 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.config/zsh/oh-my-zsh"
-
 eval "$(sheldon source)"
 
-ZSH_CUSTOM=$HOME/.config/zsh/oh-my-zsh/custom
 ZSH_THEME="headline"
-
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 7
 
 ENABLE_CORRECTION="false"
 
@@ -22,18 +15,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 
-plugins=(
-	git
-	direnv
-)
-
 export ZSH_CUSTOM="$XDG_CONFIG_HOME"/zsh/custom
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -55,7 +37,6 @@ source $ZSH/oh-my-zsh.sh
 #
 
 alias zshconfig="vim $HOME/.config/zsh/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
 alias ls='exa'
 alias ll='exa --long'
 alias lla='exa --long -a'
