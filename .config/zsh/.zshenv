@@ -46,4 +46,5 @@ export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
 export NVM_DIR="$([ -z "$***REMOVED***XDG_CONFIG_HOME-***REMOVED***" ] && printf %s "$***REMOVED***HOME***REMOVED***/.nvm" || printf %s "$***REMOVED***XDG_CONFIG_HOME***REMOVED***/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-source $XDG_CONFIG_HOME/zsh/zshenv-machine
+
+[ -f "$XDG_CONFIG_HOME/zsh/zshenv-machine" ] && source "$XDG_CONFIG_HOME/zsh/zshenv-machine"
