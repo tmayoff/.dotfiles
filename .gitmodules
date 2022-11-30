@@ -1,0 +1,3 @@
+[submodule ".config/zsh/custom/themes/headline"]
+	path = .config/zsh/custom/themes/headline
+	url = https://github.com/Moarram/headline.git
