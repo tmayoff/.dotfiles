@@ -6,3 +6,8 @@
 - `picom` : compositor
 - `playerctl` : Media Keys
 - `polybar` : topbar
+
+
+## Programs for ZSH Plugins
+- PackageKit-command-not-found
+- direnv

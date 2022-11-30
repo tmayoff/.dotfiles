@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+export ZSH="$XDG_CONFIG_HOME/zsh/ohmyzsh"
+
 eval "$(sheldon source)"
 
 ZSH_THEME="headline"
@@ -13,9 +15,12 @@ ENABLE_CORRECTION="false"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
-# Would you like to use another custom folder than $ZSH/custom?
-
 export ZSH_CUSTOM="$XDG_CONFIG_HOME"/zsh/custom
+
+plugins=()
+
+fpath=("$XDG_CONFIG_HOME/zsh/completions" $fpath)
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -26,15 +31,6 @@ export ZSH_CUSTOM="$XDG_CONFIG_HOME"/zsh/custom
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 
 alias zshconfig="vim $HOME/.config/zsh/.zshrc"
 alias ls='exa'

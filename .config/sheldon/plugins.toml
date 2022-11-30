@@ -23,7 +23,3 @@ github = 'zsh-users/zsh-autosuggestions'
 [plugins.headline]
 github = 'Moarram/headline'
 
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
