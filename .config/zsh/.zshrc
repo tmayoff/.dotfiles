@@ -5,14 +5,9 @@ export ZSH="$XDG_CONFIG_HOME/zsh/ohmyzsh"
 
 eval "$(sheldon source)"
 
-ZSH_THEME="headline"
 
 ENABLE_CORRECTION="false"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F***REMOVED***yellow***REMOVED***waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
 export ZSH_CUSTOM="$XDG_CONFIG_HOME"/zsh/custom
@@ -22,17 +17,14 @@ plugins=()
 fpath=("$XDG_CONFIG_HOME/zsh/completions" $fpath)
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Theme customization
+source "$XDG_CONFIG_HOME/zsh/custom/themes/headline/headline.zsh-theme"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+HEADLINE_DO_CLOCK=true
+HEADLINE_DO_ERR=true
 
-alias zshconfig="vim $HOME/.config/zsh/.zshrc"
+alias zshconfig="$EDITOR $HOME/.config/zsh/.zshrc"
+alias zshenvconfig="$EDITOR $HOME/.config/zsh/.zshenv"
 alias ls='exa'
 alias ll='exa --long'
 alias lla='exa --long -a'
@@ -48,8 +40,6 @@ if [ -f /usr/lib/mc/mc.sh ]; then
 fi
 
 alias dquilt="quilt --quiltrc=$***REMOVED***HOME***REMOVED***/.config/quiltrc-dpkg"
-#. /usr/share/bash-completion/completions/quilt
-# complete -F _quilt_completion $_quilt_complete_opt dquilt
 
 please
 
