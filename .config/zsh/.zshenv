@@ -7,6 +7,9 @@ export CXX=/usr/bin/g++
 export CC=/usr/bin/gcc
 
 export EDITOR=vim
+export TERM=alacritty
+
+### Tries to cleanup $HOME directory #######
 
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
