@@ -7,3 +7,9 @@
 [submodule ".config/vim/pack/plugins/start/lightline"]
 	path = .config/vim/pack/plugins/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".config/vim/.config/vim/packages/pack/plugins/start/lightline"]
+	path = .config/vim/.config/vim/packages/pack/plugins/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".config/vim/packages/pack/plugins/start/lightline"]
+	path = .config/vim/packages/pack/plugins/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git
