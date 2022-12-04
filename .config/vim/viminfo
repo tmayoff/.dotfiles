@@ -11,18 +11,30 @@
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~MSle0~/bin
+~MSle0~/vim
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1670183902,,"q"
+|2,0,1670184951,,"q"
 :wq
-|2,0,1670183901,,"wq"
+|2,0,1670184946,,"wq"
+:q!
+|2,0,1670184929,,"q!"
+:packadd lightline
+|2,0,1670184777,,"packadd lightline"
+:packadd
+|2,0,1670184773,,"packadd"
+:echo $MYVIMRC
+|2,0,1670184450,,"echo $MYVIMRC"
+:'<,'>q
+|2,0,1670184382,,"'<,'>q"
+:version
+|2,0,1670184304,,"version"
 :w
-|2,0,1670183778,,"w"
+|2,0,1670184227,,"w"
 :e .config/i3/config.d/keymap.conf
 |2,0,1670173935,,"e .config/i3/config.d/keymap.conf"
 :e .config/i3/config
@@ -43,8 +55,6 @@ $
 |2,0,1670172802,,"e .config/i3/keymap"
 :e 
 |2,0,1670172792,,"e "
-:q!
-|2,0,1670172647,,"q!"
 :noh
 |2,0,1670122881,,"noh"
 :plugins
@@ -79,6 +89,10 @@ $
 |2,0,1656724630,,"Q"
 
 # Search String History (newest to oldest):
+?/exterm
+|2,1,1670184893,47,"exterm"
+?/vim
+|2,1,1670184393,47,"vim"
 ?/bin/sh
 |2,1,1670182930,47,"bin/sh"
 ? @$
@@ -181,353 +195,311 @@ $
 	
 	
 |3,0,0,0,6,0,1670173673,"bindsym $mod+Left focus left","bindsym $mod+Down focus down","bindsym $mod+Up focus up","bindsym $mod+Right focus right","",""
-""1	LINE	0
-	:set 
-|3,1,1,1,1,0,1670183900,":set "
+""1	CHAR	0
+	
+	
+	
+|3,1,1,0,3,0,1670184854,"","",""
 "2	LINE	0
+	packadd lightline
+|3,0,2,1,1,0,1670184852,"packadd lightline"
+"3	LINE	0
+	packadd lightline
+|3,0,3,1,1,0,1670184526,"packadd lightline"
+"4	LINE	0
+	export MYVIMRC="$VIMINIT"
+|3,0,4,1,1,0,1670184416,"export MYVIMRC=\"$VIMINIT\""
+"5	LINE	0
+	:set 
+|3,0,5,1,1,0,1670183900,":set "
+"6	LINE	0
 	# Fixes
-|3,0,2,1,1,0,1670183861,"# Fixes"
-"3	CHAR	0
+|3,0,6,1,1,0,1670183861,"# Fixes"
+"7	CHAR	0
 	                        match_string='".*"'
 	#                         match_qstring='"[^"\\]*(\\.[^"\\]*)*"' # NOTE: Adds 1 backreference
 	#
 	#                         {
 	#                             # Run xwininfo, get window id
-|3,0,3,0,5,0,1670183024,"                        match_string='\".*\"'","#                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#","#                         {","#                             # Run xwininfo, get window id"
-"4	CHAR	0
+|3,0,7,0,5,0,1670183024,"                        match_string='\".*\"'","#                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#","#                         {","#                             # Run xwininfo, get window id"
+"8	CHAR	0
 	                         match_qstring='"[^"\\]*(\\.[^"\\]*)*"' # NOTE: Adds 1 backreference
 	#
 	#                         {
 	#                             # Run xwininfo, get window id
 	#                                 window_id=`xwininfo -int | sed -nre "s/^xwininfo: Window id: ($match_int) .*$/\1/p"`
-|3,0,4,0,5,0,1670183019,"                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#","#                         {","#                             # Run xwininfo, get window id","#                                 window_id=`xwininfo -int | sed -nre \"s/^xwininfo: Window id: ($match_int) .*$/\\1/p\"`"
-"5	CHAR	0
+|3,0,8,0,5,0,1670183019,"                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#","#                         {","#                             # Run xwininfo, get window id","#                                 window_id=`xwininfo -int | sed -nre \"s/^xwininfo: Window id: ($match_int) .*$/\\1/p\"`"
+"9	CHAR	0
 	#                         match_string='".*"'
 	#                         match_qstring='"[^"\\]*(\\.[^"\\]*)*"' # NOTE: Adds 1 backreference
 	#
 	#                         {
 	#                             # Run xwininfo, get window id
-|3,0,5,0,5,0,1670183003,"#                         match_string='\".*\"'","#                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#","#                         {","#                             # Run xwininfo, get window id"
-"6	CHAR	0
-	#                             # Run xwininfo, get window id
-	#                                 window_id=`xwininfo -int | sed -nre "s/^xwininfo: Window id: ($match_int) .*$/\1/p"`
-	#                                     echo "id=$window_id"
-	#
-	#                                         # Run xprop, transform its output into i3 criteria. Handle fallback to
-|3,0,6,0,5,0,1670182993,"#                             # Run xwininfo, get window id","#                                 window_id=`xwininfo -int | sed -nre \"s/^xwininfo: Window id: ($match_int) .*$/\\1/p\"`","#                                     echo \"id=$window_id\"","#","#                                         # Run xprop, transform its output into i3 criteria. Handle fallback to"
-"7	CHAR	0
-	             echo "$PROGNAME: $cmd: command not found" >&2
-	#                     exit 1
-	#                         fi
-	#                         done
-	#
-|3,0,7,0,5,0,1670182959,"             echo \"$PROGNAME: $cmd: command not found\" >&2","#                     exit 1","#                         fi","#                         done","#"
-"8	LINE	0
-	#
-	#                         match_int='[0-9][0-9]*'
-	#                         match_string='".*"'
-	#                         match_qstring='"[^"\\]*(\\.[^"\\]*)*"' # NOTE: Adds 1 backreference
-	#
-|3,0,8,1,5,0,1670182957,"#","#                         match_int='[0-9][0-9]*'","#                         match_string='\".*\"'","#                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#"
-"9	CHAR	0
-	             echo "$PROGNAME: $cmd: command not found" >&2
-	#                     exit 1
-	#                         fi
-	#                         done
-	#
-|3,0,9,0,5,0,1670182956,"             echo \"$PROGNAME: $cmd: command not found\" >&2","#                     exit 1","#                         fi","#                         done","#"
+|3,0,9,0,5,0,1670183003,"#                         match_string='\".*\"'","#                         match_qstring='\"[^\"\\\\]*(\\\\.[^\"\\\\]*)*\"' # NOTE: Adds 1 backreference","#","#                         {","#                             # Run xwininfo, get window id"
 "-	CHAR	0
-	include $I3_CONFIG_DIR/*.conf
-|3,0,36,0,1,0,1670174088,"include $I3_CONFIG_DIR/*.conf"
+	 $XDG_CONFIG_HOME/vim/vimrc
+|3,0,36,0,1,0,1670184422," $XDG_CONFIG_HOME/vim/vimrc"
 
 # File marks:
-'0  1  0  ~/.config/i3/config.d/rules.conf
-|4,48,1,0,1670183902,"~/.config/i3/config.d/rules.conf"
-'1  4  0  ~/.config/vim/vimrc
-|4,49,4,0,1670183901,"~/.config/vim/vimrc"
-'2  1  0  ~/.config/i3/config.d/rules.conf
-|4,50,1,0,1670183889,"~/.config/i3/config.d/rules.conf"
-'3  1  42  ~/.config/i3/config.d/rules.conf
-|4,51,1,42,1670183870,"~/.config/i3/config.d/rules.conf"
-'4  1  42  ~/.config/i3/config.d/rules.conf
-|4,52,1,42,1670183870,"~/.config/i3/config.d/rules.conf"
-'5  5  0  ~/.config/vim/vimrc
-|4,53,5,0,1670183862,"~/.config/vim/vimrc"
-'6  6  0  ~/.config/vim/vimrc
-|4,54,6,0,1670183862,"~/.config/vim/vimrc"
-'7  1  16  ~/.config/i3/config.d/rules.conf
-|4,55,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
-'8  1  16  ~/.config/i3/config.d/rules.conf
-|4,56,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
-'9  1  16  ~/.config/i3/config.d/rules.conf
-|4,57,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
+'0  8  0  ~/.config/vim/vimrc
+|4,48,8,0,1670184951,"~/.config/vim/vimrc"
+'1  8  13  ~/.config/vim/vimrc
+|4,49,8,13,1670184946,"~/.config/vim/vimrc"
+'2  15  0  ~/.config/vim/vimrc
+|4,50,15,0,1670184929,"~/.config/vim/vimrc"
+'3  14  0  ~/.config/vim/vimrc
+|4,51,14,0,1670184929,"~/.config/vim/vimrc"
+'4  15  0  ~/.config/vim/vimrc
+|4,52,15,0,1670184929,"~/.config/vim/vimrc"
+'5  14  0  ~/.config/vim/vimrc
+|4,53,14,0,1670184929,"~/.config/vim/vimrc"
+'6  14  4  ~/.config/vim/vimrc
+|4,54,14,4,1670184920,"~/.config/vim/vimrc"
+'7  14  4  ~/.config/vim/vimrc
+|4,55,14,4,1670184920,"~/.config/vim/vimrc"
+'8  13  4  ~/.config/vim/vimrc
+|4,56,13,4,1670184920,"~/.config/vim/vimrc"
+'9  13  4  ~/.config/vim/vimrc
+|4,57,13,4,1670184920,"~/.config/vim/vimrc"
 
 # Jumplist (newest first):
--'  1  0  ~/.config/i3/config.d/rules.conf
-|4,39,1,0,1670183902,"~/.config/i3/config.d/rules.conf"
--'  4  0  ~/.config/vim/vimrc
-|4,39,4,0,1670183901,"~/.config/vim/vimrc"
--'  4  0  ~/.config/vim/vimrc
-|4,39,4,0,1670183901,"~/.config/vim/vimrc"
--'  5  0  ~/.config/vim/vimrc
-|4,39,5,0,1670183896,"~/.config/vim/vimrc"
--'  5  0  ~/.config/vim/vimrc
-|4,39,5,0,1670183896,"~/.config/vim/vimrc"
--'  1  0  ~/.config/i3/config.d/rules.conf
-|4,39,1,0,1670183889,"~/.config/i3/config.d/rules.conf"
--'  1  0  ~/.config/i3/config.d/rules.conf
-|4,39,1,0,1670183889,"~/.config/i3/config.d/rules.conf"
--'  1  42  ~/.config/i3/config.d/rules.conf
-|4,39,1,42,1670183870,"~/.config/i3/config.d/rules.conf"
--'  1  42  ~/.config/i3/config.d/rules.conf
-|4,39,1,42,1670183870,"~/.config/i3/config.d/rules.conf"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
--'  6  0  ~/.config/vim/vimrc
-|4,39,6,0,1670183862,"~/.config/vim/vimrc"
 -'  8  0  ~/.config/vim/vimrc
-|4,39,8,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  8  0  ~/.config/vim/vimrc
-|4,39,8,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  9  0  ~/.config/vim/vimrc
-|4,39,9,0,1670183860,"~/.config/vim/vimrc"
--'  1  16  ~/.config/i3/config.d/rules.conf
-|4,39,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
--'  1  16  ~/.config/i3/config.d/rules.conf
-|4,39,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
--'  1  16  ~/.config/i3/config.d/rules.conf
-|4,39,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
--'  1  16  ~/.config/i3/config.d/rules.conf
-|4,39,1,16,1670183850,"~/.config/i3/config.d/rules.conf"
--'  9  40  ~/.config/vim/vimrc
-|4,39,9,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  9  40  ~/.config/vim/vimrc
-|4,39,9,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  10  40  ~/.config/vim/vimrc
-|4,39,10,40,1670183780,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  0  ~/.config/vim/vimrc
-|4,39,3,0,1670183681,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
--'  3  13  ~/.config/vim/vimrc
-|4,39,3,13,1670183680,"~/.config/vim/vimrc"
+|4,39,8,0,1670184951,"~/.config/vim/vimrc"
+-'  8  13  ~/.config/vim/vimrc
+|4,39,8,13,1670184946,"~/.config/vim/vimrc"
 -'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
+|4,39,1,0,1670184936,"~/.config/vim/vimrc"
 -'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1670183607,"~/.config/vim/vimrc"
+|4,39,1,0,1670184936,"~/.config/vim/vimrc"
+-'  15  0  ~/.config/vim/vimrc
+|4,39,15,0,1670184929,"~/.config/vim/vimrc"
+-'  14  0  ~/.config/vim/vimrc
+|4,39,14,0,1670184929,"~/.config/vim/vimrc"
+-'  15  0  ~/.config/vim/vimrc
+|4,39,15,0,1670184929,"~/.config/vim/vimrc"
+-'  14  0  ~/.config/vim/vimrc
+|4,39,14,0,1670184929,"~/.config/vim/vimrc"
+-'  13  0  ~/.config/vim/vimrc
+|4,39,13,0,1670184920,"~/.config/vim/vimrc"
+-'  14  0  ~/.config/vim/vimrc
+|4,39,14,0,1670184920,"~/.config/vim/vimrc"
+-'  13  0  ~/.config/vim/vimrc
+|4,39,13,0,1670184920,"~/.config/vim/vimrc"
+-'  13  4  ~/.config/vim/vimrc
+|4,39,13,4,1670184920,"~/.config/vim/vimrc"
+-'  4  0  ~/.config/vim/vimrc
+|4,39,4,0,1670184913,"~/.config/vim/vimrc"
+-'  4  0  ~/.config/vim/vimrc
+|4,39,4,0,1670184913,"~/.config/vim/vimrc"
+-'  4  0  ~/.config/vim/vimrc
+|4,39,4,0,1670184913,"~/.config/vim/vimrc"
+-'  4  0  ~/.config/vim/vimrc
+|4,39,4,0,1670184913,"~/.config/vim/vimrc"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  0  ~/.config/zsh/.zshenv
+|4,39,10,0,1670184909,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  10  25  ~/.config/zsh/.zshenv
+|4,39,10,25,1670184907,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  42  0  ~/.config/zsh/.zshenv
+|4,39,42,0,1670184896,"~/.config/zsh/.zshenv"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
+-'  1  0  ~/.config/zsh/.zshrc
+|4,39,1,0,1670184894,"~/.config/zsh/.zshrc"
 
 # History of marks within files (newest to oldest):
 
-> ~/.config/i3/config.d/rules.conf
-	*	1670183901	0
-	"	1	0
-	^	1	43
-	.	2	0
-	+	1	61
-	+	2	0
-
 > ~/.config/vim/vimrc
-	*	1670183900	0
-	"	4	0
-	^	8	41
-	.	4	0
+	*	1670184950	0
+	"	8	0
+	^	8	0
+	.	8	13
 	+	1	14
 	+	3	14
-	+	5	6
+	+	6	6
 	+	4	5
-	+	8	41
-	+	9	0
-	+	5	0
-	+	4	0
-
-> ~/.local/bin/i3-get-window-criteria.sh
-	*	1670183026	0
-	"	21	2
-	.	21	0
-	+	1	154
-	+	1	68
-	+	38	154
-	+	1	0
-	+	10	0
-	+	9	0
-	+	8	0
-	+	7	0
+	+	10	41
+	+	12	0
 	+	6	0
-	+	5	0
 	+	4	0
-	+	11	0
+	+	10	39
+	+	12	17
+	+	10	15
+	+	12	0
+	+	10	0
+	+	13	0
+	+	10	44
+	+	12	16
 	+	12	0
 	+	13	0
-	+	14	1
-	+	21	0
-	+	15	1
-	+	16	0
-	+	17	0
-	+	18	0
-	+	19	0
-	+	20	0
-	+	21	0
-	+	21	2
-	+	21	0
-
-> ~/.config/i3/config.d/autostart.conf
-	*	1670175220	0
-	"	23	0
-	.	1	0
-	+	1	0
+	+	5	15
+	+	14	5
+	+	11	0
+	+	12	0
+	+	8	13
 
 > ~/.config/zsh/.zshenv
-	*	1670175016	0
-	"	12	0
-	.	12	0
+	*	1670184908	0
+	"	10	0
+	^	10	26
+	.	10	25
 	+	25	37
 	+	26	34
 	+	24	39
@@ -571,10 +543,10 @@ $
 	+	36	53
 	+	37	48
 	+	33	38
-	+	42	0
-	+	45	64
-	+	43	21
-	+	47	33
+	+	43	0
+	+	46	64
+	+	44	21
+	+	48	33
 	+	5	0
 	+	3	0
 	+	9	17
@@ -583,6 +555,75 @@ $
 	+	12	44
 	+	13	0
 	+	12	0
+	+	44	0
+	+	42	0
+	+	43	22
+	+	42	16
+	+	43	30
+	+	10	25
+
+> ~/.config/zsh/.zshrc
+	*	1670184893	0
+	"	1	0
+
+> ~/vimrc
+	*	1670184841	0
+	"	1	0
+
+> ~/.config/vim/.config/vim/vimrc
+	*	1670184766	0
+	"	1	0
+
+> ~/.config/vim/.gitignore
+	*	1670184125	0
+	"	1	5
+	^	1	6
+	.	1	5
+	+	1	5
+
+> ~/.config/i3/config.d/rules.conf
+	*	1670183901	0
+	"	1	0
+	^	1	43
+	.	2	0
+	+	1	61
+	+	2	0
+
+> ~/.local/bin/i3-get-window-criteria.sh
+	*	1670183026	0
+	"	21	2
+	.	21	0
+	+	1	154
+	+	1	68
+	+	38	154
+	+	1	0
+	+	10	0
+	+	9	0
+	+	8	0
+	+	7	0
+	+	6	0
+	+	5	0
+	+	4	0
+	+	11	0
+	+	12	0
+	+	13	0
+	+	14	1
+	+	21	0
+	+	15	1
+	+	16	0
+	+	17	0
+	+	18	0
+	+	19	0
+	+	20	0
+	+	21	0
+	+	21	2
+	+	21	0
+
+> ~/.config/i3/config.d/autostart.conf
+	*	1670175220	0
+	"	23	0
+	.	1	0
+	+	1	0
 
 > ~/.config/i3/config
 	*	1670174776	0
@@ -716,88 +757,3 @@ $
 	+	184	18
 	+	185	18
 	+	181	31
-
-> ~/.config/polybar/shades/colors.ini
-	*	1669941663	0
-	"	16	0
-
-> ~/.config/polybar/shades/modules.ini
-	*	1669941609	0
-	"	11	0
-	^	11	1
-	.	11	0
-	+	10	16
-	+	11	15
-	+	10	0
-	+	11	0
-
-> ~/.config/zsh/.zshrc
-	*	1669866359	0
-	"	19	15
-	^	19	16
-	.	20	0
-	+	31	0
-	+	8	0
-	+	7	0
-	+	2	59
-	+	26	0
-	+	32	0
-	+	31	0
-	+	42	0
-	+	10	9
-	+	10	8
-	+	42	0
-	+	41	0
-	+	10	11
-	+	10	0
-	+	7	21
-	+	7	7
-	+	7	0
-	+	2	59
-	+	6	0
-	+	6	14
-	+	6	1
-	+	6	0
-	+	6	39
-	+	6	0
-	+	6	62
-	+	6	23
-	+	2	59
-	+	3	0
-	+	6	0
-	+	26	0
-	+	30	0
-	+	26	0
-	+	26	31
-	+	26	34
-	+	16	0
-	+	26	27
-	+	6	22
-	+	6	0
-	+	6	29
-	+	6	0
-	+	6	49
-	+	6	0
-	+	7	0
-	+	6	31
-	+	6	0
-	+	6	30
-	+	6	50
-	+	6	0
-	+	7	0
-	+	16	0
-	+	4	41
-	+	27	0
-	+	17	0
-	+	24	17
-	+	23	47
-	+	7	6
-	+	7	0
-	+	18	7
-	+	7	0
-	+	19	16
-	+	20	0
-
-> ~/.config/alacritty/alacritty.yml
-	*	1669859969	0
-	"	1	0

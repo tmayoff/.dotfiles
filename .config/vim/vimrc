@@ -2,7 +2,13 @@
 :set shiftwidth=4
 :set expandtab
 
+set laststatus=2
 set term=xterm
 set viminfo+=n~/.config/vim/viminfo
+set noshowmode
 
-set packpath+=n~$XDG_CONFIG_HOME/vim/pack
+:set packpath+=$XDG_CONFIG_HOME/vim/packages
+
+if !has('gui_running')
+  set t_Co=256
+endif

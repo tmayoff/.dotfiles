@@ -7,7 +7,7 @@ export CXX=/usr/bin/g++
 export CC=/usr/bin/gcc
 
 export EDITOR=vim
-export TERM=alacritty
+export TERM=xterm-256color
 
 ### Tries to cleanup $HOME directory #######
 
@@ -39,7 +39,8 @@ export PATH="$HOME/go/bin:$XDG_DATA_HOME/cargo/bin:$PATH"
 
 export DEBEMAIL="tyler@tylermayoff.com"
 export DEBFULLNAME="Tyler Mayoff"
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+export VIMINIT="source $MYVIMRC"
 
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
