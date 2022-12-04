@@ -1,0 +1,8 @@
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+
+set term=xterm
+set viminfo+=n~/.config/vim/viminfo
+
+set packpath+=n~$XDG_CONFIG_HOME/vim/pack
