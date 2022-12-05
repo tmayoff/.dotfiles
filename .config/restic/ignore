@@ -1,0 +1,6 @@
+Downloads
+.cache
+.var/app
+.vscode
+.local/share/Steam
+.local/share/rustup
