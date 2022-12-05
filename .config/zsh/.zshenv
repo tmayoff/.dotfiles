@@ -9,6 +9,9 @@ export CC=/usr/bin/gcc
 export EDITOR=vim
 export TERM=xterm-256color
 
+# Machine specific config
+[ -f "$XDG_CONFIG_HOME/zsh/zshenv-machine" ] && source "$XDG_CONFIG_HOME/zsh/zshenv-machine"
+
 ### Tries to cleanup $HOME directory #######
 
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
@@ -46,9 +49,13 @@ export VIMINIT="source $MYVIMRC"
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
 
+#npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+
 # Node version manager
 export NVM_DIR="$([ -z "$***REMOVED***XDG_CONFIG_HOME-***REMOVED***" ] && printf %s "$***REMOVED***HOME***REMOVED***/.nvm" || printf %s "$***REMOVED***XDG_CONFIG_HOME***REMOVED***/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+# X11
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
-[ -f "$XDG_CONFIG_HOME/zsh/zshenv-machine" ] && source "$XDG_CONFIG_HOME/zsh/zshenv-machine"
