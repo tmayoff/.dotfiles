@@ -4,3 +4,7 @@ Downloads
 .vscode
 .local/share/Steam
 .local/share/rustup
+.local/share/Trash
+.config/Code
+
+.steam
