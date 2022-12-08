@@ -7,6 +7,8 @@ set term=xterm
 set viminfo+=n~/.config/vim/viminfo
 set noshowmode
 
+syntax on
+
 :set packpath+=$XDG_CONFIG_HOME/vim/packages
 
 if !has('gui_running')
