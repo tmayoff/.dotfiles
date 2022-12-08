@@ -13,6 +13,8 @@ set noshowmode
 " Set path for plugins/packages
 :set packpath+=$XDG_CONFIG_HOME/vim/packages
 
+syntax on
+
 if !has('gui_running')
   set t_Co=256
 endif
