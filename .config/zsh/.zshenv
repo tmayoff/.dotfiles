@@ -14,7 +14,13 @@ export TERM=xterm-256color
 
 ### Tries to cleanup $HOME directory #######
 
+export ANDROID_HOME="$XDG_CONFIG_HOME"/android
+export NDK_HOME="$ANDROID_HOME"/ndk/25.0.8775105
+
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+#JDK
+export JAVA_HOME=/usr/lib/jvm/jre
 
 # Nvidia
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv

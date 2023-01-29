@@ -1,6 +1,6 @@
 :set tabstop=4
 :set shiftwidth=4
-:set expandtab
+":set expandtab
 
 set laststatus=2
 set term=xterm
@@ -18,3 +18,4 @@ syntax on
 if !has('gui_running')
   set t_Co=256
 endif
+
