@@ -15,7 +15,7 @@
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [core]
-	excludesFile = ~/.config/.gitignore
+	excludesFile = ~/.config/git/gitignore
 [merge]
 	tool = vscode
 [mergetool "vscode"]
