@@ -12,4 +12,3 @@ gaps outer 4
 smart_gaps on
 
 include ./config.d/*.conf
-
