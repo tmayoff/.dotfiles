@@ -20,7 +20,7 @@ export ZSH_CUSTOM="$XDG_CONFIG_HOME"/zsh/custom
 
 plugins=()
 
-fpath=("$XDG_CONFIG_HOME/zsh/completions" $fpath)
+fpath=("$XDG_CONFIG_HOME/zsh/completions" "/usr/share/zsh/vendor-completions" $fpath)
 source $ZSH/oh-my-zsh.sh
 
 alias zshconfig="$EDITOR $HOME/.config/zsh/.zshrc"
@@ -40,6 +40,8 @@ if [ -f /usr/lib/mc/mc.sh ]; then
 fi
 
 alias dquilt="quilt --quiltrc=$***REMOVED***HOME***REMOVED***/.config/quiltrc-dpkg"
+
+(cat ~/.cache/wal/sequences &)
 
 please
 

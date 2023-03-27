@@ -5,6 +5,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 export CXX=/usr/bin/g++
 export CC=/usr/bin/gcc
+export MAKEFLAGS="-j$(expr $(nproc) \+ 1)"
 
 export EDITOR=vim
 export TERM=xterm-256color
@@ -20,7 +21,7 @@ export NDK_HOME="$ANDROID_HOME"/ndk/25.0.8775105
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 #JDK
-export JAVA_HOME=/usr/lib/jvm/jre
+export JAVA_HOME=/usr/lib/jvm/default-java/
 
 # Nvidia
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
