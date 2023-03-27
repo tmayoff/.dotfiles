@@ -26,6 +26,7 @@ export JAVA_HOME=/usr/lib/jvm/default-java/
 # Nvidia
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
+export SAVEHIST=1000
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 
