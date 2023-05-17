@@ -40,7 +40,5 @@ fi
 
 alias dquilt="quilt --quiltrc=${HOME}/.config/quiltrc-dpkg"
 
-(cat ~/.cache/wal/sequences &)
-
 please
 
