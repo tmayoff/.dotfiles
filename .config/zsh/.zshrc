@@ -32,7 +32,6 @@ alias lla='exa --long -a'
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 # yarn
-alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 # Debian maintainers
 if [ -f /usr/lib/mc/mc.sh ]; then
