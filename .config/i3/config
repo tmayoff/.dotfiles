@@ -8,7 +8,7 @@ font pango:DejaVu Sans Mono 9
 hide_edge_borders smart
 
 gaps inner 8
-gaps outer 4
+gaps outer 1
 smart_gaps on
 
 include ./config.d/*.conf
