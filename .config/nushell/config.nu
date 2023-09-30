@@ -133,9 +133,15 @@ let light_theme = {
 }
 
 # External completer example
-# let carapace_completer = {|spans|
-#     carapace $spans.0 nushell $spans | from json
-# }
+let carapace_completer = {|spans|
+	carapace $spans.0 nushell $spans | from json
+}
+
+let fish_completer = {|spans|
+    fish --command $'complete "--do-complete=($spans | str join " ")"'
+    | $"value(char tab)description(char newline)" + $in
+    | from tsv --flexible --no-infer
+}
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
@@ -214,7 +220,7 @@ $env.config = {
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            completer: $fish_completer # check 'carapace_completer' above as an example
         }
     }
 
@@ -241,7 +247,23 @@ $env.config = {
     render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
 
     hooks: {
-        pre_prompt: [{ null }] # run before the prompt is shown
+        pre_prompt: [{ 
+		let direnv = (direnv export json | from json | default {})
+	        if ($direnv | is-empty) {
+	            return
+	        }
+	        $direnv
+	        | items {|key, value|
+	           {
+	              key: $key
+        	      value: (if $key in $env.ENV_CONVERSIONS {
+	                do ($env.ENV_CONVERSIONS | get $key | get from_string) $value
+	              } else {
+	                  $value
+	              })
+        	    }
+	        } | transpose -ird | load-env
+	}] # run before the prompt is shown
         pre_execution: [{ null }] # run before the repl input is run
         env_change: {
             PWD: [{|before, after| null }] # run if the PWD environment is different since the last repl input

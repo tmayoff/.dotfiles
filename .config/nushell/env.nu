@@ -77,6 +77,9 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
+$env.EDITOR = "vim"
+$env.DEBEMAIL = "tyler@tylermayoff.com"
+
 $env.XDG_DATA_HOME = $"($env.HOME)/.local/share"
 $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 $env.XDG_STATE_HOME = $"($env.HOME)/.local/state"
@@ -84,6 +87,8 @@ $env.XDG_CACHE_HOME = $"($env.HOME)/.cache"
 
 $env.RUSTUP_HOME = $"($env.XDG_DATA_HOME)/rustup"
 $env.CARGO_HOME = $"($env.XDG_DATA_HOME)/cargo"
+
+$env.GNUPGHOME = $"($env.XDG_DATA_HOME)/gnupg"
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend '.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.CARGO_HOME)/bin")

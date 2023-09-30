@@ -1,0 +1,482 @@
+ls
+cd
+vim .config/nushell/env.nu
+vim .config/nushell/config.nu
+$nu.env-path
+vim $nu.env-path
+vim $nu.config-path
+exit
+ls
+bash
+ls
+make
+make test
+docker compose -f docker/tests-docker-compose.yml up
+docker compose -f docker/tests-docker-compose.yml up -d
+make test
+docker compose -f docker/tests-docker-compose.yml down
+exit
+$env | reject config | transpose key val | each {|r| echo $"$env.($r.key) = '($r.val)'"} | str join (char nl)
+$env.CARGO_HOME
+chsh $env.CARGO_HOME
+la
+ls
+ls -la
+cd
+chsh $env.CARGO_HOME
+cd $env.CARGO_HOME
+ls
+cd
+chsh $
+chsh /home/tyler/.local/share/cargo/bin/nu
+chsh tyler /home/tyler/.local/share/cargo/bin/nu
+chsh tyler -s /home/tyler/.local/share/cargo/bin/nu
+vim /etc/shells
+sudo vim /etc/shells
+chsh tyler -s /home/tyler/.local/share/cargo/bin/nu
+exit
+ls
+clear
+ls
+clear
+cd src/module-GC/
+zsh
+$env | reject config | transpose key val | each {|r| echo $"$env.($r.key) = '($r.val)'"} | str join (char nl)
+vim $nu.config-path
+vim $nu.env-path
+exit
+vim $nu.env-path
+vim .config/zsh/.zshrc
+vim .config/zsh/.zshenv
+cargo install starship
+ls
+starship
+ls
+clear
+git-prune
+cd src/module-GC/
+git-prune
+nu
+clear
+git-prune
+$env.PATH
+vim .config/nushell/config.nu
+vim $env.HOME/.config/nushell/config.nu
+vim ~/.config/nushell/config.nu
+vim ~/.config/nushell/env.nu
+exit
+git-prune
+$env.PATH
+vim ~/.config/nushell/env.nu
+$env.PATH
+exit
+$env.PATH
+git-prune
+rustup
+curl https://sh.rustup.rs -sSf | sh
+ls
+vim ~/.config/nushell/env.nu
+ansi
+ansi --help
+ansi green
+echo HELLO
+ansi reset
+clear
+ls
+:q
+vim .local/share/cargo/env
+vim ~/.config/nushell/env.nu
+vim .local/share/cargo/env
+cargo install starship
+starship
+exit
+starship
+ls
+clear
+help
+ls 
+cd src/module-GC/
+make testt
+make test
+ls
+./scripts/list_dependencies.py
+./scripts/list_depthai_devices.py
+pip3 install depthai
+pipx install depthai
+./scripts/list_depthai_devices.py
+pipx install depthai
+exit
+$env.PATH
+cargo install starship
+cargo
+cargo install starship
+rustup
+$env.PATH
+$
+$env
+$env.CARGO_HOME
+cd
+vim ~/.config/nushell/env.nu
+$env.XDG_DATA_DIRS
+vim ~/.config/nushell/env.nu
+exit
+$env.HOME
+vim ~/.config/nushell/env.nu
+exit
+vim ~/.config/nushell/env.nu
+exit
+vim ~/.config/nushell/env.nu
+exit
+$env.HOME
+$env.XDG_DATA_HOME
+vim ~/.config/nushell/env.nu
+refreshenv
+vim ~/.config/nushell/env.nu
+$env.XDG_DATA_HOME
+vim ~/.config/nushell/env.nu
+$env.XDG_DATA_HOME
+vim ~/.config/nushell/env.nu
+$env.XDG_DATA_HOME
+$env.CARGO_HOME
+vim .config/zsh/.zshenv
+exit
+vim $env.XDG_DATA_HOME/cargo/env
+vim XDG_DATA_HOME/cargo/env
+vim ~/.config/nushell/env.nu
+exit
+vim ~/.config/nushell/env.nu
+exit
+cargo
+exit
+yadm add .config/nushell/config.nu
+yadm add .config/nushell/env.nu
+yadm commit -m "Added nushell configuration"
+yadm push
+yadm pull
+yadm push
+./scripts/tracyprofiler.sh
+make clean
+btop
+ls
+make
+touch ./scripts/migration.py
+./scripts/migration.py
+chmod +x ./scripts/migration.py
+./scripts/migration.py
+./scripts/migration.py --help
+./scripts/migration.py
+./scripts/migration.py --help
+./scripts/migration.py new
+cd apps/migrations/
+cargo init
+cargo builkd
+cargo build
+cargo add clap
+cargo add clap -F derive
+cargo build
+code .
+cargo build
+cargo run
+cargo run  new
+cargo run new -m ../../scripts/db_migrations
+cargo run new --help
+cargo run -m ../../scripts/db_migrations new
+cargo run --help
+./target/debug/migrations
+exit
+ls
+cargo run help
+cargo run -m ../../scripts/db_migrations new
+cargo run -- -m ../../scripts/db_migrations new
+cargo add chrono
+cargo add time
+cargo run -- -m ../../scripts/db_migrations new
+cargo add time
+cargo run -- -m ../../scripts/db_migrations new
+cargo add time
+cargo run -- -m ../../scripts/db_migrations new
+git commit -S -m "Added an app to handle DB migrations"
+git commit -m "Added an app to handle DB migrations"
+git push
+git commit -m "Added new DB migration system"
+cargo run -- -m ../../scripts/db_migrations run 
+git commit -m "Added new DB migration system"
+cargo run -- -m ../../scripts/db_migrations run 
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+cargo add mysql
+cargo add anyhow
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+docker ps
+docker stop docker-mysql_tests-1
+docker rm docker-mysql_tests-1
+docker compose -f docker/docker-compose.yml up -d
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+docker run --name phpmyadmin -d -e PMA_HOST=127.0.0.1 -p 8080:80 phpmyadmin
+docker run --name phpmyadmin -d -e PMA_HOST=127.0.0.1 -p 9090:80 phpmyadmin
+docker status mysql
+docker logs mysql
+docker ps
+docker logs docker-mysql-1
+cd src/module-GC/
+docker compose -f docker/docker-compose.yml down
+docker volumes ls
+docker volume
+docker volume ls
+docker volume prune
+docker compose -f docker/docker-compose.yml up
+docker compose -f docker/docker-compose.yml down
+docker volume prune
+docker volume ls
+mysql -u root -p
+mysql -u root@127.0.0.1 -p 
+docker exec -it docker-mysql-1 bash
+docker compose -f docker/docker-compose.yml down
+docker compose -f docker/docker-compose.yml up
+docker compose -f docker/docker-compose.yml up -d
+docker ps
+docker network ls
+docker exec -it docker-mysql-1 bash
+ss -utlnp
+sudo ss -utlnp
+mysql -u root@127.0.0.1 -p --help
+mysql -u root@127.0.0.1 -p --host=localhost
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebol
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebol
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guideboly
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebol
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations rollback --host localhost --port 3306 --user root --pass guidebolt
+mysql --host=127.0.0.1 -u root -p
+gpg
+gpg --help
+ls
+vim .config/zsh/.zshenv
+cd
+vim .config/zsh/.zshenv
+cat .config/zsh/.zshenv
+vim ~/.config/nushell/env.nu
+$env.GNUPGHOME
+exit
+exit
+$env.GNUPGHOME
+$env.GNUPG
+vim ~/.config/nushell/env.nu
+nu
+du
+shell
+which shell
+which zsh
+ls
+gpg --list-secret-keys --keyid-format=long
+gpg --list-secret-keys --keyid-format=long<\n>
+git commit -m "Updated initial migration"
+git commit -m "migration app, can run and rollback migrations"
+ls
+clear
+zsh
+gpg --import myprivatekeys.asc
+gpg --import mypubkeys.asc
+gpg -K
+gpg -k
+gpg --import-ownertrust otrust.txt
+gpg --list-secret-keys --keyid-format=long<\n>
+git-prune
+clear
+gpg -d
+vim ~/.config/nushell/config.nu
+.cache/starship/init.nu
+vim .cache/starship/init.nu
+fonts
+make
+sudo apt list --installed
+sudo apt list --installed | rg opendds
+cd apps/migrations/
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+docker exec -it docker-mysql-1 bash
+mysql --host=127.0.0.1 -u root -p
+cargo run -- -m ../../scripts/db_migrations rollback --host localhost --port 3306 --user root --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+clear
+make
+cd ../../
+make
+rm -rf build
+make
+make configure
+make
+meson configure build -Dbuild_apps=trie
+meson configure build -Dbuild_apps=true
+make
+make migrations
+cargo --help
+make migrations
+make migrations run 
+make migrations run --host localhost --port 3306 --user root --pass guidebolt
+make migrations "run --host localhost --port 3306 --user root --pass guidebolt"
+chmod +x ./scripts/migration.sh
+./scripts/migration.sh
+cargo --help
+cargo -Z --help
+cargo -Z help
+./scripts/migration.sh
+./scripts/migration.sh run
+./scripts/migration.sh run --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt -C $env.CURRENT_FILE
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt -C $env.PWD
+cargo run -- -m ../../scripts/db_migrations run --pass guidebolt -C $env.PWD
+cargo run -- -m ../../scripts/db_migrations run --pass guidebolt -C $env.PWD --help
+cargo run -- -m ../../scripts/db_migrations run -C $env.PWD --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --help -C $env.PWD --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations --help run -C $env.PWD --pass guidebolt
+cargo run -- -m ../../scripts/db_migrations run --host localhost --port 3306 --user root --pass guidebolt -C $env.PWD
+cargo run -- -m ../../scripts/db_migrations -C $env.PWD run --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+dch -a
+exit
+vim .config/nushell/config.nu
+vim .config/nushell/env.nu
+exit
+dch -a
+$env.DEBMAIL
+exit
+$env.DEBMAIL
+dch -a
+clear
+git-prune
+sudo apt upgrade
+sudo nala upgrade
+sudo nala remove meson
+pipx install meson
+pip remove meson
+pip uninstall meson
+pip uninstall --break-system-packages meson
+pipx install meson
+pipx uninstall meson
+pipx install meson
+pipx uninstall meson
+rm .local/bin/meson
+pipx install meson
+pipx uninstall meson
+meson
+sudo nala remove meson
+sudo rm /usr/local/bin/meson
+pipx install meson
+meson
+meson --version
+cd
+cd src/module-GC/
+meson --version
+meson configure build -Dcpp_std=c++23
+meson setup --reconfigure
+meson setup --reconfigure build
+meson configure build -Dcpp_std=c++23
+make
+make
+meson configure build -Dcpp_std=c++20
+which cc
+update-alternatives --help
+update-alternatives --list cc
+update-alternatives --get-selections
+update-alternatives --get-selections | rg cc
+update-alternatives --get-selections | rg c++
+update-alternatives --update-alternative cc /usr/bin/clang
+update-alternatives --update-alternatives cc /usr/bin/clang
+make
+update-alternatives --set-alternative cc /usr/bin/clang
+update-alternatives --help
+update-alternatives --set cc /usr/bin/clang
+sudo update-alternatives --set cc /usr/bin/clang
+sudo update-alternatives --set c++ /usr/bin/clang++
+rm -rf build
+make configure
+update-alternatives --get-selections | rg c++
+make 
+make
+clear
+make
+vim .config/nushell/config.nu
+exit
+vim .config/nushell/config.nu
+sudo nala install fish
+make run-avatar-core
+make
+make run-avatar-core
+exit
+make run-avatar-core
+exit
+exit
+make
+make run-avatar-core
+make
+make run-avatar-core
+make
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh new --pass guidebolt
+./scripts/migration.sh --pass guidebolt new
+./scripts/migration.sh new
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+cargo build
+cargo run help
+cargo run rollback help
+cargo run rollback -- --help
+cargo run -- rollback --help
+./scripts/migration.sh rollback --pass guidebolt -r 1
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt -r 1
+./scripts/migration.sh rollback --pass guidebolt -r 0
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt -r 0
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt -r 1
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt -r 1
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt -r 1
+./scripts/migration.sh rollback --pass guidebolt -r 
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh new
+./scripts/migration.sh run --pass guidebolt
+./scripts/migration.sh rollback --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+cargo init
+cargo init --workspace
+make
+cargo build
+cargo run migrations
+cargo run migration
+cargo run 
+cargo run --pass guidebolt
+cargo run -- --pass guidebolt
+cargo run run --pass guidebolt
+cargo run -- run --pass guidebolt
+cargo run -- run --pass guidebolt --migrations_root scripts/db_migrations
+cargo run -- --migrations-root scripts/db_migrations/ run --pass guidebolt --migrations_root scripts/db_migrations
+cargo run -- --migration-root scripts/db_migrations/ run --pass guidebolt --migrations_root scripts/db_migrations
+cargo run -- --migration-root scripts/db_migrations/ run --pass guidebolt
+cargo run -- --migration-root scripts/db_migrations/ rollback --pass guidebolt
+cargo run -- --migration-root scripts/db_migrations/ run --pass guidebolt
+./scripts/migration.sh run --pass guidebolt
+zsh 
+exit
+btop
+cargo build
+cargo build --release
+make
+dch -a
+yadm status
