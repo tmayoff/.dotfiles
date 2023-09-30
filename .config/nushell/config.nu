@@ -133,9 +133,15 @@ let light_theme = ***REMOVED***
 ***REMOVED***
 
 # External completer example
-# let carapace_completer = ***REMOVED***|spans|
-#     carapace $spans.0 nushell $spans | from json
-# ***REMOVED***
+let carapace_completer = ***REMOVED***|spans|
+	carapace $spans.0 nushell $spans | from json
+***REMOVED***
+
+let fish_completer = ***REMOVED***|spans|
+    fish --command $'complete "--do-complete=($spans | str join " ")"'
+    | $"value(char tab)description(char newline)" + $in
+    | from tsv --flexible --no-infer
+***REMOVED***
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = ***REMOVED***
@@ -214,7 +220,7 @@ $env.config = ***REMOVED***
         external: ***REMOVED***
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            completer: $fish_completer # check 'carapace_completer' above as an example
         ***REMOVED***
     ***REMOVED***
 
@@ -241,7 +247,23 @@ $env.config = ***REMOVED***
     render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
 
     hooks: ***REMOVED***
-        pre_prompt: [***REMOVED*** null ***REMOVED***] # run before the prompt is shown
+        pre_prompt: [***REMOVED*** 
+		let direnv = (direnv export json | from json | default ***REMOVED******REMOVED***)
+	        if ($direnv | is-empty) ***REMOVED***
+	            return
+	        ***REMOVED***
+	        $direnv
+	        | items ***REMOVED***|key, value|
+	           ***REMOVED***
+	              key: $key
+        	      value: (if $key in $env.ENV_CONVERSIONS ***REMOVED***
+	                do ($env.ENV_CONVERSIONS | get $key | get from_string) $value
+	              ***REMOVED*** else ***REMOVED***
+	                  $value
+	              ***REMOVED***)
+        	    ***REMOVED***
+	        ***REMOVED*** | transpose -ird | load-env
+	***REMOVED***] # run before the prompt is shown
         pre_execution: [***REMOVED*** null ***REMOVED***] # run before the repl input is run
         env_change: ***REMOVED***
             PWD: [***REMOVED***|before, after| null ***REMOVED***] # run if the PWD environment is different since the last repl input
