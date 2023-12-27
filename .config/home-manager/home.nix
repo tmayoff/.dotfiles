@@ -1,54 +1,68 @@
 ***REMOVED*** config, pkgs, ... ***REMOVED***: 
 
-***REMOVED***
+let 
+    unstable = import
+        (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
+    ***REMOVED*** config = config.nixpkgs.config; ***REMOVED***;
+in ***REMOVED***
   nixpkgs.config.allowUnfree = true;
+  home.username = "jayne";
+  home.homeDirectory = "/home/jayne";
 
-  home.username = "tyler";
-  home.homeDirectory = "/home/tyler";
-	
-  programs.zsh = ***REMOVED***
-	enable = true;
-	dotDir = ".config/zsh";
-	enableAutosuggestions = true;
- 	enableCompletion = true;
-	enableSyntaxHighlighting = true;
-	history = ***REMOVED***
-		path = "$***REMOVED***config.xdg.dataHome***REMOVED***/zsh/history";
-	***REMOVED***;
-	
-    initExtra = ''
-      source $***REMOVED***config.xdg.configHome***REMOVED***/zsh/zshenv
-      eval "$(direnv hook zsh)"
-      source $***REMOVED***config.xdg.configHome***REMOVED***/zsh/custom/themes/headline/headline.zsh-theme
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
 ***REMOVED***
 
-	oh-my-zsh = ***REMOVED***
-		enable = true;
-		
-	***REMOVED***;
+
+  home.packages = with pkgs; [
+  ***REMOVED*** Gnome
+    gnomeExtensions.ddterm
+ 
+    github-desktop
+
+    direnv
+    libreoffice
+    adw-gtk3
+    gnome.gnome-tweaks   
+    fh
+    obsidian
+    ripgrep
+
+    efm-langserver
+    sumneko-lua-language-server
+    rnix-lsp
+    
+  ***REMOVED*** Game Dev
+    pixelorama
+    unstable.godot_4
 ***REMOVED***
 
-  home.packages = [ 
-    pkgs.filelight
-	pkgs.git
-    pkgs.vscode pkgs.direnv
-    pkgs.clang
-	pkgs.mold
-    pkgs.cargo
-    pkgs.openssl
-    pkgs.perl
-***REMOVED*** 
+  programs.neovim = ***REMOVED***
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
 
+    plugins = with pkgs.vimPlugins; [
+      lsp-zero-nvim
+      nvim-treesitter.withAllGrammars
+      nvim-lspconfig
+      harpoon
+      undotree
+      mini-nvim
+      formatter-nvim
+      telescope-nvim
+      rose-pine
+      vim-fugitive
+      nvim-cmp
+  ***REMOVED***
+
+  ***REMOVED***extraConfig = ''
+  ***REMOVED***  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
+  ***REMOVED***'';
+***REMOVED***
+
+  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
-	
-***REMOVED***nixpkgs.overlays = [
-***REMOVED***  (final: prev: ***REMOVED***
-***REMOVED***    boost = prev.boost.override ***REMOVED***
-***REMOVED***      meta.pkgConfigModules = ["boost"];
-***REMOVED******REMOVED******REMOVED***
-***REMOVED***  )
-***REMOVED***];
-
-  home.stateVersion = "23.05";
-
 ***REMOVED***

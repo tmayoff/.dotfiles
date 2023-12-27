@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env bash
 
 echo "Cleaning remote branches"
 git remote prune origin
