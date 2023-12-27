@@ -1,54 +1,68 @@
 { config, pkgs, ... }: 
 
-{
+let 
+    unstable = import
+        (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
+    { config = config.nixpkgs.config; };
+in {
   nixpkgs.config.allowUnfree = true;
+  home.username = "jayne";
+  home.homeDirectory = "/home/jayne";
 
-  home.username = "tyler";
-  home.homeDirectory = "/home/tyler";
-	
-  programs.zsh = {
-	enable = true;
-	dotDir = ".config/zsh";
-	enableAutosuggestions = true;
- 	enableCompletion = true;
-	enableSyntaxHighlighting = true;
-	history = {
-		path = "${config.xdg.dataHome}/zsh/history";
-	};
-	
-    initExtra = ''
-      source ${config.xdg.configHome}/zsh/zshenv
-      eval "$(direnv hook zsh)"
-      source ${config.xdg.configHome}/zsh/custom/themes/headline/headline.zsh-theme
-    '';
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
 
-	oh-my-zsh = {
-		enable = true;
-		
-	};
+
+  home.packages = with pkgs; [
+    # Gnome
+    gnomeExtensions.ddterm
+ 
+    github-desktop
+
+    direnv
+    libreoffice
+    adw-gtk3
+    gnome.gnome-tweaks   
+    fh
+    obsidian
+    ripgrep
+
+    efm-langserver
+    sumneko-lua-language-server
+    rnix-lsp
+    
+    # Game Dev
+    pixelorama
+    unstable.godot_4
+  ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    plugins = with pkgs.vimPlugins; [
+      lsp-zero-nvim
+      nvim-treesitter.withAllGrammars
+      nvim-lspconfig
+      harpoon
+      undotree
+      mini-nvim
+      formatter-nvim
+      telescope-nvim
+      rose-pine
+      vim-fugitive
+      nvim-cmp
+    ];
+
+    #extraConfig = ''
+    #  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
+    #'';
   };
 
-  home.packages = [ 
-    pkgs.filelight
-	pkgs.git
-    pkgs.vscode pkgs.direnv
-    pkgs.clang
-	pkgs.mold
-    pkgs.cargo
-    pkgs.openssl
-    pkgs.perl
-  ]; 
-
+  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
-	
-  #nixpkgs.overlays = [
-  #  (final: prev: {
-  #    boost = prev.boost.override {
-  #      meta.pkgConfigModules = ["boost"];
-  #    };}
-  #  )
-  #];
-
-  home.stateVersion = "23.05";
-
 }
