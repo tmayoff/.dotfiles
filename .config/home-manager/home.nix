@@ -16,22 +16,36 @@ in ***REMOVED***
 
   home.packages = with pkgs; [
   ***REMOVED*** Gnome
+    gnome.gnome-tweaks   
     gnomeExtensions.ddterm
- 
+    gnomeExtensions.gsconnect
+    adw-gtk3
+    
+***REMOVED***
+
+  ***REMOVED*** Shell
+    starship
+    direnv
+    ripgrep
+    fh
+    
+  ***REMOVED*** Mechanical
+    openscad
+    openscad-lsp
+
+  ***REMOVED*** Software Dev
     github-desktop
 
-    direnv
+  ***REMOVED*** Office
     libreoffice
-    adw-gtk3
-    gnome.gnome-tweaks   
-    fh
     obsidian
-    ripgrep
 
+  ***REMOVED*** language servers
     efm-langserver
     sumneko-lua-language-server
     rnix-lsp
-    
+    rust-analyzer
+ 
   ***REMOVED*** Game Dev
     pixelorama
     unstable.godot_4
@@ -45,17 +59,27 @@ in ***REMOVED***
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
+      cmp-buffer
+      cmp-path
+      cmp_luasnip
+      cmp-nvim-lua
+      cmp-nvim-lsp
+      
+      friendly-snippets
+
+      luasnip
       lsp-zero-nvim
+
       nvim-treesitter.withAllGrammars
       nvim-lspconfig
+      nvim-cmp
       harpoon
       undotree
-      mini-nvim
+    ***REMOVED***mini-nvim
       formatter-nvim
       telescope-nvim
       rose-pine
       vim-fugitive
-      nvim-cmp
   ***REMOVED***
 
   ***REMOVED***extraConfig = ''
