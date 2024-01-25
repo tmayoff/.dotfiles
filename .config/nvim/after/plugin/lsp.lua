@@ -8,7 +8,7 @@ local lsp_zero = require('lsp-zero').preset({
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+    -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -20,10 +20,16 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    if client.server_capabilities.inlayHintProvider then
+        vim.g.inlay_hints_visible = true
+        --vim.lsp.inlay_hint(bufnr, true)
+    end
 end)
 
 
-lsp_zero.setup_servers({ 'lua_ls', 'rust_analyzer', 'gdscript', 'rnix', 'openscad_lsp', 'clangd', 'biome', 'svelte' })
+lsp_zero.setup_servers({ 'lua_ls', 'rust_analyzer', 'gdscript', 'rnix', 'openscad_lsp', 'clangd', 'biome', 'tsserver',
+    'svelte' })
 --require('mason').setup({})
 --require('mason-lspconfig').setup({
 --  ensure_installed = {'tsserver', 'rust_analyzer'},

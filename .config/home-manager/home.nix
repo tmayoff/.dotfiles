@@ -1,11 +1,19 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
-let 
-    unstable = import
-        (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
+let
+  unstable = import (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
     { config = config.nixpkgs.config; };
-in {
+
+in
+{
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+
+  ];
+
   home.username = "jayne";
   home.homeDirectory = "/home/jayne";
 
@@ -13,14 +21,19 @@ in {
     "electron-25.9.0"
   ];
 
-
   home.packages = with pkgs; [
     # Gnome
-    gnome.gnome-tweaks   
+    gnome.gnome-tweaks
     gnomeExtensions.ddterm
     gnomeExtensions.gsconnect
     adw-gtk3
-    
+    discord
+
+    fritzing
+
+    wl-clipboard
+    usbutils
+
     yadm
 
     # Shell
@@ -28,10 +41,12 @@ in {
     direnv
     ripgrep
     fh
-    
+
     # Mechanical
     openscad
     openscad-lsp
+
+    minicom
 
     # Software Dev
     github-desktop
@@ -45,13 +60,15 @@ in {
     sumneko-lua-language-server
     rnix-lsp
     rust-analyzer
- 
+
     # Game Dev
     pixelorama
     unstable.godot_4
   ];
 
   programs.neovim = {
+    package = pkgs.neovim-nightly;
+
     enable = true;
     defaultEditor = true;
     viAlias = true;
@@ -64,12 +81,13 @@ in {
       cmp_luasnip
       cmp-nvim-lua
       cmp-nvim-lsp
-      
+
       friendly-snippets
 
       luasnip
       lsp-zero-nvim
-
+        
+      nvim-treesitter-context
       nvim-treesitter.withAllGrammars
       nvim-lspconfig
       nvim-cmp
