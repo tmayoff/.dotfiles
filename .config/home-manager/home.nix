@@ -1,11 +1,19 @@
-***REMOVED*** config, pkgs, ... ***REMOVED***: 
+***REMOVED*** config, pkgs, ... ***REMOVED***:
 
-let 
-    unstable = import
-        (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
+let
+  unstable = import (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
     ***REMOVED*** config = config.nixpkgs.config; ***REMOVED***;
-in ***REMOVED***
+
+in
+***REMOVED***
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball ***REMOVED***
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    ***REMOVED***))
+
+***REMOVED***
+
   home.username = "jayne";
   home.homeDirectory = "/home/jayne";
 
@@ -13,14 +21,19 @@ in ***REMOVED***
     "electron-25.9.0"
 ***REMOVED***
 
-
   home.packages = with pkgs; [
   ***REMOVED*** Gnome
-    gnome.gnome-tweaks   
+    gnome.gnome-tweaks
     gnomeExtensions.ddterm
     gnomeExtensions.gsconnect
     adw-gtk3
-    
+    discord
+
+    fritzing
+
+    wl-clipboard
+    usbutils
+
 ***REMOVED***
 
   ***REMOVED*** Shell
@@ -28,10 +41,12 @@ in ***REMOVED***
     direnv
     ripgrep
     fh
-    
+
   ***REMOVED*** Mechanical
     openscad
     openscad-lsp
+
+    minicom
 
   ***REMOVED*** Software Dev
     github-desktop
@@ -45,13 +60,15 @@ in ***REMOVED***
     sumneko-lua-language-server
     rnix-lsp
     rust-analyzer
- 
+
   ***REMOVED*** Game Dev
     pixelorama
     unstable.godot_4
 ***REMOVED***
 
   programs.neovim = ***REMOVED***
+    package = pkgs.neovim-nightly;
+
     enable = true;
     defaultEditor = true;
     viAlias = true;
@@ -64,12 +81,13 @@ in ***REMOVED***
       cmp_luasnip
       cmp-nvim-lua
       cmp-nvim-lsp
-      
+
       friendly-snippets
 
       luasnip
       lsp-zero-nvim
-
+        
+      nvim-treesitter-context
       nvim-treesitter.withAllGrammars
       nvim-lspconfig
       nvim-cmp
