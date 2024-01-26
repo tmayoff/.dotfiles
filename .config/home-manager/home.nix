@@ -7,6 +7,13 @@ let
 in
 ***REMOVED***
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball ***REMOVED***
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    ***REMOVED***))
+***REMOVED***
+
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
 
