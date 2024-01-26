@@ -11,7 +11,6 @@ in
   home.homeDirectory = "/home/tyler";
 
   home.enableNixpkgsReleaseCheck = false;
-
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
@@ -25,6 +24,12 @@ in
 
     podman
     distrobox
+    discord
+
+    fritzing
+
+    wl-clipboard
+    usbutils
 
     yadm
 
@@ -37,6 +42,8 @@ in
     # Mechanical
     openscad
     openscad-lsp
+
+    minicom
 
     # Software Dev
     github-desktop
@@ -52,13 +59,15 @@ in
     rust-analyzer
     lemminx
     pylyzer
-
+  
     # Game Dev
     pixelorama
     unstable.godot_4
   ];
 
   programs.neovim = {
+    package = pkgs.neovim-nightly;
+
     enable = true;
     defaultEditor = true;
     viAlias = true;
@@ -76,17 +85,15 @@ in
       cmp-nvim-lua
       cmp-nvim-lsp
 
-      distant-nvim
-
       friendly-snippets
       glow-nvim
 
       luasnip
       lsp-zero-nvim
 
-      copilot-vim     
+      copilot-vim
 
-      nvim-remote-containers
+      nvim-treesitter-context
       nvim-treesitter.withAllGrammars
       nvim-lspconfig
       nvim-cmp
