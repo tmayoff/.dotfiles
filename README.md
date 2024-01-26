@@ -2,11 +2,9 @@
 
 
 ## Required programs
-- `i3` : Window manager
-- `picom` : compositor
-- `playerctl` : Media Keys
-- `polybar` : topbar
-
+- `nix` : package manager
+- `home-manager`: config manager
+- `yadm`: dotfiles manager
 
 ## Programs for ZSH Plugins
 - PackageKit-command-not-found
