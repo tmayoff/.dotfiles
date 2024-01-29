@@ -45,6 +45,7 @@ in
     direnv
     ripgrep
     fh
+    fd
 
   ***REMOVED*** Mechanical
     openscad
@@ -66,6 +67,8 @@ in
     rust-analyzer
     lemminx
     pylyzer
+
+    vscode-extensions.ms-vscode.cpptools   
   
   ***REMOVED*** Game Dev
     pixelorama
@@ -97,6 +100,8 @@ in
 
       luasnip
       lsp-zero-nvim
+      nvim-dap
+      nvim-dap-ui
 
       copilot-vim
 
