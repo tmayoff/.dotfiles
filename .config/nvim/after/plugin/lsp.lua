@@ -12,7 +12,8 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "<leader>q", function() vim.diagnostic.setloclist() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
@@ -21,8 +22,7 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     if client.server_capabilities.inlayHintProvider then
-        vim.g.inlay_hints_visible = true
-        --vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint.enable(bufnr, true)
     end
     vim.keymap.set("n", "<C-D>", function() vim.lsp.buf.code_action() end, opts)
 end)
@@ -30,18 +30,6 @@ end)
 
 lsp_zero.setup_servers({ 'lua_ls', 'rust_analyzer', 'gdscript', 'rnix', 'openscad_lsp', 'clangd', 'biome', 'tsserver',
     'svelte' , 'lemminx', 'pylyzer'})
-
---require('mason').setup({})
---require('mason-lspconfig').setup({
---  ensure_installed = {'tsserver', 'rust_analyzer'},
---  handlers = {
---    lsp_zero.default_setup,
---    lua_ls = function()
---      local lua_opts = lsp_zero.nvim_lua_ls()
---      require('lspconfig').lua_ls.setup(lua_opts)
---    end,
---  }
---})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
