@@ -57,6 +57,7 @@ in
 
   ***REMOVED*** Software Dev
     github-desktop
+    gdb
 
   ***REMOVED*** Office
     libreoffice
@@ -70,8 +71,8 @@ in
     lemminx
     pylyzer
 
-    vscode-extensions.ms-vscode.cpptools   
-  
+    vscode-extensions.ms-vscode.cpptools
+
   ***REMOVED*** Game Dev
     pixelorama
     unstable.godot_4
@@ -100,6 +101,8 @@ in
       friendly-snippets
       glow-nvim
 
+      nvim-tree-lua
+
       luasnip
       lsp-zero-nvim
       nvim-dap
@@ -107,6 +110,7 @@ in
 
       copilot-vim
 
+      todo-comments-nvim
       nvim-treesitter-context
       nvim-treesitter.withAllGrammars
       nvim-lspconfig

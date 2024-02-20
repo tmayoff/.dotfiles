@@ -16,6 +16,9 @@ dap.configurations.cpp = ***REMOVED***
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
+    args = function()
+      return vim.fn.input('Args: ', '')
+    end,
     cwd = "$***REMOVED***workspaceFolder***REMOVED***",
   ***REMOVED***,
 ***REMOVED***
