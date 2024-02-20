@@ -46,6 +46,8 @@ in
     ripgrep
     fh
     fd
+    glow
+    helix
 
     # Mechanical
     openscad
@@ -115,6 +117,8 @@ in
       formatter-nvim
       telescope-nvim
       vim-fugitive
+
+      vim-just
     ];
 
     #extraConfig = ''
