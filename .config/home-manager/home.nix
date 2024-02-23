@@ -48,6 +48,7 @@ in
     fd
     glow
     helix
+    zoxide
 
   ***REMOVED*** Mechanical
     openscad
