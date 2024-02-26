@@ -1,8 +1,11 @@
-theme = "gruvbox"
+theme = "catppuccin_latte"
 
 [editor]
 auto-format = false
 gutters = ["line-numbers", "diagnostics", "diff"]
+
+[editor.lsp]
+display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
