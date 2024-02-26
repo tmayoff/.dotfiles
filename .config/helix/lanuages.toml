@@ -1,0 +1,5 @@
+[[language]]
+name = "meson"
+scope = "source.meson"
+formatter = ***REMOVED***command = "muon", args = "fmt"***REMOVED***
+file-types = ["meson.build", "meson_options.txt"]

@@ -58,8 +58,7 @@ in
 
   ***REMOVED*** Software Dev
     github-desktop
-    gdb
-
+    
   ***REMOVED*** Office
     libreoffice
     obsidian
