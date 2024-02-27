@@ -1,5 +1,0 @@
-[[language]]
-name = "meson"
-scope = "source.meson"
-formatter = {command = "muon", args = "fmt"}
-file-types = ["meson.build", "meson_options.txt"]

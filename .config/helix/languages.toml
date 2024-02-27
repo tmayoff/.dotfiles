@@ -1,0 +1,22 @@
+[[language]]
+name = "meson"
+scope = "source.meson"
+formatter = {command = "muon", args = "fmt"}
+file-types = ["meson.build", "meson_options.txt"]
+
+##################
+### BiomeJS Setup
+##################
+
+[language-server]
+biome = { command = "biome", args = ["lsp-proxy"] }
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
