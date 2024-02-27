@@ -27,6 +27,7 @@ in
     gnome.gnome-tweaks
     gnomeExtensions.ddterm
     gnomeExtensions.gsconnect
+    gnomeExtensions.paperwm
     adw-gtk3
 
     podman
@@ -49,6 +50,7 @@ in
     glow
     helix
     zoxide
+    darkman
 
   ***REMOVED*** Mechanical
     openscad
@@ -128,6 +130,25 @@ in
   ***REMOVED***extraConfig = ''
   ***REMOVED***  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
   ***REMOVED***'';
+***REMOVED***
+
+  services.darkman = ***REMOVED***
+    enable = true;
+    settings = ***REMOVED***
+      lat = 45.408;
+      lng = -74.159;
+***REMOVED***
+    darkModeScripts = ***REMOVED***
+      helix-editor = ''
+        sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
+  ***REMOVED***
+***REMOVED***
+
+    lightModeScripts = ***REMOVED***
+      helix-editor = ''
+        sed -i 's/theme = ".*"/theme = "catpuccin_latte"/' $HOME/.config/helix/config.toml
+  ***REMOVED***
+***REMOVED***
 ***REMOVED***
 
   home.stateVersion = "23.11";
