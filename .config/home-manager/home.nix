@@ -1,18 +1,5 @@
-{ config, pkgs, ... }:
-
-let
-  unstable = import
-    (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz)
-    { config = config.nixpkgs.config; };
-in
-{
+{ pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    }))
-  ];
 
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
@@ -77,11 +64,11 @@ in
 
     # Game Dev
     pixelorama
-    unstable.godot_4
+    # unstable.godot_4
   ];
 
   programs.neovim = {
-    package = pkgs.neovim-nightly;
+    # package = pkgs.neovim-nightly;
 
     enable = true;
     defaultEditor = true;
