@@ -27,6 +27,7 @@ in
     gnome.gnome-tweaks
     gnomeExtensions.ddterm
     gnomeExtensions.gsconnect
+    gnomeExtensions.paperwm
     adw-gtk3
 
     podman
@@ -49,6 +50,7 @@ in
     glow
     helix
     zoxide
+    darkman
 
     # Mechanical
     openscad
@@ -128,6 +130,25 @@ in
     #extraConfig = ''
     #  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
     #'';
+  };
+
+  services.darkman = {
+    enable = true;
+    settings = {
+      lat = 45.408;
+      lng = -74.159;
+    };
+    darkModeScripts = {
+      helix-editor = ''
+        sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
+      '';
+    };
+
+    lightModeScripts = {
+      helix-editor = ''
+        sed -i 's/theme = ".*"/theme = "catpuccin_latte"/' $HOME/.config/helix/config.toml
+      '';
+    };
   };
 
   home.stateVersion = "23.11";
