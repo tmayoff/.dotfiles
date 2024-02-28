@@ -1,7 +1,7 @@
 [[language]]
 name = "meson"
 scope = "source.meson"
-formatter = {command = "muon", args = "fmt"}
+formatter = {command = "muon", args = ["fmt", "-"]}
 file-types = ["meson.build", "meson_options.txt"]
 
 ##################
@@ -18,5 +18,5 @@ auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ "biome", { name = "typescript-language-server", except-features = [ "format" ] } ]
 auto-format = true

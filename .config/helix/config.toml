@@ -2,7 +2,7 @@ theme = "catppuccin_macchiato"
 
 [editor]
 auto-format = false
-gutters = ["line-numbers", "diagnostics", "diff"]
+#gutters = ["line-numbers", "diagnostics", "diff"]
 
 [editor.lsp]
 display-inlay-hints = true
