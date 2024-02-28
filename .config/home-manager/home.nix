@@ -15,6 +15,8 @@
     gnomeExtensions.ddterm
     gnomeExtensions.gsconnect
     gnomeExtensions.paperwm
+    gnomeExtensions.night-theme-switcher
+    gnomeExtensions.blur-my-shell
     adw-gtk3
 
     podman
@@ -133,7 +135,7 @@
 
     lightModeScripts = ***REMOVED***
       helix-editor = ''
-        sed -i 's/theme = ".*"/theme = "catpuccin_latte"/' $HOME/.config/helix/config.toml
+        sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
