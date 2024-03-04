@@ -19,7 +19,6 @@
     gnomeExtensions.blur-my-shell
     adw-gtk3
 
-    podman
     distrobox
     discord
 
@@ -31,6 +30,7 @@
     yadm
 
     # Shell
+    bash
     starship
     direnv
     ripgrep
@@ -38,9 +38,10 @@
     fd
     glow
     helix
+    gitoxide
     zoxide
-    darkman
-
+    fzf
+        
     # Mechanical
     openscad
     openscad-lsp
@@ -69,6 +70,10 @@
     # unstable.godot_4
   ];
 
+  programs.zellij = {
+      enable = true;
+  };
+  
   programs.neovim = {
     # package = pkgs.neovim-nightly;
 
@@ -127,6 +132,7 @@
       lat = 45.408;
       lng = -74.159;
     };
+
     darkModeScripts = {
       helix-editor = ''
         sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
