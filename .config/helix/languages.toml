@@ -18,5 +18,19 @@ auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = [ "biome", ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED*** ]
+language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
 auto-format = true
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
+
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
+
+[[language]]
+name = "json"
+language-servers = [ ***REMOVED*** name = "vscode-json-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
