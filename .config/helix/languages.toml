@@ -4,6 +4,13 @@ scope = "source.meson"
 formatter = {command = "muon", args = ["fmt", "-"]}
 file-types = ["meson.build", "meson_options.txt"]
 
+[[language]]
+name = "nix"
+scope = "source.nix"
+file-types = ["nix"]
+auto-format = true
+formatter = { command = "alejandra", args = ["-q"] }
+
 ##################
 ### BiomeJS Setup
 ##################
