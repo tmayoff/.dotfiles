@@ -58,7 +58,8 @@
   ***REMOVED*** language servers
     efm-langserver
     sumneko-lua-language-server
-    rnix-lsp
+    nil
+    alejandra
     rust-analyzer
     lemminx
     pylyzer
