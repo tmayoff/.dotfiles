@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -18,6 +18,9 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.blur-my-shell
     adw-gtk3
+
+    protonmail-bridge
+    hydroxide
 
     distrobox
     discord
@@ -41,7 +44,7 @@
     gitoxide
     zoxide
     fzf
-        
+
     # Mechanical
     openscad
     openscad-lsp
@@ -50,7 +53,7 @@
 
     # Software Dev
     github-desktop
-    
+
     # Office
     libreoffice
     obsidian
@@ -72,14 +75,37 @@
   ];
 
   programs.zellij = {
-      enable = true;
+    enable = true;
   };
-  
+
+  programs.starship = {
+    enable = true;
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -gx EDITOR hx
+      set -gx GIT_EDITOR $EDITOR
+      set -gx DEBEMAIL "tyler@tylermayoff.com"
+    '';
+    plugins = with pkgs;
+    with pkgs.fishPlugins; [
+      {
+        name = "babelfish";
+        src = babelfish.src;
+      }
+      {
+        name = "z";
+        src = zoxide.src;
+      }
+    ];
+  };
+
   programs.neovim = {
     # package = pkgs.neovim-nightly;
-
-    enable = true;
-    defaultEditor = true;
+    enable = false;
+    defaultEditor = false;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
