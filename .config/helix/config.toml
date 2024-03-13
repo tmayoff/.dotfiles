@@ -1,8 +1,11 @@
-theme = "catppuccin_latte"
+theme = "catppuccin_macchiato"
 
 [editor]
 auto-format = false
 #gutters = ["line-numbers", "diagnostics", "diff"]
+
+[editor.file-picker]
+git-ignore = false
 
 [editor.lsp]
 display-inlay-hints = true
