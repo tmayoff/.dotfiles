@@ -1,4 +1,4 @@
-***REMOVED*** pkgs, ... ***REMOVED***: ***REMOVED***
+***REMOVED***pkgs, ...***REMOVED***: ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -18,6 +18,9 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.blur-my-shell
     adw-gtk3
+
+    protonmail-bridge
+    hydroxide
 
     distrobox
     discord
@@ -41,7 +44,7 @@
     gitoxide
     zoxide
     fzf
-        
+
   ***REMOVED*** Mechanical
     openscad
     openscad-lsp
@@ -50,7 +53,7 @@
 
   ***REMOVED*** Software Dev
     github-desktop
-    
+
   ***REMOVED*** Office
     libreoffice
     obsidian
@@ -72,14 +75,37 @@
 ***REMOVED***
 
   programs.zellij = ***REMOVED***
-      enable = true;
+    enable = true;
 ***REMOVED***
-  
+
+  programs.starship = ***REMOVED***
+    enable = true;
+***REMOVED***
+
+  programs.fish = ***REMOVED***
+    enable = true;
+    interactiveShellInit = ''
+      set -gx EDITOR hx
+      set -gx GIT_EDITOR $EDITOR
+      set -gx DEBEMAIL "tyler@tylermayoff.com"
+***REMOVED***
+    plugins = with pkgs;
+    with pkgs.fishPlugins; [
+      ***REMOVED***
+        name = "babelfish";
+        src = babelfish.src;
+      ***REMOVED***
+      ***REMOVED***
+        name = "z";
+        src = zoxide.src;
+      ***REMOVED***
+  ***REMOVED***
+***REMOVED***
+
   programs.neovim = ***REMOVED***
   ***REMOVED*** package = pkgs.neovim-nightly;
-
-    enable = true;
-    defaultEditor = true;
+    enable = false;
+    defaultEditor = false;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
