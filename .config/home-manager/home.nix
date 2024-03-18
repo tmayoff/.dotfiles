@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     # Gnome
+    gnome-extension-manager
     gnome.gnome-tweaks
     gnomeExtensions.ddterm
     gnomeExtensions.gsconnect
@@ -100,6 +101,11 @@
         src = zoxide.src;
       }
     ];
+
+    shellAliases = {
+      gac = "git add . && git commit";
+      gacp = "gac && git push";
+    };
   };
 
   programs.neovim = {
