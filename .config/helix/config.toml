@@ -5,7 +5,7 @@ auto-format = false
 #gutters = ["line-numbers", "diagnostics", "diff"]
 
 [editor.file-picker]
-git-ignore = false
+#git-ignore = false
 
 [editor.lsp]
 display-inlay-hints = true
