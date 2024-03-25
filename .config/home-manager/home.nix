@@ -36,7 +36,6 @@
   ***REMOVED*** Shell
     bash
     starship
-    direnv
     ripgrep
     fh
     fd
@@ -83,6 +82,10 @@
     enable = true;
 ***REMOVED***
 
+  programs.direnv = ***REMOVED***
+    enable = true;
+***REMOVED***
+
   programs.fish = ***REMOVED***
     enable = true;
     interactiveShellInit = ''
@@ -105,6 +108,7 @@
     shellAliases = ***REMOVED***
       gac = "git add . && git commit";
       gacp = "gac && git push";
+      gs = "git status";
 ***REMOVED***
 ***REMOVED***
 
