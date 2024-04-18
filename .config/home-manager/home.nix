@@ -20,6 +20,8 @@
     gnomeExtensions.blur-my-shell
     adw-gtk3
 
+    cntr
+
     protonmail-bridge
     hydroxide
 
@@ -63,7 +65,6 @@
     sumneko-lua-language-server
     nil
     alejandra
-    rust-analyzer
     lemminx
     pylyzer
 
@@ -103,12 +104,20 @@
         name = "z";
         src = zoxide.src;
       ***REMOVED***
+
+      ***REMOVED***
+        name = "bass";
+        src = bass.src;
+      ***REMOVED***
   ***REMOVED***
 
     shellAliases = ***REMOVED***
       gac = "git add . && git commit";
       gacp = "gac && git push";
       gs = "git status";
+
+      hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
+      hm-update = "home-manager switch";
 ***REMOVED***
 ***REMOVED***
 
