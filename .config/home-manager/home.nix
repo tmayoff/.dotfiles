@@ -1,4 +1,4 @@
-***REMOVED***pkgs, ...***REMOVED***: ***REMOVED***
+***REMOVED***pkgs, unstable, ...***REMOVED***: ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -54,7 +54,9 @@
     minicom
 
   ***REMOVED*** Software Dev
+    clang-tools_16
     github-desktop
+    mold
 
   ***REMOVED*** Office
     libreoffice
@@ -66,6 +68,8 @@
     nil
     alejandra
     lemminx
+    pylyzer
+    ltex-ls # Spell checker
 
     vscode-extensions.ms-vscode.cpptools
 
