@@ -66,7 +66,6 @@
     nil
     alejandra
     lemminx
-    pylyzer
 
     vscode-extensions.ms-vscode.cpptools
 
