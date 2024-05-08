@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, unstable, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -54,7 +54,9 @@
     minicom
 
     # Software Dev
+    clang-tools_16
     github-desktop
+    mold
 
     # Office
     libreoffice
@@ -66,6 +68,8 @@
     nil
     alejandra
     lemminx
+    pylyzer
+    ltex-ls # Spell checker
 
     vscode-extensions.ms-vscode.cpptools
 
