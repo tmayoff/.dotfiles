@@ -2,7 +2,8 @@
   description = "Flake utils demo";
 
   inputs = ***REMOVED***
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = ***REMOVED***
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,8 +12,13 @@
     flake-utils.url = "github:numtide/flake-utils";
 ***REMOVED***
 
-  outputs = ***REMOVED*** nixpkgs, home-manager, flake-utils, ... ***REMOVED***: 
-  let
+  outputs = ***REMOVED***
+    nixpkgs,
+    nix-unstable,
+    home-manager,
+    flake-utils,
+  ***REMOVED***
+  ***REMOVED***: let
 ***REMOVED***
       (final: prev: ***REMOVED***
         darkman = prev.darkman.overrideAttrs (old: ***REMOVED***
@@ -23,18 +29,20 @@
             sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
       ***REMOVED***
         ***REMOVED***);
-      ***REMOVED***) 
+      ***REMOVED***)
   ***REMOVED***
-  
+
     system = "x86_64-linux";
-    pkgs = (import nixpkgs) ***REMOVED*** inherit system overlays; ***REMOVED***;
+    pkgs = (import nixpkgs) ***REMOVED***inherit system overlays;***REMOVED***;
+    unstable = (import nix-unstable) ***REMOVED***inherit system;***REMOVED***;
   in ***REMOVED***
     defaultPackage.$***REMOVED***system***REMOVED*** = home-manager.defaultPackage.$***REMOVED***system***REMOVED***;
 
     homeConfigurations = ***REMOVED***
       "tyler" = home-manager.lib.homeManagerConfiguration ***REMOVED***
         inherit pkgs;
-        modules = [ ./home.nix ];
+        extraSpecialArgs = ***REMOVED*** inherit unstable; ***REMOVED***;
+        modules = [./home.nix];
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***

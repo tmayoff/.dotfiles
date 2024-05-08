@@ -1,22 +1,27 @@
+[language-server]
+biome = ***REMOVED*** command = "biome", args = ["lsp-proxy"] ***REMOVED***
+clangd = ***REMOVED*** command = "clangd", args = ["--header-insertion=never"]***REMOVED***
+
 [[language]]
 name = "meson"
 scope = "source.meson"
+injection-regex = "meson"
+#file-types = [***REMOVED*** glob = "meson.build" ***REMOVED***, ***REMOVED*** glob = "meson_options.txt" ***REMOVED***]
+comment-token = "#"
+indent = ***REMOVED*** tab-width = 2, unit = "  " ***REMOVED***
+auto-format = true
 formatter = ***REMOVED***command = "muon", args = ["fmt", "-"]***REMOVED***
-file-types = ["meson.build", "meson_options.txt"]
 
 [[language]]
 name = "nix"
 scope = "source.nix"
-file-types = ["nix"]
+#file-types = ["nix"]
 auto-format = true
 formatter = ***REMOVED*** command = "alejandra", args = ["-q"] ***REMOVED***
 
 ##################
 ### BiomeJS Setup
 ##################
-
-[language-server]
-biome = ***REMOVED*** command = "biome", args = ["lsp-proxy"] ***REMOVED***
 
 [[language]]
 name = "javascript"
