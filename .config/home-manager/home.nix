@@ -1,4 +1,8 @@
-***REMOVED***pkgs, unstable, ...***REMOVED***: ***REMOVED***
+***REMOVED***
+***REMOVED***
+  unstable,
+***REMOVED***
+***REMOVED***: ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -54,7 +58,6 @@
     minicom
 
   ***REMOVED*** Software Dev
-    clang-tools_16
     github-desktop
     mold
 
@@ -96,6 +99,7 @@
       set -gx EDITOR hx
       set -gx GIT_EDITOR $EDITOR
       set -gx DEBEMAIL "tyler@tylermayoff.com"
+      bind \cz 'fg 2>/dev/null; commandline -f repaint'
 ***REMOVED***
     plugins = with pkgs;
     with pkgs.fishPlugins; [
