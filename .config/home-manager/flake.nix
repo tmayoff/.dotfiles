@@ -29,6 +29,10 @@
             sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
       ***REMOVED***
         ***REMOVED***);
+
+        lnav = prev.lnav.overrideAttrs (old: ***REMOVED***
+          version = "0.12.2";
+        ***REMOVED***);
       ***REMOVED***)
   ***REMOVED***
 
@@ -41,7 +45,7 @@
     homeConfigurations = ***REMOVED***
       "tyler" = home-manager.lib.homeManagerConfiguration ***REMOVED***
         inherit pkgs;
-        extraSpecialArgs = ***REMOVED*** inherit unstable; ***REMOVED***;
+        extraSpecialArgs = ***REMOVED***inherit unstable;***REMOVED***;
         modules = [./home.nix];
   ***REMOVED***
 ***REMOVED***
