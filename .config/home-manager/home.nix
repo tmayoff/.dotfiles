@@ -50,6 +50,7 @@
     gitoxide
     zoxide
     fzf
+    lnav
 
     # Mechanical
     openscad
@@ -99,6 +100,10 @@
       set -gx EDITOR hx
       set -gx GIT_EDITOR $EDITOR
       set -gx DEBEMAIL "tyler@tylermayoff.com"
+      set -gx XDG_CONFIG_HOME "$HOME/.config"
+      set -gx XDG_CACHE_HOME "$HOME/.cache"
+      set -gx XDG_DATA_HOME "$HOME/.local/share"
+      set -gx XDG_STATE_HOME "$HOME/.local/state"
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
     '';
     plugins = with pkgs;

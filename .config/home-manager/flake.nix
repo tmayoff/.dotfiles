@@ -29,6 +29,10 @@
             sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
           };
         });
+
+        lnav = prev.lnav.overrideAttrs (old: {
+          version = "0.12.2";
+        });
       })
     ];
 
@@ -41,7 +45,7 @@
     homeConfigurations = {
       "tyler" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit unstable; };
+        extraSpecialArgs = {inherit unstable;};
         modules = [./home.nix];
       };
     };
