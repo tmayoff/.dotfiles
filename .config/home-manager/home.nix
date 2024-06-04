@@ -26,13 +26,13 @@
 
     cntr
 
-    protonmail-bridge
+  ***REMOVED*** protonmail-bridge
     hydroxide
 
     distrobox
     discord
 
-    fritzing
+  ***REMOVED*** fritzing
 
     wl-clipboard
     usbutils
@@ -48,9 +48,10 @@
     glow
     helix
     gitoxide
-    zoxide
-    fzf
     lnav
+
+    fzf
+    zoxide
 
   ***REMOVED*** Mechanical
     openscad
@@ -75,10 +76,8 @@
     pylyzer
     ltex-ls # Spell checker
 
-    vscode-extensions.ms-vscode.cpptools
-
   ***REMOVED*** Game Dev
-    pixelorama
+  ***REMOVED*** pixelorama
   ***REMOVED*** unstable.godot_4
 ***REMOVED***
 
@@ -105,23 +104,11 @@
       set -gx XDG_DATA_HOME "$HOME/.local/share"
       set -gx XDG_STATE_HOME "$HOME/.local/state"
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
-***REMOVED***
-    plugins = with pkgs;
-    with pkgs.fishPlugins; [
-      ***REMOVED***
-        name = "babelfish";
-        src = babelfish.src;
-      ***REMOVED***
-      ***REMOVED***
-        name = "z";
-        src = zoxide.src;
-      ***REMOVED***
 
-      ***REMOVED***
-        name = "bass";
-        src = bass.src;
-      ***REMOVED***
-  ***REMOVED***
+      zoxide init fish | source
+***REMOVED***
+
+    plugins = [];
 
     shellAliases = ***REMOVED***
       gac = "git add . && git commit";
