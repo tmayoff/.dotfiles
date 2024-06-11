@@ -1,6 +1,6 @@
 ***REMOVED***
 ***REMOVED***
-  unstable,
+***REMOVED*** unstable,
 ***REMOVED***
 ***REMOVED***: ***REMOVED***
   nixpkgs.config.allowUnfree = true;
@@ -118,6 +118,12 @@
       hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
       hm-update = "home-manager switch";
 ***REMOVED***
+***REMOVED***
+
+  programs.thefuck = ***REMOVED***
+    enable = true;
+    enableFishIntegration = true;
+    enableInstantMode = true;
 ***REMOVED***
 
   programs.neovim = ***REMOVED***
