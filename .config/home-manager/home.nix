@@ -1,6 +1,6 @@
 {
   pkgs,
-  unstable,
+  # unstable,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -118,6 +118,12 @@
       hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
       hm-update = "home-manager switch";
     };
+  };
+
+  programs.thefuck = {
+    enable = true;
+    enableFishIntegration = true;
+    enableInstantMode = true;
   };
 
   programs.neovim = {
