@@ -3,20 +3,23 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     flake-utils.url = "github:numtide/flake-utils";
+
+    mesonlsp.url = "https://flakehub.com/f/tmayoff/nix-mesonlsp/0.1.4.tar.gz";
   };
 
   outputs = {
     nixpkgs,
-    nix-unstable,
+    # nix-unstable,
     home-manager,
     flake-utils,
+    mesonlsp,
     ...
   }: let
     overlays = [
@@ -34,18 +37,19 @@
           version = "0.12.2";
         });
       })
+      mesonlsp.overlay.default
     ];
 
     system = "x86_64-linux";
     pkgs = (import nixpkgs) {inherit system overlays;};
-    unstable = (import nix-unstable) {inherit system;};
+    # unstable = (import nix-unstable) {inherit system;};
   in {
     defaultPackage.${system} = home-manager.defaultPackage.${system};
 
     homeConfigurations = {
       "tyler" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit unstable;};
+        # extraSpecialArgs = {inherit unstable;};
         modules = [./home.nix];
       };
     };

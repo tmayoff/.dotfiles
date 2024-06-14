@@ -13,6 +13,11 @@
     "electron-25.9.0"
   ];
 
+  imports = [
+    ./fish.nix
+    # ./neovim.nix
+  ];
+
   home.packages = with pkgs; [
     # Gnome
     gnome-extension-manager
@@ -27,7 +32,7 @@
     cntr
 
     # protonmail-bridge
-    hydroxide
+    # hydroxide
 
     distrobox
     discord
@@ -54,10 +59,10 @@
     zoxide
 
     # Mechanical
-    openscad
-    openscad-lsp
+    # openscad
+    # openscad-lsp
 
-    minicom
+    # minicom
 
     # Software Dev
     github-desktop
@@ -93,88 +98,10 @@
     enable = true;
   };
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set -gx EDITOR hx
-      set -gx GIT_EDITOR $EDITOR
-      set -gx DEBEMAIL "tyler@tylermayoff.com"
-      set -gx XDG_CONFIG_HOME "$HOME/.config"
-      set -gx XDG_CACHE_HOME "$HOME/.cache"
-      set -gx XDG_DATA_HOME "$HOME/.local/share"
-      set -gx XDG_STATE_HOME "$HOME/.local/state"
-      bind \cz 'fg 2>/dev/null; commandline -f repaint'
-
-      zoxide init fish | source
-    '';
-
-    plugins = [];
-
-    shellAliases = {
-      gac = "git add . && git commit";
-      gacp = "gac && git push";
-      gs = "git status";
-
-      hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
-      hm-update = "home-manager switch";
-    };
-  };
-
   programs.thefuck = {
     enable = true;
     enableFishIntegration = true;
     enableInstantMode = true;
-  };
-
-  programs.neovim = {
-    # package = pkgs.neovim-nightly;
-    enable = false;
-    defaultEditor = false;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    plugins = with pkgs.vimPlugins; [
-      # Color schemes
-      rose-pine
-      gruvbox-nvim
-
-      cmp-buffer
-      cmp-path
-      cmp_luasnip
-      cmp-nvim-lua
-      cmp-nvim-lsp
-
-      friendly-snippets
-      glow-nvim
-
-      nvim-tree-lua
-
-      luasnip
-      lsp-zero-nvim
-      nvim-dap
-      nvim-dap-ui
-
-      copilot-vim
-
-      todo-comments-nvim
-      nvim-treesitter-context
-      nvim-treesitter.withAllGrammars
-      nvim-lspconfig
-      nvim-cmp
-      harpoon
-      undotree
-      #mini-nvim
-      formatter-nvim
-      telescope-nvim
-      vim-fugitive
-
-      vim-just
-    ];
-
-    #extraConfig = ''
-    #  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
-    #'';
   };
 
   services.darkman = {
