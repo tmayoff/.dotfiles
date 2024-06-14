@@ -44,6 +44,10 @@
       gcm = "git commit -m";
       gac = "git add . && git commit";
       gacp = "gac && git push";
+      gs = "git status";
+
+      yac = "yadm add --interactive && yadm commit";
+      yacp = "yac && yadm push";
       
       # nix
       flake = "nix flake";
