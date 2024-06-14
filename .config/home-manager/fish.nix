@@ -40,10 +40,11 @@
 
     shellAliases = {
       # Git
+      gc = "git commit";
+      gcm = "git commit -m";
       gac = "git add . && git commit";
       gacp = "gac && git push";
-      gs = "git status";
-
+      
       # nix
       flake = "nix flake";
 
