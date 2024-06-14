@@ -18,6 +18,24 @@
         "type": "github"
       ***REMOVED***
     ***REMOVED***,
+    "flake-utils_2": ***REMOVED***
+      "inputs": ***REMOVED***
+        "systems": "systems_2"
+      ***REMOVED***,
+      "locked": ***REMOVED***
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      ***REMOVED***,
+      "original": ***REMOVED***
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      ***REMOVED***
+    ***REMOVED***,
     "home-manager": ***REMOVED***
       "inputs": ***REMOVED***
         "nixpkgs": [
@@ -25,11 +43,11 @@
         ]
       ***REMOVED***,
       "locked": ***REMOVED***
-        "lastModified": 1712462372,
-        "narHash": "sha256-WA3bbBWhd3o1wAgyHZNypjb/LG4oq+IWxFq8ey8yNPU=",
+        "lastModified": 1718141734,
+        "narHash": "sha256-cA+6l8ZCZ7MXGijVuY/1f55+wF/RT4PlTR9+g4bx86w=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a561ad6ab38578c812cc9af3b04f2cc60ebf48c9",
+        "rev": "892f76bd0aa09a0f7f73eb41834b8a904b6d0fad",
         "type": "github"
       ***REMOVED***,
       "original": ***REMOVED***
@@ -38,29 +56,45 @@
         "type": "github"
       ***REMOVED***
     ***REMOVED***,
-    "nix-unstable": ***REMOVED***
+    "mesonlsp": ***REMOVED***
+      "inputs": ***REMOVED***
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs"
+      ***REMOVED***,
       "locked": ***REMOVED***
-        "lastModified": 1712439257,
-        "narHash": "sha256-aSpiNepFOMk9932HOax0XwNxbA38GOUVOiXfUVPOrck=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "ff0dbd94265ac470dda06a657d5fe49de93b4599",
-        "type": "github"
+        "lastModified": 1718241310,
+        "narHash": "sha256-PxonSLicV+n8NWMwsz27C0mVjEMcX1gnCr1Y/2frCOM=",
+        "rev": "19f2903657f8ae1e2b6251d5abb482b4dab70c4d",
+        "revCount": 7,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/tmayoff/nix-mesonlsp/0.1.7%2Brev-19f2903657f8ae1e2b6251d5abb482b4dab70c4d/01900f2a-114c-7ddf-8a19-4d14b8319206/source.tar.gz"
       ***REMOVED***,
       "original": ***REMOVED***
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://flakehub.com/f/tmayoff/nix-mesonlsp/0.1.4.tar.gz"
       ***REMOVED***
     ***REMOVED***,
     "nixpkgs": ***REMOVED***
       "locked": ***REMOVED***
-        "lastModified": 1712437997,
-        "narHash": "sha256-g0whLLwRvgO2FsyhY8fNk+TWenS3jg5UdlWL4uqgFeo=",
+        "lastModified": 1718149104,
+        "narHash": "sha256-Ds1QpobBX2yoUDx9ZruqVGJ/uQPgcXoYuobBguyKEh8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e913ae340076bbb73d9f4d3d065c2bca7caafb16",
+        "type": "github"
+      ***REMOVED***,
+      "original": ***REMOVED***
+        "id": "nixpkgs",
+        "type": "indirect"
+      ***REMOVED***
+    ***REMOVED***,
+    "nixpkgs_2": ***REMOVED***
+      "locked": ***REMOVED***
+        "lastModified": 1718060059,
+        "narHash": "sha256-9XKFni8VMXo81RTq9XygCyaO3I/7UKpwIlM/yn0MdcM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e38d7cb66ea4f7a0eb6681920615dfcc30fc2920",
+        "rev": "a3c8d64ba846725f040582b2d3b875466d2115bd",
         "type": "github"
       ***REMOVED***,
       "original": ***REMOVED***
@@ -74,11 +108,26 @@
       "inputs": ***REMOVED***
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "nix-unstable": "nix-unstable",
-        "nixpkgs": "nixpkgs"
+        "mesonlsp": "mesonlsp",
+        "nixpkgs": "nixpkgs_2"
       ***REMOVED***
     ***REMOVED***,
     "systems": ***REMOVED***
+      "locked": ***REMOVED***
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      ***REMOVED***,
+      "original": ***REMOVED***
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      ***REMOVED***
+    ***REMOVED***,
+    "systems_2": ***REMOVED***
       "locked": ***REMOVED***
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
