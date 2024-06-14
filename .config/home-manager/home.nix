@@ -93,6 +93,11 @@
     enable = true;
   };
 
+  programs.broot = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.starship = {
     enable = true;
   };
