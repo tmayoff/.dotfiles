@@ -1,2 +1,2 @@
 .config/yadm/encrypted/*
-.config/zsh/zshenv-machine##*
+.config/fish/variables-*
