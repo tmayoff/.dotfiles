@@ -31,6 +31,9 @@
 
     cntr
 
+    # backup
+    restic
+
     # protonmail-bridge
     # hydroxide
 

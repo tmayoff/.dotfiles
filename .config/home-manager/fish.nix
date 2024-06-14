@@ -9,9 +9,15 @@
       set -gx XDG_CACHE_HOME "$HOME/.cache"
       set -gx XDG_DATA_HOME "$HOME/.local/share"
       set -gx XDG_STATE_HOME "$HOME/.local/state"
+
+      source $HOME/.config/fish/variables-$(hostname).fish
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
       zoxide init fish | source
+    '';
+
+    loginShellInit = ''
+      source $HOME/.config/fish/variables-$(hostname).fish
     '';
 
     plugins = [
