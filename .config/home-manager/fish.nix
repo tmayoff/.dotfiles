@@ -10,6 +10,8 @@
       set -gx XDG_DATA_HOME "$HOME/.local/share"
       set -gx XDG_STATE_HOME "$HOME/.local/state"
 
+      fish_add_path $HOME/.local/bin
+
       source $HOME/.config/fish/variables-$(hostname).fish
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
