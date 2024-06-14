@@ -93,6 +93,11 @@
     enable = true;
 ***REMOVED***
 
+  programs.broot = ***REMOVED***
+    enable = true;
+    enableFishIntegration = true;
+***REMOVED***
+
   programs.starship = ***REMOVED***
     enable = true;
 ***REMOVED***
