@@ -1,0 +1,41 @@
+#!/bin/env fish
+
+set current_date $(date +%Y-%m-%d)
+
+set log_dir "$XDG_STATE_HOME/logs/backups"
+set log_file "$log_dir/backup_$current_date.log"
+
+set last $(restic snapshots | tail -3 | head -1 | awk '{print $2}')
+if test $status != 0
+        echo "can't find last snapshot" | tee -a $log_file
+        notify-send -a "backup" "Failed to get last snapshot for backups" -u critical 
+        exit $status
+end
+
+function exit_handler
+    # Restore std...
+    # exec 2>&4 1>&3
+end
+
+# Setup logging
+mkdir -p $log_dir || true
+
+trap exit_handler 0 1 2 3
+
+printf "Current date: %s. Last snapshot: %s\n" $current_date $last | tee -a $log_file
+
+if test "$last" != "$current_date"
+    set not_id $(notify-send -a "backup" "Daily backup $current_date started." -p)
+    restic backup -v "$HOME" --exclude-file "$XDG_CONFIG_HOME/restic/ignore" | tee -a $log_file
+    if test $status != 0
+        echo "Backup failed." | tee -a $log_file
+        notify-send -a "backup" "Backup $current_date failed!" -u critical -r $not_id
+        exit $status
+    end
+
+    printf "Backup success\n." | tee -a $log_file
+
+    notify-send -a "backup" "Daily backup $current_date succeeded." -r $not_id
+else
+    printf "No backup needed" | tee -a $log_file
+end

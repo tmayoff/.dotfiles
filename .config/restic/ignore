@@ -5,6 +5,7 @@ Downloads
 .local/share/Steam
 .local/share/rustup
 .local/share/Trash
+.local/share/containers
 .config/Code
 
 .steam
