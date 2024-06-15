@@ -1,8 +1,11 @@
 ***REMOVED***
 ***REMOVED***
-***REMOVED*** unstable,
 ***REMOVED***
-***REMOVED***: ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***: rec ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -16,6 +19,14 @@
 ***REMOVED***
     ./fish.nix
   ***REMOVED*** ./neovim.nix
+***REMOVED***
+
+  nixpkgs = ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+  ***REMOVED***
 ***REMOVED***
 
   home.packages = with pkgs; [
@@ -83,6 +94,7 @@
     lemminx
     pylyzer
     ltex-ls # Spell checker
+    fish-lsp
 
   ***REMOVED*** Game Dev
   ***REMOVED*** pixelorama
@@ -110,6 +122,22 @@
     enable = true;
     enableFishIntegration = true;
     enableInstantMode = true;
+***REMOVED***
+
+  systemd.user.services = ***REMOVED***
+    daily_backup = ***REMOVED***
+      Unit = ***REMOVED***
+        Description = "Run a backup script";
+  ***REMOVED***
+      Install = ***REMOVED***
+        WantedBy = ["default.target"];
+  ***REMOVED***
+
+      Service = ***REMOVED***
+        Type = "oneshot";
+        ExecStart = "$***REMOVED***home.homeDirectory***REMOVED***/.local/bin/daily_backup";
+  ***REMOVED***
+***REMOVED***
 ***REMOVED***
 
   services.darkman = ***REMOVED***

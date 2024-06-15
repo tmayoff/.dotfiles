@@ -18,7 +18,16 @@
       zoxide init fish | source
 ***REMOVED***
 
-    loginShellInit = ''
+    shellInit = ''
+      set -gx EDITOR hx
+      set -gx GIT_EDITOR $EDITOR
+      set -gx DEBEMAIL "tyler@tylermayoff.com"
+      set -gx XDG_CONFIG_HOME "$HOME/.config"
+      set -gx XDG_CACHE_HOME "$HOME/.cache"
+      set -gx XDG_DATA_HOME "$HOME/.local/share"
+      set -gx XDG_STATE_HOME "$HOME/.local/state"
+
+      fish_add_path $HOME/.local/bin
       source $HOME/.config/fish/variables-$(hostname).fish
 ***REMOVED***
 
@@ -48,7 +57,7 @@
 
       yac = "yadm add --interactive && yadm commit";
       yacp = "yac && yadm push";
-      
+
     ***REMOVED*** nix
       flake = "nix flake";
 
