@@ -1,5 +1,5 @@
 ***REMOVED***
-  description = "Flake utils demo";
+  description = "Home manager flake";
 
   inputs = ***REMOVED***
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -8,48 +8,45 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
 ***REMOVED***
-
-    flake-utils.url = "github:numtide/flake-utils";
-
-    mesonlsp.url = "https://flakehub.com/f/tmayoff/nix-mesonlsp/0.1.4.tar.gz";
 ***REMOVED***
 
   outputs = ***REMOVED***
+    self,
     nixpkgs,
   ***REMOVED*** nix-unstable,
     home-manager,
-    flake-utils,
-    mesonlsp,
   ***REMOVED***
-  ***REMOVED***: let
+  ***REMOVED*** @ inputs: let
+    inherit (self) outputs;
+  ***REMOVED*** overlays = [
+  ***REMOVED***   import ./package.nix
+  ***REMOVED***   (final: prev: ***REMOVED***
+  ***REMOVED***     darkman = prev.darkman.overrideAttrs (old: ***REMOVED***
+  ***REMOVED***       src = final.fetchFromGitLab ***REMOVED***
+  ***REMOVED***         owner = "WhyNotHugo";
+  ***REMOVED***         repo = "darkman";
+  ***REMOVED***         rev = "main";
+  ***REMOVED***         sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
+  ***REMOVED***   ***REMOVED***
+  ***REMOVED***     ***REMOVED***);
+  ***REMOVED***     lnav = prev.lnav.overrideAttrs (old: ***REMOVED***
+  ***REMOVED***       version = "0.12.2";
+  ***REMOVED***     ***REMOVED***);
+  ***REMOVED***   ***REMOVED***)
+  ***REMOVED***   mesonlsp.overlay.default
 ***REMOVED***
-      (final: prev: ***REMOVED***
-        darkman = prev.darkman.overrideAttrs (old: ***REMOVED***
-          src = final.fetchFromGitLab ***REMOVED***
-            owner = "WhyNotHugo";
-            repo = "darkman";
-            rev = "main";
-            sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
-      ***REMOVED***
-        ***REMOVED***);
-
-        lnav = prev.lnav.overrideAttrs (old: ***REMOVED***
-          version = "0.12.2";
-        ***REMOVED***);
-      ***REMOVED***)
-      mesonlsp.overlay.default
-  ***REMOVED***
-
     system = "x86_64-linux";
-    pkgs = (import nixpkgs) ***REMOVED***inherit system overlays;***REMOVED***;
+    pkgs = (import nixpkgs) ***REMOVED***inherit system;***REMOVED***;
   ***REMOVED*** unstable = (import nix-unstable) ***REMOVED***inherit system;***REMOVED***;
   in ***REMOVED***
+    overlays = import ./overlays ***REMOVED***inherit inputs;***REMOVED***;
+
     defaultPackage.$***REMOVED***system***REMOVED*** = home-manager.defaultPackage.$***REMOVED***system***REMOVED***;
 
     homeConfigurations = ***REMOVED***
       "tyler" = home-manager.lib.homeManagerConfiguration ***REMOVED***
         inherit pkgs;
-      ***REMOVED*** extraSpecialArgs = ***REMOVED***inherit unstable;***REMOVED***;
+        extraSpecialArgs = ***REMOVED***inherit inputs outputs;***REMOVED***;
         modules = [./home.nix];
   ***REMOVED***
 ***REMOVED***
