@@ -1,8 +1,11 @@
 {
+  inputs,
+  outputs,
+  lib,
+  config,
   pkgs,
-  # unstable,
   ...
-}: {
+}: rec {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -17,6 +20,14 @@
     ./fish.nix
     # ./neovim.nix
   ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+  };
 
   home.packages = with pkgs; [
     # Gnome
@@ -83,6 +94,7 @@
     lemminx
     pylyzer
     ltex-ls # Spell checker
+    fish-lsp
 
     # Game Dev
     # pixelorama
@@ -110,6 +122,22 @@
     enable = true;
     enableFishIntegration = true;
     enableInstantMode = true;
+  };
+
+  systemd.user.services = {
+    daily_backup = {
+      Unit = {
+        Description = "Run a backup script";
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
+
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${home.homeDirectory}/.local/bin/daily_backup";
+      };
+    };
   };
 
   services.darkman = {
