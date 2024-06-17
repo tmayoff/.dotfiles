@@ -44,6 +44,7 @@
 
   ***REMOVED*** backup
 ***REMOVED***
+    libnotify
 
   ***REMOVED*** protonmail-bridge
   ***REMOVED*** hydroxide
@@ -94,7 +95,7 @@
     lemminx
     pylyzer
     ltex-ls # Spell checker
-    fish-lsp
+  ***REMOVED*** fish-lsp
 
   ***REMOVED*** Game Dev
   ***REMOVED*** pixelorama
