@@ -39,8 +39,8 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.blur-my-shell
     adw-gtk3
-
-    cntr
+    onagre
+    wofi
 
     # backup
     restic
@@ -135,7 +135,7 @@
 
       Service = {
         Type = "oneshot";
-        ExecStart = "${home.homeDirectory}/.local/bin/daily_backup";
+        ExecStart = "${home.homeDirectory}/.local/bin/,daily_backup";
       };
     };
   };
