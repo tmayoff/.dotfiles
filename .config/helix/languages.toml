@@ -1,6 +1,13 @@
 [language-server]
-biome = ***REMOVED*** command = "biome", args = ["lsp-proxy"] ***REMOVED***
 clangd = ***REMOVED*** command = "clangd", args = ["--header-insertion=never"]***REMOVED***
+biome = ***REMOVED*** command = "biome", args = ["lsp-proxy"] ***REMOVED***
+fish_lsp = ***REMOVED***command = "fish-lsp", args = ["start"]***REMOVED***
+
+[[language]]
+name = "fish"
+scope = "source.fish"
+auto-format = true
+language-servers = [***REMOVED*** name = "fish_lsp" ***REMOVED***]
 
 [[language]]
 name = "meson"
@@ -27,21 +34,25 @@ formatter = ***REMOVED*** command = "alejandra", args = ["-q"] ***REMOVED***
 name = "javascript"
 language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
 auto-format = true
+formatter = ***REMOVED*** command = "biome", args = ["format", "--stdin-file-path", "a.js"] ***REMOVED***
 
 [[language]]
 name = "typescript"
 language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
 auto-format = true
+formatter = ***REMOVED*** command = "biome", args = ["format", "--stdin-file-path", "a.ts"] ***REMOVED***
 
 [[language]]
 name = "tsx"
 auto-format = true
 language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
+formatter = ***REMOVED*** command = "biome", args = ["format", "--stdin-file-path", "a.tsx"] ***REMOVED***
 
 [[language]]
 name = "jsx"
 auto-format = true
 language-servers = [ ***REMOVED*** name = "typescript-language-server", except-features = [ "format" ] ***REMOVED***, "biome" ]
+formatter = ***REMOVED*** command = "biome", args = ["format", "--stdin-file-path", "a.jsx"] ***REMOVED***
 
 [[language]]
 name = "json"

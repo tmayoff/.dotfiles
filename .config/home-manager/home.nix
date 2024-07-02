@@ -39,8 +39,8 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.blur-my-shell
     adw-gtk3
-
-    cntr
+    onagre
+    wofi
 
   ***REMOVED*** backup
 ***REMOVED***
@@ -135,7 +135,7 @@
 
       Service = ***REMOVED***
         Type = "oneshot";
-        ExecStart = "$***REMOVED***home.homeDirectory***REMOVED***/.local/bin/daily_backup";
+        ExecStart = "$***REMOVED***home.homeDirectory***REMOVED***/.local/bin/,daily_backup";
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***

@@ -2,8 +2,8 @@
   description = "Home manager flake";
 
   inputs = ***REMOVED***
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-  ***REMOVED*** nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = ***REMOVED***
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +13,7 @@
   outputs = ***REMOVED***
     self,
     nixpkgs,
-  ***REMOVED*** nix-unstable,
+    nix-unstable,
     home-manager,
   ***REMOVED***
   ***REMOVED*** @ inputs: let
