@@ -1,25 +1,25 @@
 pkgs: ***REMOVED***
-  fish-lsp = pkgs.mkYarnPackage rec ***REMOVED***
-    pname = "fish-lsp";
-    version = "1.0.0";
-    src = pkgs.fetchFromGitHub ***REMOVED***
-      owner = "ndonfris";
-      repo = "fish-lsp";
-      rev = "v$***REMOVED***version***REMOVED***";
-      hash = "sha256-o5WomHED/JaamHkEOHdRJHBkfbrfJ4NbvnD/1q1yYSs=";
-***REMOVED***
-    offlineCache = pkgs.fetchYarnDeps ***REMOVED***
-      yarnLock = src + "/yarn.lock";
-      hash = "sha256-hmaLWO1Sj+2VujrGD2A+COfVE2D+tCnxyojjq1512K4=";
-***REMOVED***
+***REMOVED*** fish-lsp = pkgs.mkYarnPackage rec ***REMOVED***
+***REMOVED***   pname = "fish-lsp";
+***REMOVED***   version = "1.0.0";
+***REMOVED***   src = pkgs.fetchFromGitHub ***REMOVED***
+***REMOVED***     owner = "ndonfris";
+***REMOVED***     repo = "fish-lsp";
+***REMOVED***     rev = "v$***REMOVED***version***REMOVED***";
+***REMOVED***     hash = "sha256-o5WomHED/JaamHkEOHdRJHBkfbrfJ4NbvnD/1q1yYSs=";
+***REMOVED*** ***REMOVED***
+***REMOVED***   offlineCache = pkgs.fetchYarnDeps ***REMOVED***
+***REMOVED***     yarnLock = src + "/yarn.lock";
+***REMOVED***     hash = "sha256-hmaLWO1Sj+2VujrGD2A+COfVE2D+tCnxyojjq1512K4=";
+***REMOVED*** ***REMOVED***
 
-    buildPhase = ''
-      runHook preBuild
+***REMOVED***   buildPhase = ''
+***REMOVED***     runHook preBuild
 
-      export HOME=$(mktemp -d)
-      yarn --offline compile
-      ls -la
-      runHook postBuild
-***REMOVED***
+***REMOVED***     export HOME=$(mktemp -d)
+***REMOVED***     yarn --offline compile
+***REMOVED***     ls -la
+***REMOVED***     runHook postBuild
+***REMOVED***   '';
 ***REMOVED***
 ***REMOVED***
