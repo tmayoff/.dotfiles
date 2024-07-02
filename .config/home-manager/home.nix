@@ -44,6 +44,7 @@
 
     # backup
     restic
+    libnotify
 
     # protonmail-bridge
     # hydroxide
@@ -94,7 +95,7 @@
     lemminx
     pylyzer
     ltex-ls # Spell checker
-    fish-lsp
+    # fish-lsp
 
     # Game Dev
     # pixelorama
