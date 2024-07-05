@@ -1,0 +1,15 @@
+on:
+  schedule:
+    - cron: "0 0 * * 6"
+
+  workflow_dispatch:
+  
+  
+jobs:
+  update_flake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@v11
+      - uses: DeterminateSystems/update-flake-lock@v21
+        with:
+          path-to-flake-dir: .config/home-manager/
