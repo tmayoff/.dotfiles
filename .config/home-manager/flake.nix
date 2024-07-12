@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = {
@@ -36,7 +37,10 @@
     #   mesonlsp.overlay.default
     # ];
     system = "x86_64-linux";
-    pkgs = (import nixpkgs) {inherit system;};
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
     # unstable = (import nix-unstable) {inherit system;};
   in {
     overlays = import ./overlays {inherit inputs;};
