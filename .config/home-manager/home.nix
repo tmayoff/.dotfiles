@@ -5,7 +5,9 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-***REMOVED***: rec ***REMOVED***
+***REMOVED***: let
+  nixGLIntel = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLDefault;
+in rec ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -16,9 +18,15 @@
     "electron-25.9.0"
 ***REMOVED***
 
+  nixGL.prefix = "$***REMOVED***nixGLIntel***REMOVED***/bin/nixGL";
+
 ***REMOVED***
     ./fish.nix
   ***REMOVED*** ./neovim.nix
+    (builtins.fetchurl ***REMOVED***
+      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+      sha256 = "0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
+    ***REMOVED***)
 ***REMOVED***
 
   nixpkgs = ***REMOVED***
@@ -41,6 +49,8 @@
     adw-gtk3
     onagre
     wofi
+
+    nixGLIntel
 
   ***REMOVED*** backup
 ***REMOVED***
@@ -100,6 +110,11 @@
   ***REMOVED*** Game Dev
   ***REMOVED*** pixelorama
   ***REMOVED*** unstable.godot_4
+***REMOVED***
+
+  programs.alacritty = ***REMOVED***
+    enable = true;
+    package = config.lib.nixGL.wrap pkgs.alacritty;
 ***REMOVED***
 
   programs.zellij = ***REMOVED***
