@@ -47,8 +47,6 @@ in rec {
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.blur-my-shell
     adw-gtk3
-    onagre
-    wofi
 
     nixGLIntel
 
