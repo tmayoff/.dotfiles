@@ -3,7 +3,8 @@
 
   inputs = ***REMOVED***
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = ***REMOVED***
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,35 +15,18 @@
   outputs = ***REMOVED***
     self,
     nixpkgs,
-    nix-unstable,
     home-manager,
   ***REMOVED***
   ***REMOVED*** @ inputs: let
     inherit (self) outputs;
-  ***REMOVED*** overlays = [
-  ***REMOVED***   import ./package.nix
-  ***REMOVED***   (final: prev: ***REMOVED***
-  ***REMOVED***     darkman = prev.darkman.overrideAttrs (old: ***REMOVED***
-  ***REMOVED***       src = final.fetchFromGitLab ***REMOVED***
-  ***REMOVED***         owner = "WhyNotHugo";
-  ***REMOVED***         repo = "darkman";
-  ***REMOVED***         rev = "main";
-  ***REMOVED***         sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
-  ***REMOVED***   ***REMOVED***
-  ***REMOVED***     ***REMOVED***);
-  ***REMOVED***     lnav = prev.lnav.overrideAttrs (old: ***REMOVED***
-  ***REMOVED***       version = "0.12.2";
-  ***REMOVED***     ***REMOVED***);
-  ***REMOVED***   ***REMOVED***)
-  ***REMOVED***   mesonlsp.overlay.default
-***REMOVED***
+
     system = "x86_64-linux";
+  in rec ***REMOVED***
     pkgs = import nixpkgs ***REMOVED***
       inherit system;
       config.allowUnfree = true;
 ***REMOVED***
-  ***REMOVED*** unstable = (import nix-unstable) ***REMOVED***inherit system;***REMOVED***;
-  in ***REMOVED***
+
     overlays = import ./overlays ***REMOVED***inherit inputs;***REMOVED***;
 
     defaultPackage.$***REMOVED***system***REMOVED*** = home-manager.defaultPackage.$***REMOVED***system***REMOVED***;
