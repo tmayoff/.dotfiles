@@ -66,7 +66,9 @@ in rec ***REMOVED***
     usbutils
 
 ***REMOVED***
-
+    
+    (config.lib.nixGL.wrap onagre)
+    
   ***REMOVED*** Shell
     bash
     starship
@@ -74,7 +76,7 @@ in rec ***REMOVED***
     fh
     fd
     glow
-    helix
+    unstable.helix
     gitoxide
     lnav
 
