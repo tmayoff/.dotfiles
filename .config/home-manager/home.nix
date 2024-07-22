@@ -66,7 +66,9 @@ in rec {
     usbutils
 
     yadm
-
+    
+    (config.lib.nixGL.wrap onagre)
+    
     # Shell
     bash
     starship
@@ -74,7 +76,7 @@ in rec {
     fh
     fd
     glow
-    helix
+    unstable.helix
     gitoxide
     lnav
 

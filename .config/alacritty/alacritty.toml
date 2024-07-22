@@ -5,3 +5,7 @@ import = [
 [font]
 size = 9.5
 
+[keyboard]
+bindings = [
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
+]
