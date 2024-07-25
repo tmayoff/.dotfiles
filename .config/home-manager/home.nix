@@ -22,6 +22,7 @@ in rec {
 
   imports = [
     ./fish.nix
+    ./nushell.nix
     # ./neovim.nix
     (builtins.fetchurl {
       url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";

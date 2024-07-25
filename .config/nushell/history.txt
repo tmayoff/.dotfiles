@@ -480,3 +480,53 @@ cargo build --release
 make
 dch -a
 yadm status
+ls
+z cli
+z 
+cd src/
+ls
+cd cyclonedds-cli/
+zig build run
+zig build run -- topic -l
+exit
+,daily_backup 
+ssh-copy-id tmayoff@10.0.0.2
+,daily_backup 
+exit
+z
+z cli
+exit
+z
+ls .config/nushell/
+cat .config/nushell/config.nu
+ls
+ls .config/nushell/
+ls .config/nushell/config.nu.backup
+cat .config/nushell/config.nu.backup
+rm .config/nushell/config.nu.backup
+cat .config/nushell/env.nu.backup
+rm .config/nushell/env.nu.backup
+ls
+ls -la
+ls -l
+ls --la
+ls -la
+ls -l
+ls 
+ls -a
+$nu.config-path
+z .config/
+ls
+cd .config/
+$emv.EDITOR
+ls
+ls nushell/
+exit
+z
+exit
+z
+z cli
+direnv allow
+ls
+hx .
+exit
