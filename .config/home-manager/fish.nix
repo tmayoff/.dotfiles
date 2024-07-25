@@ -45,6 +45,10 @@
           sha256 = "sha256-PuorwmaZAeG6aNWX4sUTBIE+NMdn1iWeea3rJ2RhqRQ=";
         };
       }
+      {
+        name ="bass";
+        src = pkgs.fishPlugins.bass.src;
+      }
     ];
 
     shellAliases = {
@@ -63,7 +67,7 @@
 
       # home-manager
       hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
-      hm-update = "home-manager switch";
+      hm-update = "home-manager switch --impure";
     };
   };
 }

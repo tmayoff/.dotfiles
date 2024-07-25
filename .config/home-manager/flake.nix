@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = {
@@ -18,27 +19,14 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    # overlays = [
-    #   import ./package.nix
-    #   (final: prev: {
-    #     darkman = prev.darkman.overrideAttrs (old: {
-    #       src = final.fetchFromGitLab {
-    #         owner = "WhyNotHugo";
-    #         repo = "darkman";
-    #         rev = "main";
-    #         sha256 = "sha256-6SNXVe6EfVwcXH9O6BxNw+v4/uhKhCtVS3XE2GTc2Sc=";
-    #       };
-    #     });
-    #     lnav = prev.lnav.overrideAttrs (old: {
-    #       version = "0.12.2";
-    #     });
-    #   })
-    #   mesonlsp.overlay.default
-    # ];
+
     system = "x86_64-linux";
-    pkgs = (import nixpkgs) {inherit system;};
-    # unstable = (import nix-unstable) {inherit system;};
-  in {
+  in rec {
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
     overlays = import ./overlays {inherit inputs;};
 
     defaultPackage.${system} = home-manager.defaultPackage.${system};

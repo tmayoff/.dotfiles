@@ -5,7 +5,9 @@
   config,
   pkgs,
   ...
-}: rec {
+}: let
+  nixGLIntel = inputs.nixgl.packages."${pkgs.system}".nixGLDefault;
+in rec {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -16,9 +18,15 @@
     "electron-25.9.0"
   ];
 
+  nixGL.prefix = "${nixGLIntel}/bin/nixGL";
+
   imports = [
     ./fish.nix
     # ./neovim.nix
+    (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+      sha256 = "0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
+    })
   ];
 
   nixpkgs = {
@@ -39,8 +47,8 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.blur-my-shell
     adw-gtk3
-    onagre
-    wofi
+
+    nixGLIntel
 
     # backup
     restic
@@ -58,7 +66,9 @@
     usbutils
 
     yadm
-
+    
+    (config.lib.nixGL.wrap onagre)
+    
     # Shell
     bash
     starship
@@ -101,6 +111,11 @@
     # pixelorama
     # unstable.godot_4
   ];
+
+  programs.alacritty = {
+    enable = true;
+    package = config.lib.nixGL.wrap pkgs.alacritty;
+  };
 
   programs.zellij = {
     enable = true;
