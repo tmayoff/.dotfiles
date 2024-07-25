@@ -7,42 +7,26 @@
         ]
       ***REMOVED***,
       "locked": ***REMOVED***
-        "lastModified": 1718243258,
-        "narHash": "sha256-abBpj2VU8p6qlRzTU8o22q68MmOaZ4v8zZ4UlYl5YRU=",
+        "lastModified": 1721135958,
+        "narHash": "sha256-H548rpPMsn25LDKn1PCFmPxmWlClJJGnvdzImHkqjuY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8d5e27b4807d25308dfe369d5a923d87e7dbfda3",
+        "rev": "afd2021bedff2de92dfce0e257a3d03ae65c603d",
         "type": "github"
       ***REMOVED***,
       "original": ***REMOVED***
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      ***REMOVED***
-    ***REMOVED***,
-    "nix-unstable": ***REMOVED***
-      "locked": ***REMOVED***
-        "lastModified": 1718318537,
-        "narHash": "sha256-4Zu0RYRcAY/VWuu6awwq4opuiD//ahpc2aFHg2CWqFY=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e9ee548d90ff586a6471b4ae80ae9cfcbceb3420",
-        "type": "github"
-      ***REMOVED***,
-      "original": ***REMOVED***
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
         "type": "github"
       ***REMOVED***
     ***REMOVED***,
     "nixpkgs": ***REMOVED***
       "locked": ***REMOVED***
-        "lastModified": 1718208800,
-        "narHash": "sha256-US1tAChvPxT52RV8GksWZS415tTS7PV42KTc2PNDBmc=",
+        "lastModified": 1721226092,
+        "narHash": "sha256-UBvzVpo5sXSi2S/Av+t+Q+C2mhMIw/LBEZR+d6NMjws=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cc54fb41d13736e92229c21627ea4f22199fee6b",
+        "rev": "c716603a63aca44f39bef1986c13402167450e0a",
         "type": "github"
       ***REMOVED***,
       "original": ***REMOVED***
@@ -52,11 +36,27 @@
         "type": "github"
       ***REMOVED***
     ***REMOVED***,
+    "nixpkgs-unstable": ***REMOVED***
+      "locked": ***REMOVED***
+        "lastModified": 1721138476,
+        "narHash": "sha256-+W5eZOhhemLQxelojLxETfbFbc19NWawsXBlapYpqIA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ad0b5eed1b6031efaed382844806550c3dcb4206",
+        "type": "github"
+      ***REMOVED***,
+      "original": ***REMOVED***
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      ***REMOVED***
+    ***REMOVED***,
     "root": ***REMOVED***
       "inputs": ***REMOVED***
         "home-manager": "home-manager",
-        "nix-unstable": "nix-unstable",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       ***REMOVED***
     ***REMOVED***
   ***REMOVED***,

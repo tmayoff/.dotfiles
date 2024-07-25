@@ -66,7 +66,7 @@
     fh
     fd
     glow
-    helix
+    unstable.helix
     gitoxide
     lnav
 
@@ -141,24 +141,24 @@
 ***REMOVED***
 ***REMOVED***
 
-  services.darkman = ***REMOVED***
-    enable = true;
-    settings = ***REMOVED***
-      lat = 45.408;
-      lng = -74.159;
+***REMOVED*** services.darkman = ***REMOVED***
 ***REMOVED***
+***REMOVED***   settings = ***REMOVED***
+***REMOVED***     lat = 45.408;
+***REMOVED***     lng = -74.159;
+***REMOVED*** ***REMOVED***
 
-    darkModeScripts = ***REMOVED***
-      helix-editor = ''
-        sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
-  ***REMOVED***
-***REMOVED***
+***REMOVED***   darkModeScripts = ***REMOVED***
+***REMOVED***     helix-editor = ''
+***REMOVED***       sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
+***REMOVED*** ***REMOVED***
+***REMOVED*** ***REMOVED***
 
-    lightModeScripts = ***REMOVED***
-      helix-editor = ''
-        sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
-  ***REMOVED***
-***REMOVED***
+***REMOVED***   lightModeScripts = ***REMOVED***
+***REMOVED***     helix-editor = ''
+***REMOVED***       sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
+***REMOVED*** ***REMOVED***
+***REMOVED*** ***REMOVED***
 ***REMOVED***
 
   home.stateVersion = "23.11";
