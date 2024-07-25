@@ -66,7 +66,7 @@
     fh
     fd
     glow
-    helix
+    unstable.helix
     gitoxide
     lnav
 
@@ -141,25 +141,25 @@
     };
   };
 
-  services.darkman = {
-    enable = true;
-    settings = {
-      lat = 45.408;
-      lng = -74.159;
-    };
+  # services.darkman = {
+  #   enable = true;
+  #   settings = {
+  #     lat = 45.408;
+  #     lng = -74.159;
+  #   };
 
-    darkModeScripts = {
-      helix-editor = ''
-        sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
-      '';
-    };
+  #   darkModeScripts = {
+  #     helix-editor = ''
+  #       sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
+  #     '';
+  #   };
 
-    lightModeScripts = {
-      helix-editor = ''
-        sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
-      '';
-    };
-  };
+  #   lightModeScripts = {
+  #     helix-editor = ''
+  #       sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
+  #     '';
+  #   };
+  # };
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
