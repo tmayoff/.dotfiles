@@ -45,6 +45,10 @@
           sha256 = "sha256-PuorwmaZAeG6aNWX4sUTBIE+NMdn1iWeea3rJ2RhqRQ=";
     ***REMOVED***
       ***REMOVED***
+      ***REMOVED***
+        name ="bass";
+        src = pkgs.fishPlugins.bass.src;
+      ***REMOVED***
   ***REMOVED***
 
     shellAliases = ***REMOVED***
@@ -63,7 +67,7 @@
 
     ***REMOVED*** home-manager
       hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
-      hm-update = "home-manager switch";
+      hm-update = "home-manager switch --impure";
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
