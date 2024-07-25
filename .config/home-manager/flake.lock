@@ -35,18 +35,36 @@
         "type": "github"
       ***REMOVED***
     ***REMOVED***,
+    "nixgl": ***REMOVED***
+      "inputs": ***REMOVED***
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      ***REMOVED***,
+      "locked": ***REMOVED***
+        "lastModified": 1713543440,
+        "narHash": "sha256-lnzZQYG0+EXl/6NkGpyIz+FEOc/DSEG57AP1VsdeNrM=",
+        "owner": "nix-community",
+        "repo": "nixGL",
+        "rev": "310f8e49a149e4c9ea52f1adf70cdc768ec53f8a",
+        "type": "github"
+      ***REMOVED***,
+      "original": ***REMOVED***
+        "owner": "nix-community",
+        "repo": "nixGL",
+        "type": "github"
+      ***REMOVED***
+    ***REMOVED***,
     "nixpkgs": ***REMOVED***
       "locked": ***REMOVED***
-        "lastModified": 1721226092,
-        "narHash": "sha256-UBvzVpo5sXSi2S/Av+t+Q+C2mhMIw/LBEZR+d6NMjws=",
+        "lastModified": 1660551188,
+        "narHash": "sha256-a1LARMMYQ8DPx1BgoI/UN4bXe12hhZkCNqdxNi6uS0g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c716603a63aca44f39bef1986c13402167450e0a",
+        "rev": "441dc5d512153039f19ef198e662e4f3dbb9fd65",
         "type": "github"
       ***REMOVED***,
       "original": ***REMOVED***
         "owner": "nixos",
-        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       ***REMOVED***
@@ -67,10 +85,27 @@
         "type": "github"
       ***REMOVED***
     ***REMOVED***,
+    "nixpkgs_2": ***REMOVED***
+      "locked": ***REMOVED***
+        "lastModified": 1721226092,
+        "narHash": "sha256-UBvzVpo5sXSi2S/Av+t+Q+C2mhMIw/LBEZR+d6NMjws=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c716603a63aca44f39bef1986c13402167450e0a",
+        "type": "github"
+      ***REMOVED***,
+      "original": ***REMOVED***
+        "owner": "nixos",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      ***REMOVED***
+    ***REMOVED***,
     "root": ***REMOVED***
       "inputs": ***REMOVED***
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixgl": "nixgl",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable"
       ***REMOVED***
     ***REMOVED***
