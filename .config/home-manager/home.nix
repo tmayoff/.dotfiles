@@ -67,9 +67,9 @@ in rec {
     usbutils
 
     yadm
-    
+
     (config.lib.nixGL.wrap onagre)
-    
+
     # Shell
     bash
     starship
@@ -91,7 +91,7 @@ in rec {
     # minicom
 
     # Software Dev
-    github-desktop
+    tig
     mold
 
     # Office
@@ -106,11 +106,6 @@ in rec {
     lemminx
     pylyzer
     ltex-ls # Spell checker
-    # fish-lsp
-
-    # Game Dev
-    # pixelorama
-    # unstable.godot_4
   ];
 
   programs.alacritty = {
@@ -157,25 +152,36 @@ in rec {
     };
   };
 
-  # services.darkman = {
-  #   enable = true;
-  #   settings = {
-  #     lat = 45.408;
-  #     lng = -74.159;
-  #   };
+  services.darkman = {
+    enable = true;
+    package = pkgs.unstable.darkman;
+    settings = {
+      lat = 45.408;
+      lng = -74.159;
+    };
 
-  #   darkModeScripts = {
-  #     helix-editor = ''
-  #       sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
-  #     '';
-  #   };
+    darkModeScripts = {
+      helix-editor = ''
+        sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
+      '';
 
-  #   lightModeScripts = {
-  #     helix-editor = ''
-  #       sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
-  #     '';
-  #   };
-  # };
+      alacritty = ''
+        ln -fs ~/.config/alacritty/themes/catppuccin_macchiato.toml ~/.config/alacritty/themes/_active.toml
+        touch ~/.config/alacritty/alacritty.toml
+      '';
+    };
+
+    lightModeScripts = {
+      helix-editor = ''
+        sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
+      '';
+
+      alacritty = ''
+        ln -fs ~/.config/alacritty/themes/catppuccin_latte.toml ~/.config/alacritty/themes/_active.toml
+        touch ~/.config/alacritty/alacritty.toml
+      '';
+    };
+  };
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
