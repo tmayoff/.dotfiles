@@ -1,1 +1,0 @@
-/nix/store/kh8sk1x5jilgg60mklzwlvv8maf8lycf-home-manager-files/.config/nushell/env.nu
