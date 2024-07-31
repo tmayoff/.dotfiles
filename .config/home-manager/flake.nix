@@ -32,10 +32,16 @@
     defaultPackage.${system} = home-manager.defaultPackage.${system};
 
     homeConfigurations = {
-      "tyler" = home-manager.lib.homeManagerConfiguration {
+      "tyler@guidebolt" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home.nix];
+        modules = [./home/guidebolt/guidebolt.nix];
+      };
+
+      "tyler@wash" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/wash/wash.nix];
       };
     };
   };
