@@ -66,7 +66,7 @@
       flake = "nix flake";
 
     ***REMOVED*** home-manager
-      hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
+      hm-upgrade = "nix flake update --flake ~/.config/home-manager#";
       hm-update = "home-manager switch --impure";
 ***REMOVED***
 ***REMOVED***

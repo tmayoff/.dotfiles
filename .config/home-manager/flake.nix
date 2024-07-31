@@ -32,10 +32,16 @@
     defaultPackage.$***REMOVED***system***REMOVED*** = home-manager.defaultPackage.$***REMOVED***system***REMOVED***;
 
     homeConfigurations = ***REMOVED***
-      "tyler" = home-manager.lib.homeManagerConfiguration ***REMOVED***
+      "tyler@guidebolt" = home-manager.lib.homeManagerConfiguration ***REMOVED***
         inherit pkgs;
         extraSpecialArgs = ***REMOVED***inherit inputs outputs;***REMOVED***;
-        modules = [./home.nix];
+        modules = [./home/guidebolt/guidebolt.nix];
+  ***REMOVED***
+
+      "tyler@wash" = home-manager.lib.homeManagerConfiguration ***REMOVED***
+        inherit pkgs;
+        extraSpecialArgs = ***REMOVED***inherit inputs outputs;***REMOVED***;
+        modules = [./home/wash/wash.nix];
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
