@@ -70,6 +70,9 @@ in rec {
 
     (config.lib.nixGL.wrap onagre)
 
+    fontconfig
+    # (pkgs.nerdfonts.override {fonts = ["FiraCode"];})
+
     # Shell
     bash
     starship
@@ -136,6 +139,13 @@ in rec {
     enableInstantMode = true;
   };
 
+  programs.yazi = {
+    enable = true;
+    package = pkgs.unstable.yazi;
+    enableFishIntegration = true;
+    shellWrapperName = "y";
+  };
+
   systemd.user.services = {
     daily_backup = {
       Unit = {
@@ -182,6 +192,8 @@ in rec {
       '';
     };
   };
+
+  fonts.fontconfig.enable = true;
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
