@@ -70,6 +70,9 @@ in rec ***REMOVED***
 
     (config.lib.nixGL.wrap onagre)
 
+    fontconfig
+  ***REMOVED*** (pkgs.nerdfonts.override ***REMOVED***fonts = ["FiraCode"];***REMOVED***)
+
   ***REMOVED*** Shell
     bash
     starship
@@ -136,6 +139,13 @@ in rec ***REMOVED***
     enableInstantMode = true;
 ***REMOVED***
 
+  programs.yazi = ***REMOVED***
+    enable = true;
+    package = pkgs.unstable.yazi;
+    enableFishIntegration = true;
+    shellWrapperName = "y";
+***REMOVED***
+
   systemd.user.services = ***REMOVED***
     daily_backup = ***REMOVED***
       Unit = ***REMOVED***
@@ -182,6 +192,8 @@ in rec ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+
+  fonts.fontconfig.enable = true;
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
