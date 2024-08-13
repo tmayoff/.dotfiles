@@ -59,7 +59,7 @@
       gacp = "gac && git push";
       gs = "git status";
 
-      yac = "yadm add --interactive && yadm commit";
+      yac = "yadm add . && yadm commit";
       yacp = "yac && yadm push";
 
     ***REMOVED*** nix

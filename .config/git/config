@@ -18,4 +18,4 @@
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [pull]
-	rebase = false
+	rebase = true
