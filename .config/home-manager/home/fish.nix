@@ -59,8 +59,8 @@
       gacp = "gac && git push";
       gs = "git status";
 
-      yac = "yadm add . && yadm commit";
-      yacp = "yac && yadm push";
+    ***REMOVED*** yac = "yadm add . && yadm commit";
+    ***REMOVED*** yacp = "yac && yadm push";
 
     ***REMOVED*** nix
       flake = "nix flake";
