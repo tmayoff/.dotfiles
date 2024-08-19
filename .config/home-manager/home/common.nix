@@ -50,6 +50,7 @@ in rec ***REMOVED***
     adw-gtk3
 
     nixGLIntel
+    unstable.nix-output-monitor
 
   ***REMOVED*** backup
 ***REMOVED***
