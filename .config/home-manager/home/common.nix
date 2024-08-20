@@ -23,6 +23,7 @@ in rec ***REMOVED***
 ***REMOVED***
     ./fish.nix
     ./nushell.nix
+    ./nom.nix
   ***REMOVED*** ./neovim.nix
     (builtins.fetchurl ***REMOVED***
       url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
