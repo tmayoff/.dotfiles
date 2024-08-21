@@ -6,7 +6,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***: let
-***REMOVED*** nixGLDefault = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLDefault;
+  nixGLIntel = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLIntel;
 in rec ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
@@ -14,8 +14,6 @@ in rec ***REMOVED***
   home.homeDirectory = "/home/tyler";
 
   home.enableNixpkgsReleaseCheck = false;
-
-***REMOVED*** nixGL.prefix = "$***REMOVED***nixGLDefault***REMOVED***/bin/nixGL";
 
 ***REMOVED***
     ./fish.nix
@@ -27,6 +25,8 @@ in rec ***REMOVED***
       sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
     ***REMOVED***)
 ***REMOVED***
+
+  nixGL.prefix = "$***REMOVED***nixGLIntel***REMOVED***/bin/nixGLIntel";
 
   nixpkgs = ***REMOVED***
 ***REMOVED***
@@ -49,9 +49,12 @@ in rec ***REMOVED***
     gnomeExtensions.blur-my-shell
     adw-gtk3
 
+    nixGLIntel
+
   ***REMOVED*** Fonts
     (nerdfonts.override ***REMOVED***fonts = ["JetBrainsMono"];***REMOVED***)
 
+    expect
     unstable.nix-output-monitor
 
   ***REMOVED*** backup

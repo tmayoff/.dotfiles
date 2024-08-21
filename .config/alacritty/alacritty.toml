@@ -5,8 +5,8 @@ import = [
 [font]
 size = 9.5
 
-# [font.normal]
-# family = "FiraMono Nerd Font"
+[font.normal]
+family = "JetBrainsMono Nerd Font"
 
 [keyboard]
 bindings = [
