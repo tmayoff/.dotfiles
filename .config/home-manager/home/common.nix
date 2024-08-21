@@ -6,7 +6,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***: let
-  nixGLDefault = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLDefault;
+***REMOVED*** nixGLDefault = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLDefault;
 in rec ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
@@ -15,7 +15,7 @@ in rec ***REMOVED***
 
   home.enableNixpkgsReleaseCheck = false;
 
-  nixGL.prefix = "$***REMOVED***nixGLDefault***REMOVED***/bin/nixGL";
+***REMOVED*** nixGL.prefix = "$***REMOVED***nixGLDefault***REMOVED***/bin/nixGL";
 
 ***REMOVED***
     ./fish.nix
@@ -24,7 +24,7 @@ in rec ***REMOVED***
   ***REMOVED*** ./neovim.nix
     (builtins.fetchurl ***REMOVED***
       url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
-      sha256 = "0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
+      sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
     ***REMOVED***)
 ***REMOVED***
 
@@ -53,7 +53,6 @@ in rec ***REMOVED***
     (nerdfonts.override ***REMOVED***fonts = ["JetBrainsMono"];***REMOVED***)
     cascadia-code
 
-    nixGLDefault
     unstable.nix-output-monitor
 
   ***REMOVED*** backup
