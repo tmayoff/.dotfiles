@@ -10,7 +10,7 @@
 
   home.packages = with pkgs; [
   ***REMOVED*** clang_17
-    clang-tools
+  ***REMOVED*** clang-tools
     just
 ***REMOVED***
 ***REMOVED***

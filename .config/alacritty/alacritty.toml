@@ -5,6 +5,9 @@ import = [
 [font]
 size = 9.5
 
+# [font.normal]
+# family = "FiraMono Nerd Font"
+
 [keyboard]
 bindings = [
   ***REMOVED*** key = "N", mods = "Control|Shift", action = "CreateNewWindow" ***REMOVED***

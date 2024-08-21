@@ -108,7 +108,7 @@ let
               ;;
           esac
     ***REMOVED***
-        nix-build = nixBuildCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-build";
+      ***REMOVED*** nix-build = nixBuildCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-build";
         nix-shell = nixShellCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-shell";
         nix-store = nixStoreCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-store";
       ***REMOVED***) ++ [ nix ];

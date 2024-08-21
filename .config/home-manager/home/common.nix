@@ -1,12 +1,12 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-***REMOVED***
+***REMOVED*** lib,
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***: let
-  nixGLIntel = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLDefault;
+  nixGLDefault = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLDefault;
 in rec ***REMOVED***
   nixpkgs.config.allowUnfree = true;
 
@@ -14,11 +14,8 @@ in rec ***REMOVED***
   home.homeDirectory = "/home/tyler";
 
   home.enableNixpkgsReleaseCheck = false;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-***REMOVED***
 
-  nixGL.prefix = "$***REMOVED***nixGLIntel***REMOVED***/bin/nixGL";
+  nixGL.prefix = "$***REMOVED***nixGLDefault***REMOVED***/bin/nixGL";
 
 ***REMOVED***
     ./fish.nix
@@ -39,6 +36,8 @@ in rec ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
   ***REMOVED*** Gnome
     gnome-extension-manager
@@ -50,30 +49,24 @@ in rec ***REMOVED***
     gnomeExtensions.blur-my-shell
     adw-gtk3
 
-    nixGLIntel
+  ***REMOVED*** Fonts
+    (nerdfonts.override ***REMOVED***fonts = ["JetBrainsMono"];***REMOVED***)
+    cascadia-code
+
+    nixGLDefault
     unstable.nix-output-monitor
 
   ***REMOVED*** backup
 ***REMOVED***
     libnotify
 
-  ***REMOVED*** protonmail-bridge
-  ***REMOVED*** hydroxide
-
     distrobox
     discord
-
-  ***REMOVED*** fritzing
 
     wl-clipboard
     usbutils
 
 ***REMOVED***
-
-    (config.lib.nixGL.wrap onagre)
-
-    fontconfig
-  ***REMOVED*** (pkgs.nerdfonts.override ***REMOVED***fonts = ["FiraCode"];***REMOVED***)
 
   ***REMOVED*** Shell
     bash
@@ -88,12 +81,6 @@ in rec ***REMOVED***
 
     fzf
     zoxide
-
-  ***REMOVED*** Mechanical
-  ***REMOVED*** openscad
-  ***REMOVED*** openscad-lsp
-
-  ***REMOVED*** minicom
 
   ***REMOVED*** Software Dev
     tig
@@ -116,6 +103,10 @@ in rec ***REMOVED***
   programs.alacritty = ***REMOVED***
     enable = true;
     package = config.lib.nixGL.wrap pkgs.alacritty;
+***REMOVED***
+
+  programs.bat = ***REMOVED***
+    enable = true;
 ***REMOVED***
 
   programs.zellij = ***REMOVED***
@@ -194,8 +185,6 @@ in rec ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-
-  fonts.fontconfig.enable = true;
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
