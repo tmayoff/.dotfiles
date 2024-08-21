@@ -20,7 +20,7 @@ in rec ***REMOVED***
 ***REMOVED***
     ./fish.nix
     ./nushell.nix
-    ./nom.nix
+  ***REMOVED*** ./nom.nix
   ***REMOVED*** ./neovim.nix
     (builtins.fetchurl ***REMOVED***
       url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
@@ -51,7 +51,6 @@ in rec ***REMOVED***
 
   ***REMOVED*** Fonts
     (nerdfonts.override ***REMOVED***fonts = ["JetBrainsMono"];***REMOVED***)
-    cascadia-code
 
     unstable.nix-output-monitor
 

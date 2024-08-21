@@ -135,9 +135,9 @@ let
             ;;
         esac
   ***REMOVED***
-      nix-build = ''
-        $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom-build "$@"
-  ***REMOVED***
+    ***REMOVED*** nix-build = ''
+    ***REMOVED***   $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom-build "$@"
+    ***REMOVED*** '';
       nix-shell = ''
         $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom-shell "$@"
   ***REMOVED***
@@ -175,13 +175,13 @@ let
     ***REMOVED***);
 
 in ***REMOVED***
-  home.shellAliases =
-    nomAliases ***REMOVED*** inherit (pkgs) nix nixos-rebuild home-manager; ***REMOVED***;
+***REMOVED*** home.shellAliases =
+***REMOVED***   nomAliases ***REMOVED*** inherit (pkgs) nix nixos-rebuild home-manager; ***REMOVED***;
 
 ***REMOVED*** or
 
-  home.packages = [
-    (lib.hiPrio
-      (wrapWithNom ***REMOVED*** inherit (pkgs) nix nixos-rebuild home-manager; ***REMOVED***))
-***REMOVED***
+***REMOVED*** home.packages = [
+***REMOVED***   (lib.hiPrio
+***REMOVED***     (wrapWithNom ***REMOVED*** inherit (pkgs) nix nixos-rebuild home-manager; ***REMOVED***))
+***REMOVED*** ];
 ***REMOVED***

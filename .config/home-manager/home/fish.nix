@@ -31,23 +31,18 @@
       source $HOME/.config/fish/variables-$(hostname).fish
 ***REMOVED***
 
+  ***REMOVED*** functions = ***REMOVED***
+  ***REMOVED***   yupdate = ***REMOVED***
+  ***REMOVED***     body = ''
+  ***REMOVED***       echo "Hello world"
+  ***REMOVED*** ***REMOVED***
+  ***REMOVED*** ***REMOVED***
+  ***REMOVED***
+
     plugins = [
       ***REMOVED***
         name = "forgit";
         src = pkgs.fishPlugins.forgit.src;
-      ***REMOVED***
-      ***REMOVED***
-        name = "gitnow";
-        src = pkgs.fetchFromGitHub ***REMOVED***
-          owner = "joseluisq";
-          repo = "gitnow";
-          rev = "91bda1d0ffad2d68b21a1349f9b55a8cb5b54f35";
-          sha256 = "sha256-PuorwmaZAeG6aNWX4sUTBIE+NMdn1iWeea3rJ2RhqRQ=";
-    ***REMOVED***
-      ***REMOVED***
-      ***REMOVED***
-        name ="bass";
-        src = pkgs.fishPlugins.bass.src;
       ***REMOVED***
   ***REMOVED***
 
@@ -61,13 +56,14 @@
 
     ***REMOVED*** yac = "yadm add . && yadm commit";
     ***REMOVED*** yacp = "yac && yadm push";
+      yc = "pushd $HOME/.local/share/yadm/repo.git && git-forgit add && yadm commit && popd";
 
     ***REMOVED*** nix
       flake = "nix flake";
 
     ***REMOVED*** home-manager
       hm-upgrade = "nix flake update --flake ~/.config/home-manager#";
-      hm-update = "home-manager switch";
+      hm-update = "home-manager switch | nom";
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
