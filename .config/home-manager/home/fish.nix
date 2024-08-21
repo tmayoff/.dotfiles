@@ -63,7 +63,7 @@
 
     ***REMOVED*** home-manager
       hm-upgrade = "nix flake update --flake ~/.config/home-manager#";
-      hm-update = "unbuffer home-manager switch &| nom";
+      hm-update = "home-manager switch &| nom --json";
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***

@@ -106,8 +106,16 @@ in rec ***REMOVED***
     package = config.lib.nixGL.wrap pkgs.alacritty;
 ***REMOVED***
 
+  programs.wezterm = ***REMOVED***
+    enable = true;
+    package = config.lib.nixGL.wrap pkgs.wezterm;
+***REMOVED***
+
   programs.bat = ***REMOVED***
     enable = true;
+    config = ***REMOVED***
+      theme = "GitHub";
+***REMOVED***
 ***REMOVED***
 
   programs.zellij = ***REMOVED***
