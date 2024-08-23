@@ -109,6 +109,16 @@ in rec ***REMOVED***
   programs.wezterm = ***REMOVED***
     enable = true;
     package = config.lib.nixGL.wrap pkgs.wezterm;
+    extraConfig = ''
+      return ***REMOVED***
+        font_size=9.25,
+        color_scheme="catppuccin-latte",
+        hide_tab_bar_if_only_one_tab = true,
+        window_frame = ***REMOVED***
+          font_size = 10
+        ***REMOVED***,
+      ***REMOVED***
+***REMOVED***
 ***REMOVED***
 
   programs.bat = ***REMOVED***
