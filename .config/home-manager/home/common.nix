@@ -40,13 +40,7 @@ in rec ***REMOVED***
 
   home.packages = with pkgs; [
   ***REMOVED*** Gnome
-    gnome-extension-manager
     gnome.gnome-tweaks
-    gnomeExtensions.ddterm
-    gnomeExtensions.gsconnect
-    gnomeExtensions.paperwm
-    gnomeExtensions.night-theme-switcher
-    gnomeExtensions.blur-my-shell
     adw-gtk3
 
     nixGLIntel
@@ -54,7 +48,6 @@ in rec ***REMOVED***
   ***REMOVED*** Fonts
     (nerdfonts.override ***REMOVED***fonts = ["JetBrainsMono"];***REMOVED***)
 
-    expect
     unstable.nix-output-monitor
 
   ***REMOVED*** backup
@@ -101,6 +94,18 @@ in rec ***REMOVED***
     ltex-ls # Spell checker
 ***REMOVED***
 
+  programs.gnome-shell = ***REMOVED***
+    enable = true;
+    extensions = [
+    ***REMOVED*** ***REMOVED***package = pkgs.gnomeExtensions.appindicator;***REMOVED***
+      ***REMOVED***package = pkgs.gnomeExtensions.ddterm;***REMOVED***
+      ***REMOVED***package = pkgs.gnomeExtensions.gsconnect;***REMOVED***
+      ***REMOVED***package = pkgs.gnomeExtensions.paperwm;***REMOVED***
+      ***REMOVED***package = pkgs.gnomeExtensions.night-theme-switcher;***REMOVED***
+      ***REMOVED***package = pkgs.gnomeExtensions.blur-my-shell;***REMOVED***
+  ***REMOVED***
+***REMOVED***
+
   programs.alacritty = ***REMOVED***
     enable = true;
     package = config.lib.nixGL.wrap pkgs.alacritty;
@@ -139,6 +144,11 @@ in rec ***REMOVED***
 
   programs.starship = ***REMOVED***
     enable = true;
+***REMOVED***
+
+  programs.eza = ***REMOVED***
+    enable = true;
+    enableFishIntegration = true;
 ***REMOVED***
 
   programs.direnv = ***REMOVED***
