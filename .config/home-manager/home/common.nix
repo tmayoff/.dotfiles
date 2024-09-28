@@ -15,6 +15,8 @@ in rec ***REMOVED***
 
   home.enableNixpkgsReleaseCheck = false;
 
+  xdg.enable = true;
+
 ***REMOVED***
     ./fish.nix
     ./nushell.nix
@@ -40,7 +42,7 @@ in rec ***REMOVED***
 
   home.packages = with pkgs; [
   ***REMOVED*** Gnome
-    gnome.gnome-tweaks
+    gnome-tweaks
     adw-gtk3
 
     nixGLIntel

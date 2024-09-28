@@ -5,8 +5,7 @@
       set -gx EDITOR hx
       set -gx GIT_EDITOR $EDITOR
       set -gx DEBEMAIL "tyler@tylermayoff.com"
-      set -gx XDG_STATE_HOME "$HOME/.local/state"
-      set -xg XDG_DATA_DIRS "$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+    
       fish_add_path $HOME/.local/bin
 
       source $HOME/.config/fish/variables-$(hostname).fish
@@ -19,6 +18,8 @@
       set -gx EDITOR hx
       set -gx GIT_EDITOR $EDITOR
       set -gx DEBEMAIL "tyler@tylermayoff.com"
+
+      set -xg XDG_DATA_DIRS "$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
       fish_add_path $HOME/.local/bin
       source $HOME/.config/fish/variables-$(hostname).fish
@@ -40,6 +41,16 @@
   ***REMOVED***
 
     shellAliases = ***REMOVED***
+    ***REMOVED*** ls
+      ls = "eza $eza_params";
+      l = "eza --git-ignore $eza_params";
+      ll = "eza --all --header --long $eza_params";
+      llm = "eza --all --header --long --sort=modified $eza_params";
+      la = "eza -lbhHigUmuSa";
+      lx = "eza -lbhHigUmuSa@";
+      lt = "eza --tree $eza_params";
+      tree = "eza --tree $eza_params";
+
     ***REMOVED*** Git
       gc = "git commit";
       gcm = "git commit -m";
@@ -50,6 +61,7 @@
     ***REMOVED*** yac = "yadm add . && yadm commit";
     ***REMOVED*** yacp = "yac && yadm push";
       yc = "pushd $HOME/.local/share/yadm/repo.git && git-forgit add && yadm commit && popd";
+      yd = "pushd $HOME/.local/share/yadm/repo.git && git-forgit diff && popd";
 
     ***REMOVED*** nix
       flake = "nix flake";
