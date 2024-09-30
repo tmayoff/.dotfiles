@@ -118,6 +118,7 @@
 
     script = ''
       # Remove keys
+      ${./secrets.sh}
       printf "\nBacking up nextcloud \n"
       ${pkgs.restic} -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
       ${pkgs.restic} -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
