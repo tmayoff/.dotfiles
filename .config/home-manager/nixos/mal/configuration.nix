@@ -35,8 +35,8 @@
 
 ***REMOVED***
 
-    registry = lib.mapAttrs(_: flake: ***REMOVED***inherit flake;***REMOVED***) flakeInputs;
-    nixPath = lib.mapAttrsToList(n: _: "$***REMOVED***n***REMOVED***=flake:$***REMOVED***n***REMOVED***") flakeInputs;
+    registry = lib.mapAttrs (_: flake: ***REMOVED***inherit flake;***REMOVED***) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "$***REMOVED***n***REMOVED***=flake:$***REMOVED***n***REMOVED***") flakeInputs;
 ***REMOVED***
 
 ***REMOVED***
@@ -100,12 +100,42 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+***REMOVED***
 
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED*** programs.gnupg.agent = ***REMOVED***
 ***REMOVED***
+***REMOVED***
+***REMOVED***
+
+  systemd.timers.backup-nextcloud = ***REMOVED***
+    timerConfig = ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+      ***REMOVED***
+      ***REMOVED***
+      ***REMOVED***
+
+      ***REMOVED***
+      ***REMOVED***
+
+***REMOVED***
+      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
+      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
+
+***REMOVED***
+      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Backups" backup --verbose --no-scan /mnt/user/Backups
+      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Backups" check --verbose
+
+***REMOVED***
+      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
+      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Appdata" check --verbose
 ***REMOVED***
 ***REMOVED***
 

@@ -1,2 +1,3 @@
 .config/yadm/encrypted/*
 .config/fish/variables-*
+.config/home-manager/nixos/mal/secrets.sh
