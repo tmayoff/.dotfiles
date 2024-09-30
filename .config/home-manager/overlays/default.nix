@@ -1,12 +1,12 @@
-***REMOVED***inputs, ...***REMOVED***: ***REMOVED***
+{inputs, ...}: {
   additions = final: _prev: import ../pkgs final.pkgs;
 
-  modifications = final: prev: ***REMOVED******REMOVED***;
+  modifications = final: prev: {};
 
-  unstable-packages = final: _prev: ***REMOVED***
-    unstable = import inputs.nixpkgs-unstable ***REMOVED***
+  unstable-packages = final: _prev: {
+    unstable = import inputs.nixpkgs-unstable {
       system = final.system;
       config.allowUnfree = true;
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    };
+  };
+}

@@ -1,176 +1,171 @@
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***: ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+# Edit this configuration file to define what should be installed on
+# your system. Help is available in the configuration.nix(5) man page, on
+# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+{
+  inputs,
+  outputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nixpkgs = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
 
-    config = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    config = {
+      allowUnfree = true;
+    };
+  };
 
-***REMOVED***
-***REMOVED***
-  in ***REMOVED***
-    settings = ***REMOVED***
-***REMOVED***
-***REMOVED***
+  nix = let
+    flakeInputs = lib.filterAtts (_: lib.isType "flake") inputs;
+  in {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+    };
 
-***REMOVED***
+    channel.enable = false;
 
-    registry = lib.mapAttrs (_: flake: ***REMOVED***inherit flake;***REMOVED***) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "$***REMOVED***n***REMOVED***=flake:$***REMOVED***n***REMOVED***") flakeInputs;
-***REMOVED***
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+  };
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  networking.hostName = "mal"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-***REMOVED***
-***REMOVED***
+  # Set your time zone.
+  # time.timeZone = "Europe/Amsterdam";
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-***REMOVED***
-***REMOVED***
-***REMOVED*** console = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
 
-***REMOVED***
-***REMOVED***
+  # Enable the X11 windowing system.
+  # services.xserver.enable = true;
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Configure keymap in X11
+  services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-***REMOVED***
-***REMOVED***
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED*** services.pipewire = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Enable sound.
+  # hardware.pulseaudio.enable = true;
+  # OR
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  # };
 
-***REMOVED***
-***REMOVED***
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.libinput.enable = true;
 
-***REMOVED***
-  users.users.tyler = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.tyler = {
+    isNormalUser = true;
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    initialPassword = "password";
+    # packages = with pkgs; [
+    # ];
+  };
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    helix # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    yadm
+    restic
+  ];
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED*** programs.gnupg.agent = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-  systemd.timers.backup-nextcloud = ***REMOVED***
-    timerConfig = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  systemd.timers.backup-nextcloud = {
+    timerConfig = {
+      OnCalendar = "monthly";
+      Persistent = true;
+    };
 
-***REMOVED***
-***REMOVED***
-      ***REMOVED***
-      ***REMOVED***
-      ***REMOVED***
+    script = ''
+      # Remove keys
+      printf "\nBacking up nextcloud \n"
+      ${pkgs.restic} -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
+      ${pkgs.restic} -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
 
-      ***REMOVED***
-      ***REMOVED***
+      printf "\nBacking up Backups \n"
+      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Backups" backup --verbose --no-scan /mnt/user/Backups
+      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Backups" check --verbose
 
-***REMOVED***
-      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
-      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
+      printf "\nBacking up appdata \n"
+      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
+      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Appdata" check --verbose
+    '';
+  };
 
-***REMOVED***
-      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Backups" backup --verbose --no-scan /mnt/user/Backups
-      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Backups" check --verbose
+  programs.fish.enable = true;
 
-***REMOVED***
-      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
-      $***REMOVED***pkgs.restic***REMOVED*** -r "$RESTIC_REPOSITORY/Appdata" check --verbose
-***REMOVED***
-***REMOVED***
+  # List services that you want to enable:
 
-***REMOVED***
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
-***REMOVED***
-***REMOVED***
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  # system.copySystemConfiguration = true;
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED*** Most users should NEVER change this value after the initial install, for any reason,
-***REMOVED*** even if you've upgraded your system to a new NixOS release.
-***REMOVED***
-***REMOVED*** This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-***REMOVED*** so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-***REMOVED*** to actually do that.
-***REMOVED***
-***REMOVED*** This value being lower than the current NixOS release does NOT mean your system is
-***REMOVED*** out of date, out of support, or vulnerable.
-***REMOVED***
-***REMOVED*** Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-***REMOVED*** and migrated your data accordingly.
-***REMOVED***
-***REMOVED*** For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-***REMOVED***
-***REMOVED***
+  # This option defines the first version of NixOS you have installed on this particular machine,
+  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+  #
+  # Most users should NEVER change this value after the initial install, for any reason,
+  # even if you've upgraded your system to a new NixOS release.
+  #
+  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
+  # to actually do that.
+  #
+  # This value being lower than the current NixOS release does NOT mean your system is
+  # out of date, out of support, or vulnerable.
+  #
+  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
+  # and migrated your data accordingly.
+  #
+  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  system.stateVersion = "24.05"; # Did you read the comment?
+}

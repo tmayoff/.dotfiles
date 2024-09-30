@@ -1,4 +1,4 @@
-configuration ***REMOVED***
+configuration {
   modi: "window,run,ssh,combi,filebrowser";
 /*	font: "mono 12";*/
 /*	location: 0;*/
@@ -8,17 +8,17 @@ configuration ***REMOVED***
 /*	show-icons: false;*/
 /*	terminal: "rofi-sensible-terminal";*/
 /*	ssh-client: "ssh";*/
-/*	ssh-command: "***REMOVED***terminal***REMOVED*** -e ***REMOVED***ssh-client***REMOVED*** ***REMOVED***host***REMOVED*** [-p ***REMOVED***port***REMOVED***]";*/
-/*	run-command: "***REMOVED***cmd***REMOVED***";*/
+/*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+/*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
-/*	run-shell-command: "***REMOVED***terminal***REMOVED*** -e ***REMOVED***cmd***REMOVED***";*/
-/*	window-command: "wmctrl -i -R ***REMOVED***window***REMOVED***";*/
+/*	run-shell-command: "{terminal} -e {cmd}";*/
+/*	window-command: "wmctrl -i -R {window}";*/
 /*	window-match-fields: "all";*/
 /*	icon-theme: ;*/
 /*	drun-match-fields: "name,generic,exec,categories,keywords";*/
 /*	drun-categories: ;*/
 /*	drun-show-actions: false;*/
-/*	drun-display-format: "***REMOVED***name***REMOVED*** [<span weight='light' size='small'><i>(***REMOVED***generic***REMOVED***)</i></span>]";*/
+/*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
 /*	drun-url-launcher: "xdg-open";*/
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
@@ -40,11 +40,11 @@ configuration ***REMOVED***
 /*	dpi: -1;*/
 /*	threads: 0;*/
 /*	scroll-method: 0;*/
-/*	window-format: "***REMOVED***w***REMOVED***    ***REMOVED***c***REMOVED***   ***REMOVED***t***REMOVED***";*/
+/*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
-/*	combi-display-format: "***REMOVED***mode***REMOVED*** ***REMOVED***text***REMOVED***";*/
+/*	combi-display-format: "{mode} {text}";*/
 /*	matching-negate-char: '-' /* unsupported */;*/
 /*	cache-dir: ;*/
 /*	window-thumbnail: false;*/
@@ -136,15 +136,15 @@ configuration ***REMOVED***
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
-  timeout ***REMOVED***
+  timeout {
       action: "kb-cancel";
       delay:  0;
-  ***REMOVED***
-  filebrowser ***REMOVED***
+  }
+  filebrowser {
       directories-first: true;
       sorting-method:    "name";
-  ***REMOVED***
-***REMOVED***
+  }
+}
 //@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
 //@theme "/usr/share/rofi/themes/solarized_alternate.rasi"
 @theme "/usr/share/rofi/themes/Arc.rasi"

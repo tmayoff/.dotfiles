@@ -1,8 +1,8 @@
-***REMOVED***pkgs, ...***REMOVED***: ***REMOVED***
-  programs.nushell = ***REMOVED***
+{pkgs, ...}: {
+  programs.nushell = {
     enable = true;
 
-    envFile = ***REMOVED***
+    envFile = {
       text = ''
         $env.EDITOR = hx
         $env.GIT_EDITOR = $env.EDITOR
@@ -13,11 +13,11 @@
         $env.XDG_STATE_HOME = "$HOME/.local/state"
 
         zoxide init nushell | save -f ~/.config/nushell/zoxide.nu
-  ***REMOVED***
-***REMOVED***
+      '';
+    };
 
-    shellAliases = ***REMOVED***
-    ***REMOVED*** Git
+    shellAliases = {
+      # Git
       gc = "git commit";
       gcm = "git commit -m";
       gac = "git add . and git commit";
@@ -27,18 +27,18 @@
       yac = "yadm add --interactive and yadm commit";
       yacp = "yac and yadm push";
 
-    ***REMOVED*** nix
+      # nix
       flake = "nix flake";
 
-    ***REMOVED*** home-manager
+      # home-manager
       hm-upgrade = "nix flake update --flake ~/.config/home-manager/";
       hm-update = "home-manager switch --impure";
-***REMOVED***
+    };
 
-    configFile = ***REMOVED***
+    configFile = {
       text = ''
         source ~/.config/nushell/zoxide.nu
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+      '';
+    };
+  };
+}

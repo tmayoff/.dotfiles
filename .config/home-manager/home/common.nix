@@ -1,13 +1,13 @@
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED*** lib,
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***: let
-  nixGLIntel = inputs.nixgl.packages."$***REMOVED***pkgs.system***REMOVED***".nixGLIntel;
-in rec ***REMOVED***
+{
+  inputs,
+  outputs,
+  # lib,
+  config,
+  pkgs,
+  ...
+}: let
+  nixGLIntel = inputs.nixgl.packages."${pkgs.system}".nixGLIntel;
+in rec {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -17,43 +17,43 @@ in rec ***REMOVED***
 
   xdg.enable = true;
 
-***REMOVED***
+  imports = [
     ./fish.nix
     ./nushell.nix
-  ***REMOVED*** ./nom.nix
-  ***REMOVED*** ./neovim.nix
-    (builtins.fetchurl ***REMOVED***
+    # ./nom.nix
+    # ./neovim.nix
+    (builtins.fetchurl {
       url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
       sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
-    ***REMOVED***)
-***REMOVED***
+    })
+  ];
 
-  nixGL.prefix = "$***REMOVED***nixGLIntel***REMOVED***/bin/nixGLIntel";
+  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
 
-  nixpkgs = ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+  };
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-  ***REMOVED*** Gnome
+    # Gnome
     gnome.gnome-tweaks
     adw-gtk3
 
     nixGLIntel
 
-  ***REMOVED*** Fonts
-    (nerdfonts.override ***REMOVED***fonts = ["JetBrainsMono"];***REMOVED***)
+    # Fonts
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     unstable.nix-output-monitor
 
-  ***REMOVED*** backup
-***REMOVED***
+    # backup
+    restic
     libnotify
 
     distrobox
@@ -62,9 +62,9 @@ in rec ***REMOVED***
     wl-clipboard
     usbutils
 
-***REMOVED***
+    yadm
 
-  ***REMOVED*** Shell
+    # Shell
     bash
     starship
     ripgrep
@@ -78,15 +78,15 @@ in rec ***REMOVED***
     fzf
     zoxide
 
-  ***REMOVED*** Software Dev
+    # Software Dev
     tig
     mold
 
-  ***REMOVED*** Office
+    # Office
     libreoffice
     obsidian
 
-  ***REMOVED*** language servers
+    # language servers
     efm-langserver
     sumneko-lua-language-server
     nil
@@ -94,129 +94,129 @@ in rec ***REMOVED***
     lemminx
     pylyzer
     ltex-ls # Spell checker
-***REMOVED***
+  ];
 
-  programs.gnome-shell = ***REMOVED***
+  programs.gnome-shell = {
     enable = true;
     extensions = [
-    ***REMOVED*** ***REMOVED***package = pkgs.gnomeExtensions.appindicator;***REMOVED***
-      ***REMOVED***package = pkgs.gnomeExtensions.ddterm;***REMOVED***
-      ***REMOVED***package = pkgs.gnomeExtensions.gsconnect;***REMOVED***
-      ***REMOVED***package = pkgs.gnomeExtensions.paperwm;***REMOVED***
-      ***REMOVED***package = pkgs.gnomeExtensions.night-theme-switcher;***REMOVED***
-      ***REMOVED***package = pkgs.gnomeExtensions.blur-my-shell;***REMOVED***
-  ***REMOVED***
-***REMOVED***
+      # {package = pkgs.gnomeExtensions.appindicator;}
+      {package = pkgs.gnomeExtensions.ddterm;}
+      {package = pkgs.gnomeExtensions.gsconnect;}
+      {package = pkgs.gnomeExtensions.paperwm;}
+      {package = pkgs.gnomeExtensions.night-theme-switcher;}
+      {package = pkgs.gnomeExtensions.blur-my-shell;}
+    ];
+  };
 
-  programs.alacritty = ***REMOVED***
+  programs.alacritty = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.alacritty;
-***REMOVED***
+  };
 
-  programs.wezterm = ***REMOVED***
+  programs.wezterm = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.wezterm;
     extraConfig = ''
-      return ***REMOVED***
+      return {
         font_size=9.25,
         color_scheme="catppuccin-latte",
         hide_tab_bar_if_only_one_tab = true,
-        window_frame = ***REMOVED***
+        window_frame = {
           font_size = 10
-        ***REMOVED***,
-      ***REMOVED***
-***REMOVED***
-***REMOVED***
+        },
+      }
+    '';
+  };
 
-  programs.bat = ***REMOVED***
+  programs.bat = {
     enable = true;
-    config = ***REMOVED***
+    config = {
       theme = "GitHub";
-***REMOVED***
-***REMOVED***
+    };
+  };
 
-  programs.zellij = ***REMOVED***
+  programs.zellij = {
     enable = true;
-***REMOVED***
+  };
 
-  programs.broot = ***REMOVED***
-    enable = true;
-    enableFishIntegration = true;
-***REMOVED***
-
-  programs.starship = ***REMOVED***
-    enable = true;
-***REMOVED***
-
-  programs.eza = ***REMOVED***
+  programs.broot = {
     enable = true;
     enableFishIntegration = true;
-***REMOVED***
+  };
 
-  programs.direnv = ***REMOVED***
+  programs.starship = {
     enable = true;
-***REMOVED***
+  };
 
-  programs.thefuck = ***REMOVED***
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+  };
+
+  programs.thefuck = {
     enable = true;
     enableFishIntegration = true;
     enableInstantMode = true;
-***REMOVED***
+  };
 
-  programs.yazi = ***REMOVED***
+  programs.yazi = {
     enable = true;
     package = pkgs.unstable.yazi;
     enableFishIntegration = true;
     shellWrapperName = "y";
-***REMOVED***
+  };
 
-  systemd.user.services = ***REMOVED***
-    daily_backup = ***REMOVED***
-      Unit = ***REMOVED***
+  systemd.user.services = {
+    daily_backup = {
+      Unit = {
         Description = "Run a backup script";
-  ***REMOVED***
-      Install = ***REMOVED***
+      };
+      Install = {
         WantedBy = ["default.target"];
-  ***REMOVED***
+      };
 
-      Service = ***REMOVED***
+      Service = {
         Type = "oneshot";
-        ExecStart = "$***REMOVED***home.homeDirectory***REMOVED***/.local/bin/,daily_backup";
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+        ExecStart = "${home.homeDirectory}/.local/bin/,daily_backup";
+      };
+    };
+  };
 
-  services.darkman = ***REMOVED***
+  services.darkman = {
     enable = true;
     package = pkgs.unstable.darkman;
-    settings = ***REMOVED***
+    settings = {
       lat = 45.408;
       lng = -74.159;
-***REMOVED***
+    };
 
-    darkModeScripts = ***REMOVED***
+    darkModeScripts = {
       helix-editor = ''
         sed -i 's/theme = ".*"/theme = "catppuccin_macchiato"/' $HOME/.config/helix/config.toml
-  ***REMOVED***
+      '';
 
       alacritty = ''
         ln -fs ~/.config/alacritty/themes/catppuccin_macchiato.toml ~/.config/alacritty/themes/_active.toml
         touch ~/.config/alacritty/alacritty.toml
-  ***REMOVED***
-***REMOVED***
+      '';
+    };
 
-    lightModeScripts = ***REMOVED***
+    lightModeScripts = {
       helix-editor = ''
         sed -i 's/theme = ".*"/theme = "catppuccin_latte"/' $HOME/.config/helix/config.toml
-  ***REMOVED***
+      '';
 
       alacritty = ''
         ln -fs ~/.config/alacritty/themes/catppuccin_latte.toml ~/.config/alacritty/themes/_active.toml
         touch ~/.config/alacritty/alacritty.toml
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+      '';
+    };
+  };
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
-***REMOVED***
+}

@@ -1,5 +1,5 @@
-***REMOVED***pkgs, ...***REMOVED***: ***REMOVED***
-  programs.fish = ***REMOVED***
+{pkgs, ...}: {
+  programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set -gx EDITOR hx
@@ -12,7 +12,7 @@
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
       zoxide init fish | source
-***REMOVED***
+    '';
 
     shellInit = ''
       set -gx EDITOR hx
@@ -23,25 +23,25 @@
 
       fish_add_path $HOME/.local/bin
       source $HOME/.config/fish/variables-$(hostname).fish
-***REMOVED***
+    '';
 
-  ***REMOVED*** functions = ***REMOVED***
-  ***REMOVED***   yupdate = ***REMOVED***
-  ***REMOVED***     body = ''
-  ***REMOVED***       echo "Hello world"
-  ***REMOVED*** ***REMOVED***
-  ***REMOVED*** ***REMOVED***
-  ***REMOVED***
+    # functions = {
+    #   yupdate = {
+    #     body = ''
+    #       echo "Hello world"
+    #     '';
+    #   };
+    # };
 
     plugins = [
-      ***REMOVED***
+      {
         name = "forgit";
         src = pkgs.fishPlugins.forgit.src;
-      ***REMOVED***
-  ***REMOVED***
+      }
+    ];
 
-    shellAliases = ***REMOVED***
-    ***REMOVED*** ls
+    shellAliases = {
+      # ls
       ls = "eza $eza_params";
       l = "eza --git-ignore $eza_params";
       ll = "eza --all --header --long $eza_params";
@@ -51,24 +51,24 @@
       lt = "eza --tree $eza_params";
       tree = "eza --tree $eza_params";
 
-    ***REMOVED*** Git
+      # Git
       gc = "git commit";
       gcm = "git commit -m";
       gac = "git add . && git commit";
       gacp = "gac && git push";
       gs = "git status";
 
-    ***REMOVED*** yac = "yadm add . && yadm commit";
-    ***REMOVED*** yacp = "yac && yadm push";
+      # yac = "yadm add . && yadm commit";
+      # yacp = "yac && yadm push";
       yc = "pushd $HOME/.local/share/yadm/repo.git && git-forgit add && yadm commit && popd";
       yd = "pushd $HOME/.local/share/yadm/repo.git && git-forgit diff && popd";
 
-    ***REMOVED*** nix
+      # nix
       flake = "nix flake";
 
-    ***REMOVED*** home-manager
+      # home-manager
       hm-upgrade = "nix flake update --flake ~/.config/home-manager#";
       hm-update = "home-manager switch";
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    };
+  };
+}

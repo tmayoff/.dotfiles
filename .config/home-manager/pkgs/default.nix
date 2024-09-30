@@ -1,2 +1,2 @@
-pkgs: ***REMOVED***
-***REMOVED***
+pkgs: {
+}

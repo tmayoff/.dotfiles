@@ -1,4 +1,4 @@
-***REMOVED*** config, pkgs, lib, ... ***REMOVED***:
+{ config, pkgs, lib, ... }:
 
 let
   collectPathArgs = ''
@@ -9,13 +9,13 @@ let
       paths+=("$arg"); shift
     done
   '';
-  pathArgs = ''"''$***REMOVED***paths[@]***REMOVED***"'';
+  pathArgs = ''"''${paths[@]}"'';
   collectFlakeFlags = ''
     flakeFlags=()
     while [ "$#" -gt 0 ]; do
       arg="$1"
       case "$arg" in
-        $***REMOVED***
+        ${
           builtins.concatStringsSep "|" [
             "build"
             "bundle"
@@ -48,7 +48,7 @@ let
             "upgrade-nix"
             "why-depends"
           ]
-        ***REMOVED***)
+        })
           break
           ;;
         *)
@@ -57,131 +57,131 @@ let
       esac
     done
   '';
-  flakeFlags = ''"''$***REMOVED***flakeFlags[@]***REMOVED***"'';
+  flakeFlags = ''"''${flakeFlags[@]}"'';
   nixNomArgs = "--log-format internal-json --verbose";
   nixBuildCmdWithNomArgs = buildCmd: ''
-    $***REMOVED***collectPathArgs***REMOVED***
-    $***REMOVED***buildCmd***REMOVED*** $***REMOVED***pathArgs***REMOVED*** $***REMOVED***nixNomArgs***REMOVED*** "$@"
+    ${collectPathArgs}
+    ${buildCmd} ${pathArgs} ${nixNomArgs} "$@"
   '';
   nixShellCmdWithNomArgs = shellCmd: ''
-    $***REMOVED***shellCmd***REMOVED*** $***REMOVED***nixNomArgs***REMOVED*** "$@"
+    ${shellCmd} ${nixNomArgs} "$@"
   '';
   nixStoreCmdWithNomArgs = storeCmd: ''
     operation="$1"; shift
     case "$operation" in
       --realise|-r)
-        $***REMOVED***collectPathArgs***REMOVED***
-        $***REMOVED***storeCmd***REMOVED*** "$operation" $***REMOVED***pathArgs***REMOVED*** $***REMOVED***nixNomArgs***REMOVED*** "$@"
+        ${collectPathArgs}
+        ${storeCmd} "$operation" ${pathArgs} ${nixNomArgs} "$@"
         ;;
       *)
-        $***REMOVED***storeCmd***REMOVED*** "$operation" "$@"
+        ${storeCmd} "$operation" "$@"
         ;;
     esac
   '';
   nixWithNomArgs = nix:
-    pkgs.symlinkJoin ***REMOVED***
-      name = "nix-with-nom-args-$***REMOVED***nix.version***REMOVED***";
-      paths = (lib.attrsets.mapAttrsToList pkgs.writeShellScriptBin ***REMOVED***
+    pkgs.symlinkJoin {
+      name = "nix-with-nom-args-${nix.version}";
+      paths = (lib.attrsets.mapAttrsToList pkgs.writeShellScriptBin {
         nix = ''
           program="$(basename $0)"
           case "$program" in
             nix)
-              $***REMOVED***collectFlakeFlags***REMOVED***
+              ${collectFlakeFlags}
               command="$1"; shift
               case "$command" in
                 build)
-                  $***REMOVED***nixBuildCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix $***REMOVED***flakeFlags***REMOVED*** build"***REMOVED***
+                  ${nixBuildCmdWithNomArgs "${nix}/bin/nix ${flakeFlags} build"}
                   ;;
                 shell)
-                  $***REMOVED***nixShellCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix $***REMOVED***flakeFlags***REMOVED*** shell"***REMOVED***
+                  ${nixShellCmdWithNomArgs "${nix}/bin/nix ${flakeFlags} shell"}
                   ;;
                 store)
-                  $***REMOVED***nixStoreCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix $***REMOVED***flakeFlags***REMOVED*** store"***REMOVED***
+                  ${nixStoreCmdWithNomArgs "${nix}/bin/nix ${flakeFlags} store"}
                   ;;
                 *)
-                  $***REMOVED***nix***REMOVED***/bin/nix $***REMOVED***flakeFlags***REMOVED*** "$command" "$@"
+                  ${nix}/bin/nix ${flakeFlags} "$command" "$@"
                   ;;
               esac
               ;;
             *)
-              "$***REMOVED***nix***REMOVED***/bin/$program" "$@"
+              "${nix}/bin/$program" "$@"
               ;;
           esac
-    ***REMOVED***
-      ***REMOVED*** nix-build = nixBuildCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-build";
-        nix-shell = nixShellCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-shell";
-        nix-store = nixStoreCmdWithNomArgs "$***REMOVED***nix***REMOVED***/bin/nix-store";
-      ***REMOVED***) ++ [ nix ];
-***REMOVED***
-  nixNomPkgs = ***REMOVED*** nix ? null, nixos-rebuild ? null, home-manager ? null ***REMOVED***:
-    lib.attrsets.mapAttrs pkgs.writeShellScriptBin ((if nix != null then ***REMOVED***
+        '';
+        # nix-build = nixBuildCmdWithNomArgs "${nix}/bin/nix-build";
+        nix-shell = nixShellCmdWithNomArgs "${nix}/bin/nix-shell";
+        nix-store = nixStoreCmdWithNomArgs "${nix}/bin/nix-store";
+      }) ++ [ nix ];
+    };
+  nixNomPkgs = { nix ? null, nixos-rebuild ? null, home-manager ? null }:
+    lib.attrsets.mapAttrs pkgs.writeShellScriptBin ((if nix != null then {
       nix = ''
         program="$(basename $0)"
         case "$program" in
           nix)
-            $***REMOVED***collectFlakeFlags***REMOVED***
+            ${collectFlakeFlags}
             command="$1"; shift
             case "$command" in
               build|shell|develop)
-                $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom $***REMOVED***flakeFlags***REMOVED*** "$command" "$@"
+                ${pkgs.nix-output-monitor}/bin/nom ${flakeFlags} "$command" "$@"
                 ;;
               *)
-                $***REMOVED***nix***REMOVED***/bin/nix $***REMOVED***flakeFlags***REMOVED*** "$command" "$@"
+                ${nix}/bin/nix ${flakeFlags} "$command" "$@"
                 ;;
             esac
             ;;
           *)
-            "$***REMOVED***nix***REMOVED***/bin/$program" "$@"
+            "${nix}/bin/$program" "$@"
             ;;
         esac
-  ***REMOVED***
-    ***REMOVED*** nix-build = ''
-    ***REMOVED***   $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom-build "$@"
-    ***REMOVED*** '';
+      '';
+      # nix-build = ''
+      #   ${pkgs.nix-output-monitor}/bin/nom-build "$@"
+      # '';
       nix-shell = ''
-        $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom-shell "$@"
-  ***REMOVED***
+        ${pkgs.nix-output-monitor}/bin/nom-shell "$@"
+      '';
       nix-store = ''
-        $***REMOVED***nixWithNomArgs nix***REMOVED***/bin/nix-store "$@" \
-          |& $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom --json
-  ***REMOVED***
-    ***REMOVED*** else
-      ***REMOVED*** ***REMOVED***) // (if nixos-rebuild != null then ***REMOVED***
+        ${nixWithNomArgs nix}/bin/nix-store "$@" \
+          |& ${pkgs.nix-output-monitor}/bin/nom --json
+      '';
+    } else
+      { }) // (if nixos-rebuild != null then {
         nixos-rebuild = ''
-          $***REMOVED***pkgs.expect***REMOVED***/bin/unbuffer \
-            $***REMOVED***
-              nixos-rebuild.override (old: ***REMOVED*** nix = nixWithNomArgs old.nix; ***REMOVED***)
-            ***REMOVED***/bin/nixos-rebuild "$@" \
-            |& $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom --json
-    ***REMOVED***
-      ***REMOVED*** else
-        ***REMOVED*** ***REMOVED***) // (if home-manager != null then ***REMOVED***
+          ${pkgs.expect}/bin/unbuffer \
+            ${
+              nixos-rebuild.override (old: { nix = nixWithNomArgs old.nix; })
+            }/bin/nixos-rebuild "$@" \
+            |& ${pkgs.nix-output-monitor}/bin/nom --json
+        '';
+      } else
+        { }) // (if home-manager != null then {
           home-manager = ''
-            PATH="$***REMOVED***nixWithNomArgs pkgs.nix***REMOVED***/bin:$PATH" \
-              $***REMOVED***pkgs.expect***REMOVED***/bin/unbuffer \
-              $***REMOVED***home-manager***REMOVED***/bin/home-manager "$@" \
-              |& $***REMOVED***pkgs.nix-output-monitor***REMOVED***/bin/nom --json
-      ***REMOVED***
-        ***REMOVED*** else
-          ***REMOVED*** ***REMOVED***));
+            PATH="${nixWithNomArgs pkgs.nix}/bin:$PATH" \
+              ${pkgs.expect}/bin/unbuffer \
+              ${home-manager}/bin/home-manager "$@" \
+              |& ${pkgs.nix-output-monitor}/bin/nom --json
+          '';
+        } else
+          { }));
   nomAliases = pkgs:
-    lib.attrsets.mapAttrs (name: pkg: "$***REMOVED***pkg***REMOVED***/bin/$***REMOVED***name***REMOVED***") (nixNomPkgs pkgs);
+    lib.attrsets.mapAttrs (name: pkg: "${pkg}/bin/${name}") (nixNomPkgs pkgs);
   wrapWithNom = let inherit (pkgs) symlinkJoin;
   in (pkgs:
-    symlinkJoin ***REMOVED***
+    symlinkJoin {
       name = "wrapped-with-nom";
       paths = (builtins.attrValues (nixNomPkgs pkgs))
         ++ (builtins.attrValues pkgs);
-    ***REMOVED***);
+    });
 
-in ***REMOVED***
-***REMOVED*** home.shellAliases =
-***REMOVED***   nomAliases ***REMOVED*** inherit (pkgs) nix nixos-rebuild home-manager; ***REMOVED***;
+in {
+  # home.shellAliases =
+  #   nomAliases { inherit (pkgs) nix nixos-rebuild home-manager; };
 
-***REMOVED*** or
+  # or
 
-***REMOVED*** home.packages = [
-***REMOVED***   (lib.hiPrio
-***REMOVED***     (wrapWithNom ***REMOVED*** inherit (pkgs) nix nixos-rebuild home-manager; ***REMOVED***))
-***REMOVED*** ];
-***REMOVED***
+  # home.packages = [
+  #   (lib.hiPrio
+  #     (wrapWithNom { inherit (pkgs) nix nixos-rebuild home-manager; }))
+  # ];
+}

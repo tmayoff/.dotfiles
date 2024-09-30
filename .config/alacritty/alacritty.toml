@@ -11,5 +11,5 @@ style = "Medium"
 
 [keyboard]
 bindings = [
-  ***REMOVED*** key = "N", mods = "Control|Shift", action = "CreateNewWindow" ***REMOVED***
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
 ]

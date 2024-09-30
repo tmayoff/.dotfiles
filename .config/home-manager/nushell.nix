@@ -1,5 +1,5 @@
-***REMOVED***pkgs, ...***REMOVED***: ***REMOVED***
-  programs.nushell = ***REMOVED***
+{pkgs, ...}: {
+  programs.nushell = {
     enable = true;
 
     envFile = ''
@@ -10,6 +10,6 @@
       $env.XDG_CACHE_HOME = "$HOME/.cache"
       $env.XDG_DATA_HOME = "$HOME/.local/share"
       $env.XDG_STATE_HOME = "$HOME/.local/state"
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    '';
+  };
+}

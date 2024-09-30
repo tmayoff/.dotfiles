@@ -1,6 +1,6 @@
-***REMOVED***pkgs, ...***REMOVED***: ***REMOVED***
-  programs.neovim = ***REMOVED***
-  ***REMOVED*** package = pkgs.neovim-nightly;
+{pkgs, ...}: {
+  programs.neovim = {
+    # package = pkgs.neovim-nightly;
     enable = false;
     defaultEditor = false;
     viAlias = true;
@@ -8,7 +8,7 @@
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-    ***REMOVED*** Color schemes
+      # Color schemes
       rose-pine
       gruvbox-nvim
 
@@ -37,16 +37,16 @@
       nvim-cmp
       harpoon
       undotree
-    ***REMOVED***mini-nvim
+      #mini-nvim
       formatter-nvim
       telescope-nvim
       vim-fugitive
 
       vim-just
-  ***REMOVED***
+    ];
 
-  ***REMOVED***extraConfig = ''
-  ***REMOVED***  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
-  ***REMOVED***'';
-***REMOVED***
-***REMOVED***
+    #extraConfig = ''
+    #  builtins.readFile /home/jayne/.config/nvim/extra_init.vim
+    #'';
+  };
+}
