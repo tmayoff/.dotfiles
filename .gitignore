@@ -1,3 +1,4 @@
-**/**
-!.local
+*
+!.gitignore
+!.local/*
 !.config/home-manager
