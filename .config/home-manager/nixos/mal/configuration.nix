@@ -27,7 +27,7 @@
   };
 
   nix = let
-    flakeInputs = lib.filterAtts (_: lib.isType "flake") inputs;
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -89,8 +89,7 @@
     isNormalUser = true;
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     initialPassword = "password";
-    # packages = with pkgs; [
-    # ];
+    shell = pkgs.fish;
   };
 
   # List packages installed in system profile. To search, run:
@@ -110,12 +109,15 @@
   #   enableSSHSupport = true;
   # };
 
-  systemd.timers.backup-nextcloud = {
+  systemd.timers."backup-serenity"= {
     timerConfig = {
       OnCalendar = "monthly";
       Persistent = true;
+      Unit = "backup-serenity.service";
     };
+  };
 
+  systemd.services."backup-serenity"= {
     script = ''
       # Remove keys
       ${./secrets.sh}
@@ -131,7 +133,13 @@
       ${pkgs.restic} -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
       ${pkgs.restic} -r "$RESTIC_REPOSITORY/Appdata" check --verbose
     '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
   };
+
+  
 
   programs.fish.enable = true;
 
