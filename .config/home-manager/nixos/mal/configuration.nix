@@ -6,13 +6,39 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+***REMOVED***
+***REMOVED***
 ***REMOVED***: ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs = ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+  ***REMOVED***
+
+    config = ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+  in ***REMOVED***
+    settings = ***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+
+    registry = lib.mapAttrs(_: flake: ***REMOVED***inherit flake;***REMOVED***) flakeInputs;
+    nixPath = lib.mapAttrsToList(n: _: "$***REMOVED***n***REMOVED***=flake:$***REMOVED***n***REMOVED***") flakeInputs;
+***REMOVED***
+
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -67,6 +93,7 @@
 ***REMOVED***
 ***REMOVED***
 
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
