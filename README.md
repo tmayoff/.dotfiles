@@ -26,3 +26,5 @@ nix run nixpkgs#home-manager -- switch
 ```
 
 # Docs
+
+Based on this repo: https://github.com/Misterio77/nix-starter-configs
