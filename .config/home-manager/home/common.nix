@@ -42,7 +42,7 @@ in rec ***REMOVED***
 
   home.packages = with pkgs; [
   ***REMOVED*** Gnome
-    gnome-tweaks
+    gnome.gnome-tweaks
     adw-gtk3
 
     nixGLIntel

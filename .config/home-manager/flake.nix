@@ -31,6 +31,13 @@
 
     defaultPackage.$***REMOVED***system***REMOVED*** = home-manager.defaultPackage.$***REMOVED***system***REMOVED***;
 
+    nixosConfigurations = ***REMOVED***
+      mal = nixpkgs.lib.nixosSystem ***REMOVED***
+        specialArgs = ***REMOVED***inherit inputs outputs;***REMOVED***;
+        modules = [./nixos/mal/configuration.nix];
+  ***REMOVED***
+***REMOVED***
+
     homeConfigurations = ***REMOVED***
       "tyler@guidebolt" = home-manager.lib.homeManagerConfiguration ***REMOVED***
         inherit pkgs;
