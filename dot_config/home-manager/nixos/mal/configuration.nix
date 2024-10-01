@@ -148,7 +148,7 @@ in {
       ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Appdata" check --verbose
     '';
     serviceConfig = {
-      Type = "oneshot";
+      Type = "simple";
       User = "root";
     };
   };
