@@ -43,6 +43,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+services.pcscd.enable = true;
+programs.gnupg.agent = {
+   enable = true;
+   pinentryPackage = pkgs.pinentry-curses;
+   enableSSHSupport = true;
+};
+
+
   networking.hostName = "mal"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -100,6 +108,8 @@
     restic
     git
     chezmoi
+
+    pinentry-curses
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
