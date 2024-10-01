@@ -1,13 +1,11 @@
 {
-  inputs,
+  # inputs,
   outputs,
   # lib,
   # config,
   pkgs,
   ...
-}: let
-  nixGLIntel = inputs.nixgl.packages."${pkgs.system}".nixGLIntel;
-in {
+}: {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -35,8 +33,6 @@ in {
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    nixGLIntel
-
     # Fonts
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
 

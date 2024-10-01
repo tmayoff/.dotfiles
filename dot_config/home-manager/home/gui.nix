@@ -16,7 +16,8 @@ in {
   nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
 
   home.packages = with pkgs; [
-    # Gnome
+    nixGLIntel
+
     adw-gtk3
 
     discord
