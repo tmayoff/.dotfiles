@@ -52,6 +52,8 @@ in rec {
 
     unstable.nix-output-monitor
 
+    # dotfiles
+    age
     chezmoi
 
     # backup
