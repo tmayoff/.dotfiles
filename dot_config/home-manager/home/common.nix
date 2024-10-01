@@ -2,12 +2,12 @@
   inputs,
   outputs,
   # lib,
-  config,
+  # config,
   pkgs,
   ...
 }: let
   nixGLIntel = inputs.nixgl.packages."${pkgs.system}".nixGLIntel;
-in rec {
+in {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tyler";
@@ -22,13 +22,7 @@ in rec {
     ./nushell.nix
     # ./nom.nix
     # ./neovim.nix
-    (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
-      sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
-    })
   ];
-
-  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
 
   nixpkgs = {
     overlays = [
@@ -42,7 +36,6 @@ in rec {
 
   home.packages = with pkgs; [
     # Gnome
-    gnome.gnome-tweaks
     adw-gtk3
 
     nixGLIntel
@@ -100,38 +93,6 @@ in rec {
     ltex-ls # Spell checker
   ];
 
-  programs.gnome-shell = {
-    enable = true;
-    extensions = [
-      # {package = pkgs.gnomeExtensions.appindicator;}
-      {package = pkgs.gnomeExtensions.ddterm;}
-      {package = pkgs.gnomeExtensions.gsconnect;}
-      {package = pkgs.gnomeExtensions.paperwm;}
-      {package = pkgs.gnomeExtensions.night-theme-switcher;}
-      {package = pkgs.gnomeExtensions.blur-my-shell;}
-    ];
-  };
-
-  programs.alacritty = {
-    enable = true;
-    package = config.lib.nixGL.wrap pkgs.alacritty;
-  };
-
-  programs.wezterm = {
-    enable = true;
-    package = config.lib.nixGL.wrap pkgs.wezterm;
-    extraConfig = ''
-      return {
-        font_size=9.25,
-        color_scheme="catppuccin-latte",
-        hide_tab_bar_if_only_one_tab = true,
-        window_frame = {
-          font_size = 10
-        },
-      }
-    '';
-  };
-
   programs.bat = {
     enable = true;
     config = {
@@ -172,22 +133,6 @@ in rec {
     package = pkgs.unstable.yazi;
     enableFishIntegration = true;
     shellWrapperName = "y";
-  };
-
-  systemd.user.services = {
-    daily_backup = {
-      Unit = {
-        Description = "Run a backup script";
-      };
-      Install = {
-        WantedBy = ["default.target"];
-      };
-
-      Service = {
-        Type = "oneshot";
-        ExecStart = "${home.homeDirectory}/.local/bin/,daily_backup";
-      };
-    };
   };
 
   services.darkman = {

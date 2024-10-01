@@ -50,6 +50,12 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/wash/wash.nix];
       };
+
+      "tyler@mal" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/mal/mal.nix];
+      };
     };
   };
 }
