@@ -4,11 +4,13 @@
 {
   inputs,
   outputs,
-  config,
+  # config,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  secrets = builtins.readFile ./secrets.sh;
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -43,13 +45,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-services.pcscd.enable = true;
-programs.gnupg.agent = {
-   enable = true;
-   pinentryPackage = pkgs.pinentry-curses;
-   enableSSHSupport = true;
-};
-
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+    enableSSHSupport = true;
+  };
 
   networking.hostName = "mal"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -120,7 +121,7 @@ programs.gnupg.agent = {
   #   enableSSHSupport = true;
   # };
 
-  systemd.timers."backup-serenity"= {
+  systemd.timers."backup-serenity" = {
     timerConfig = {
       OnCalendar = "monthly";
       Persistent = true;
@@ -128,28 +129,29 @@ programs.gnupg.agent = {
     };
   };
 
-  systemd.services."backup-serenity"= {
+  systemd.services."backup-serenity" = {
     script = ''
       # Remove keys
+
+      ${secrets}
+
       printf "\nBacking up nextcloud \n"
-      ${pkgs.restic} -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
-      ${pkgs.restic} -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
 
       printf "\nBacking up Backups \n"
-      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Backups" backup --verbose --no-scan /mnt/user/Backups
-      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Backups" check --verbose
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" backup --verbose --no-scan /mnt/user/Backups
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" check --verbose
 
       printf "\nBacking up appdata \n"
-      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
-      ${pkgs.restic} -r "$RESTIC_REPOSITORY/Appdata" check --verbose
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Appdata" check --verbose
     '';
     serviceConfig = {
       Type = "oneshot";
       User = "root";
     };
   };
-
-  
 
   programs.fish.enable = true;
 
