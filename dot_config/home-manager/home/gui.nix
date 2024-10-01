@@ -15,6 +15,17 @@ in {
 
   nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
 
+  home.packages = with pkgs; [
+    # Gnome
+    adw-gtk3
+
+    discord
+
+    # Office
+    libreoffice
+    obsidian
+  ];
+
   programs.alacritty = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.alacritty;

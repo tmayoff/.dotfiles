@@ -35,9 +35,6 @@ in {
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # Gnome
-    adw-gtk3
-
     nixGLIntel
 
     # Fonts
@@ -54,7 +51,6 @@ in {
     libnotify
 
     distrobox
-    discord
 
     wl-clipboard
     usbutils
@@ -79,10 +75,6 @@ in {
     tig
     mold
 
-    # Office
-    libreoffice
-    obsidian
-
     # language servers
     efm-langserver
     sumneko-lua-language-server
@@ -102,11 +94,6 @@ in {
 
   programs.zellij = {
     enable = true;
-  };
-
-  programs.broot = {
-    enable = true;
-    enableFishIntegration = true;
   };
 
   programs.starship = {
