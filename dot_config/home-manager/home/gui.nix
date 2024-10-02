@@ -27,6 +27,8 @@ in {
     obsidian
   ];
 
+  programs.vscode.enable = true;
+
   programs.alacritty = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.alacritty;
