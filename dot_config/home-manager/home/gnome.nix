@@ -8,7 +8,7 @@
     extensions = [
       {package = pkgs.gnomeExt.gnomeExtensions.appindicator;}
       {package = pkgs.gnomeExtensions.ddterm;}
-      {package = pkgs.alphabetical-app-grid;}
+      {package = pkgs.gnomeExt.gnomeExtensions.alphabetical-app-grid;}
       {package = pkgs.gnomeExt.gnomeExtensions.gsconnect;}
       {package = pkgs.gnomeExtensions.paperwm;}
       {package = pkgs.gnomeExtensions.night-theme-switcher;}
