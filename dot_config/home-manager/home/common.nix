@@ -60,7 +60,7 @@
     fh
     fd
     glow
-    unstable.helix
+    masters.helix
     gitoxide
     lnav
 
