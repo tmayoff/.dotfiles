@@ -1,5 +1,5 @@
 {
-  # inputs,
+  inputs,
   outputs,
   # lib,
   # config,
@@ -27,6 +27,8 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+
+      inputs.helix.overlays.default
     ];
   };
 
@@ -40,7 +42,7 @@
 
     # dotfiles
     age
-    chezmoi
+    unstable.chezmoi
 
     # backup
     restic
@@ -56,11 +58,11 @@
     # Shell
     bash
     starship
+    btop
     ripgrep
     fh
     fd
     glow
-    masters.helix
     gitoxide
     lnav
 
@@ -80,6 +82,11 @@
     pylyzer
     ltex-ls # Spell checker
   ];
+
+  programs.helix = {
+    enable = true;
+    package = inputs.helix.packages.${pkgs.system}.default;
+  };
 
   programs.bat = {
     enable = true;
