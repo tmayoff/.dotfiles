@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-    gnomeExtensions.url = "github:honnip/nixpkgs/update-gnome-extensions";
-
     helix.url = "github:helix-editor/helix";
   };
 
@@ -19,7 +17,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    gnomeExtensions,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -3,21 +3,16 @@
   config,
   pkgs,
   ...
-}: let
-  nixGLIntel = inputs.nixgl.packages."${pkgs.system}".nixGLIntel;
-in {
+}: {
   imports = [
-    (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
-      sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
-    })
   ];
 
-  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
+  nixGL.packages = inputs.nixgl.packages;
+  nixGL.defaultWrapper = "mesa";
+  # nixGL.offloadWrapper = "nvidiaPrime";
+  nixGL.installScripts = ["mesa"];
 
   home.packages = with pkgs; [
-    nixGLIntel
-
     adw-gtk3
 
     discord
@@ -35,7 +30,7 @@ in {
   };
 
   programs.wezterm = {
-    enable = true;
+    enable = false;
     package = config.lib.nixGL.wrap pkgs.wezterm;
     extraConfig = ''
       return {
