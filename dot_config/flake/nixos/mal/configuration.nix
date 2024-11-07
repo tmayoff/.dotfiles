@@ -136,16 +136,16 @@ in {
       ${secrets}
 
       printf "\nBacking up nextcloud \n"
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" backup --verbose --no-scan /mnt/user/NextCloud
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check --verbose
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" backup -vvv --no-scan /mnt/user/NextCloud
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check -vvv
 
       printf "\nBacking up Backups \n"
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" backup --verbose --no-scan /mnt/user/Backups
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" check --verbose
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" backup -vvv --no-scan /mnt/user/Backups
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" check -vvv
 
       printf "\nBacking up appdata \n"
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Appdata" backup --verbose --no-scan /mnt/user/appdata
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Appdata" check --verbose
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/appdata" backup -vvv --no-scan /mnt/user/appdata
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/appdata" check -vvv
     '';
     serviceConfig = {
       Type = "simple";
