@@ -67,7 +67,7 @@
       flake = "nix flake";
 
       # home-manager
-      hm-upgrade = "nix flake update --flake ~/.config/flake#";
+      hm-upgrade = "nix flake update --flake ~/.local/share/chezmoi/dot_config/flake#";
       hm-update = "home-manager switch --flake ~/.config/flake";
     };
   };
