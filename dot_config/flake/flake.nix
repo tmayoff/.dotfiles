@@ -21,7 +21,7 @@
   } @ inputs: let
     inherit (self) outputs;
 
-    system = "x86_64-linux";
+    system = "aarch64-darwin";
   in rec {
     pkgs = import nixpkgs {
       inherit system;
@@ -56,6 +56,12 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/mal/mal.nix];
+      };
+
+      "tyler.mayoff@MAC-C57KK2TC69" =   home-manager.lib.homeManagerConfiguration{
+	inherit pkgs;
+	extraSpecialArgs = {inherit inputs outputs; };
+	modules = [./home/hinge/hinge.nix];
       };
     };
   };
