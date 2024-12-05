@@ -56,6 +56,7 @@
     glow
     gitoxide
     lnav
+    git
 
     fzf
     zoxide
