@@ -1,0 +1,59 @@
+[language-server]
+clangd = { command = "clangd", args = ["--header-insertion=never"]}
+biome = { command = "biome", args = ["lsp-proxy"] }
+fish_lsp = {command = "fish-lsp", args = ["start"]}
+
+[[language]]
+name = "fish"
+scope = "source.fish"
+auto-format = true
+language-servers = [{ name = "fish_lsp" }]
+
+[[language]]
+name = "meson"
+scope = "source.meson"
+injection-regex = "meson"
+#file-types = [{ glob = "meson.build" }, { glob = "meson_options.txt" }]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+formatter = {command = "muon", args = ["fmt", "-"]}
+
+[[language]]
+name = "nix"
+scope = "source.nix"
+#file-types = ["nix"]
+auto-format = true
+formatter = { command = "alejandra", args = ["-q"] }
+
+##################
+### BiomeJS Setup
+##################
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.js"] }
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.ts"] }
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.tsx"] }
+
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.jsx"] }
+
+[[language]]
+name = "json"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]

@@ -1,0 +1,35 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+auto-format = false
+#gutters = ["line-numbers", "diagnostics", "diff"]
+
+[editor.statusline]
+left = ["mode", "spinner", "spacer", "version-control", "file-name"]
+
+[editor.file-picker]
+#git-ignore = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+C-right = "move_next_word_start"
+C-left = "move_prev_word_end"
+a = "insert_mode"
+i = "append_mode"
+"=" = ":format"
+
+[keys.normal.space]
+F = "file_picker_in_current_buffer_directory"
+
+[keys.insert]
+C-right = "move_next_word_start"
+C-left = "move_prev_word_end"
