@@ -8,6 +8,7 @@
     
       fish_add_path $HOME/.local/bin
       fish_add_path /opt/homebrew/bin
+      fish_add_path /opt/homebrew/opt/llvm/bin
   
       if test -e $HOME/.config/fish/variables-$(hostname)fish
         source $HOME/.config/fish/variables-$(hostname).fish
