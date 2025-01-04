@@ -27,7 +27,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
       inputs.helix.overlays.default
     ];
   };
@@ -85,7 +84,6 @@
 
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
   };
 
   programs.bat = {
