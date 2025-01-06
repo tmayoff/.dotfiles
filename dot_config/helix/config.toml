@@ -3,6 +3,10 @@ theme = "catppuccin_macchiato"
 [editor]
 auto-format = false
 #gutters = ["line-numbers", "diagnostics", "diff"]
+end-of-line-diagnostics = "warning"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
 
 [editor.statusline]
 left = ["mode", "spinner", "spacer", "version-control", "file-name"]
