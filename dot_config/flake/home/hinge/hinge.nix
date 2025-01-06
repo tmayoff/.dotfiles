@@ -15,26 +15,36 @@ in rec {
     # mac-app-util.homeManagerModules.default
   ];
 
-  home.username = lib.mkForce "tyler.mayoff";
-  home.homeDirectory = lib.mkForce "/Users/tyler.mayoff";
+  home = {
+    username = lib.mkForce "tyler.mayoff";
+    homeDirectory = lib.mkForce "/Users/tyler.mayoff";
 
-  home.packages = with pkgs; [
-    bazel_7
-    cmake
-    # clang-tools
-    cmake-language-server
-    jdt-language-server
-    ffmpeg
-    sccache
-    just
-    yarn
-    cocoapods
-    # android-tools
-    jdk17
-  ];
+    packages = with pkgs; [
+      bazel_7
+      cmake
 
-  home.sessionVariables = {
-    ANDROID_HOME="/Users/tyler.mayoff/Library/Android/sdk";
-    PATH="$PATH:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
+      # clang
+      # biome
+      deno
+      swiftlint
+      unstable.helix-gpt
+      unstable.lsp-ai
+      python312Packages.python-lsp-server
+      typescript-language-server
+      cmake-language-server
+      jdt-language-server
+      ffmpeg
+      sccache
+      just
+      yarn
+      cocoapods
+      # android-tools
+      jdk17
+    ];
+
+    sessionVariables = {
+      ANDROID_HOME = "/Users/tyler.mayoff/Library/Android/sdk";
+      PATH = "$PATH:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
+    };
   };
 }

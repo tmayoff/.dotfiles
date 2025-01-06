@@ -28,10 +28,9 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
 
-      # inputs.helix.overlays.default
+      inputs.helix.overlays.default
     ];
   };
-
 
   home.packages = with pkgs; [
     # Fonts
@@ -77,7 +76,7 @@
 
   programs.helix = {
     enable = true;
-    # package = inputs.helix.packages.${pkgs.system}.default;
+    package = inputs.helix.packages.${pkgs.system}.default;
   };
 
   programs.bat = {
@@ -116,8 +115,6 @@
     enableFishIntegration = true;
     shellWrapperName = "y";
   };
-
-  
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;

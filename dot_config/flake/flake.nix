@@ -9,7 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-    # helix.url = "github:helix-editor/helix";
+    helix.url = "github:helix-editor/helix";
+    darwin.url = "github:lnl7/nix-darwin";
   };
 
   outputs = {
@@ -17,6 +18,8 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    darwin,
+    helix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -39,6 +42,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./nixos/mal/configuration.nix];
       };
+    };
+
+    darwinConfigurations."MAC-C57KK2TC69" = darwin.lib.darwinSystem {
+      specialArgs = {inherit inputs outputs;};
+      modules = [./home/hinge/darwin.nix];
+      
     };
 
     homeConfigurations = {

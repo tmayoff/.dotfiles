@@ -5,15 +5,17 @@
       set -gx EDITOR hx
       set -gx GIT_EDITOR $EDITOR
       set -gx DEBEMAIL "tyler@tylermayoff.com"
-    
+
       fish_add_path $HOME/.local/bin
       fish_add_path /opt/homebrew/bin
-      fish_add_path /opt/homebrew/opt/llvm/bin
-  
+      fish_add_path /opt/homebrew/opt/llvm@18/bin
+
       if test -e $HOME/.config/fish/variables-$(hostname)fish
         source $HOME/.config/fish/variables-$(hostname).fish
       end
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
+
+      export GPG_TTY=$(tty)
 
       zoxide init fish | source
     '';
@@ -30,14 +32,6 @@
         source $HOME/.config/fish/variables-$(hostname).fish
       end
     '';
-
-    # functions = {
-    #   yupdate = {
-    #     body = ''
-    #       echo "Hello world"
-    #     '';
-    #   };
-    # };
 
     plugins = [
       {
@@ -66,8 +60,8 @@
 
       # yac = "yadm add . && yadm commit";
       # yacp = "yac && yadm push";
-      yc = "pushd $HOME/.local/share/yadm/repo.git && git-forgit add && yadm commit && popd";
-      yd = "pushd $HOME/.local/share/yadm/repo.git && git-forgit diff && popd";
+      # yc = "pushd $HOME/.local/share/yadm/repo.git && git-forgit add && yadm commit && popd";
+      # yd = "pushd $HOME/.local/share/yadm/repo.git && git-forgit diff && popd";
 
       # nix
       flake = "nix flake";
