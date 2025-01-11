@@ -22,7 +22,10 @@ in rec {
     packages = with pkgs; [
       bazel_7
       cmake
+      conan
 
+      black
+    
       # clang
       # biome
       deno
