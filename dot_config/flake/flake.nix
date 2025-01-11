@@ -10,6 +10,7 @@
     };
     nixgl.url = "github:nix-community/nixGL";
     helix.url = "github:helix-editor/helix/25.01";
+    stylix.url = "github:danth/stylix/release-24.11";
     darwin.url = "github:lnl7/nix-darwin";
   };
 
@@ -20,6 +21,7 @@
     home-manager,
     darwin,
     helix,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -47,7 +49,6 @@
     darwinConfigurations."MAC-C57KK2TC69" = darwin.lib.darwinSystem {
       specialArgs = {inherit inputs outputs;};
       modules = [./home/hinge/darwin.nix];
-      
     };
 
     homeConfigurations = {
@@ -60,7 +61,7 @@
       "tyler@wash" = home-manager.lib.homeManagerConfiguration {
         pkgs = allPkgs."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/wash/wash.nix];
+        modules = [stylix.homeManagerModules.stylix ./home/wash/wash.nix];
       };
 
       "tyler@mal" = home-manager.lib.homeManagerConfiguration {

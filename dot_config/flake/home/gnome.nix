@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    gnome.gnome-tweaks
+    gnome-tweaks
   ];
 
   programs.gnome-shell = {
