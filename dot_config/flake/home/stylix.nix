@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  theme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+  theme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
 in {
   stylix = {
     image = pkgs.fetchurl {

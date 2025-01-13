@@ -10,6 +10,7 @@
   # mac-app-util = import mac-app-util-src {};
 in rec {
   imports = [
+    ../stylix.nix
     ../common.nix
     ../kitty.nix
     # mac-app-util.homeManagerModules.default

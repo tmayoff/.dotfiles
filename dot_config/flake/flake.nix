@@ -73,7 +73,7 @@
       "tyler.mayoff@MAC-C57KK2TC69" = home-manager.lib.homeManagerConfiguration {
         pkgs = allPkgs."aarch64-darwin";
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/hinge/hinge.nix];
+        modules = [stylix.homeManagerModules.stylix ./home/hinge/hinge.nix];
       };
     };
   };
