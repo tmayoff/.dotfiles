@@ -19,3 +19,4 @@ jobs:
             dependencies
             automated
           token: ${{ secrets.FLAKE_PR_TOKEN }}
+          path-to-flake-dir: dot_config/flake/
