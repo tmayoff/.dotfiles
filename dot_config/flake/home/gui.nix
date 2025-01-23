@@ -21,6 +21,8 @@
     # Office
     libreoffice
     obsidian
+
+    (config.lib.nixGL.wrap unstable.onagre)
   ];
 
   # programs.vscode.enable = true;

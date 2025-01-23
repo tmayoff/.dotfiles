@@ -28,6 +28,7 @@ auto-format = true
 formatter = { command = "alejandra", args = ["-q"] }
 
 [[language]]
+<<<<<<< HEAD
 name = "objc"
 scope = "source.objc"
 file-types = ["m", "mm", "M"]
@@ -40,9 +41,7 @@ language-servers = [ {name = "clangd"} ]
 [[grammar]]
 name = "objc"
 source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-objc", rev = "18802acf31d0b5c1c1d50bdbc9eb0e1636cab9ed" }
-
-
-[[language]]
+=======
 name = "slang"
 scope = "source.slang"
 file-types = ["slang"]
@@ -53,6 +52,7 @@ comment-token = "//"
 [[grammar]]
 name = "slang"
 source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-slang", rev = "3ed23c04a412a0559162d9cadf96dfff7cb36079" }
+>>>>>>> 5005128920481963efea6c62053d2dcb192c3116
 
 ##################
 ### BiomeJS Setup
