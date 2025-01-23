@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-    helix.url = "github:helix-editor/helix/25.01";
+    helix.url = "github:helix-editor/helix/25.01.1";
     darwin.url = "github:lnl7/nix-darwin";
   };
 
