@@ -2,6 +2,7 @@
 clangd = { command = "clangd", args = ["--header-insertion=never"]}
 biome = { command = "biome", args = ["lsp-proxy"] }
 fish_lsp = {command = "fish-lsp", args = ["start"]}
+slangd = {command = "slangd"}
 
 [[language]]
 name = "fish"
@@ -25,6 +26,18 @@ scope = "source.nix"
 #file-types = ["nix"]
 auto-format = true
 formatter = { command = "alejandra", args = ["-q"] }
+
+[[language]]
+name = "slang"
+scope = "source.slang"
+file-types = ["slang"]
+auto-format = true
+language-servers = [{name = "slangd"}]
+comment-token = "//"
+
+[[grammar]]
+name = "slang"
+source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-slang", rev = "3ed23c04a412a0559162d9cadf96dfff7cb36079" }
 
 ##################
 ### BiomeJS Setup
