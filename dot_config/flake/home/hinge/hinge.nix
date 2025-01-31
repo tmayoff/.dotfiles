@@ -2,17 +2,10 @@
   lib,
   pkgs,
   ...
-}: let
-  # mac-app-util-src = builtins.fetchTarball {
-  #   url = "https://github.com/hraban/mac-app-util/archive/master.tar.gz";
-  #   sha256 = "1w80vjcnaysjlzxsp3v4pxq4yswbjvxs8ann2bk0m7rkjljnzz6m";
-  # };
-  # mac-app-util = import mac-app-util-src {};
-in rec {
+}: {
   imports = [
     ../common.nix
     ../kitty.nix
-    # mac-app-util.homeManagerModules.default
   ];
 
   home = {
@@ -25,10 +18,7 @@ in rec {
       conan
 
       black
-    
-      # clang
-      # biome
-      deno
+
       swiftlint
       unstable.helix-gpt
       unstable.lsp-ai
