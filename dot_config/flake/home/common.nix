@@ -1,8 +1,6 @@
 {
   inputs,
   outputs,
-  # lib,
-  # config,
   pkgs,
   ...
 }: {
@@ -16,6 +14,7 @@
   xdg.enable = true;
 
   imports = [
+    ./shell.nix
     ./fish.nix
     ./nushell.nix
     # ./nom.nix
@@ -32,9 +31,6 @@
   };
 
   home.packages = with pkgs; [
-    # Fonts
-    #(nerdfonts.override {fonts = ["JetBrainsMono"];})
-
     unstable.nix-output-monitor
 
     # dotfiles
@@ -112,6 +108,10 @@
     package = pkgs.unstable.yazi;
     enableFishIntegration = true;
     shellWrapperName = "y";
+  };
+
+  programs.zoxide = {
+    enable = true;
   };
 
   home.stateVersion = "23.11";
