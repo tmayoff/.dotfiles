@@ -1,16 +1,14 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../common.nix
     ../kitty.nix
   ];
 
+  # xdg.enable = lib.mkForce false;
+
   home = {
-    username = lib.mkForce "tyler.mayoff";
-    homeDirectory = lib.mkForce "/Users/tyler.mayoff";
+    username = "tyler.mayoff";
+    # homeDirectory = /Users/tyler.mayoff;
 
     packages = with pkgs; [
       bazel_7
@@ -40,4 +38,6 @@
       PATH = "$PATH:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
     };
   };
+
+  home.stateVersion = "24.11";
 }

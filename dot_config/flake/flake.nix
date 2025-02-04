@@ -10,7 +10,10 @@
     };
     nixgl.url = "github:nix-community/nixGL";
     helix.url = "github:helix-editor/helix/25.01.1";
-    darwin.url = "github:lnl7/nix-darwin";
+    darwin = {
+      url = "github:lnl7/nix-darwin/nix-darwin-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -45,9 +48,22 @@
     };
 
     darwinConfigurations."MAC-C57KK2TC69" = darwin.lib.darwinSystem {
-      specialArgs = {inherit inputs outputs;};
-      modules = [./home/hinge/darwin.nix];
-      
+      pkgs = allPkgs."aarch64-darwin";
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        ./home/hinge/darwin.nix
+        home-manager.darwinModules.home-manager
+        {
+	 # pkgs = allPkgs."aarch64-darwin";
+          #home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          home-manager.users."tyler.mayoff" = import ./home/hinge/hinge.nix;
+          users.users."tyler.mayoff".home = "/Users/tyler.mayoff";
+        }
+      ];
     };
 
     homeConfigurations = {
@@ -69,11 +85,11 @@
         modules = [./home/mal/mal.nix];
       };
 
-      "tyler.mayoff@MAC-C57KK2TC69" = home-manager.lib.homeManagerConfiguration {
-        pkgs = allPkgs."aarch64-darwin";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/hinge/hinge.nix];
-      };
+      # "tyler.mayoff@MAC-C57KK2TC69" = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = allPkgs."aarch64-darwin";
+      #   extraSpecialArgs = {inherit inputs outputs;};
+      #   modules = [./home/hinge/hinge.nix];
+      # };
     };
   };
 }

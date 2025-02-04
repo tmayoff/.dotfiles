@@ -3,8 +3,8 @@
     # Git
     gc = "git commit";
     gcm = "git commit -m";
-    # gac = "git add . and git commit";
-    # gacp = "gac and git push";
+    gac = "git add . and git commit";
+    gacp = "gac and git push";
     gs = "git status";
 
     # nix

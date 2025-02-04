@@ -8,9 +8,14 @@
 }: {
   imports = [../common.nix];
 
-  home.packages = with pkgs; [
-    # clang_17
-    # clang-tools
-    just
-  ];
+  home = {
+    username = "tyler";
+    homeDirectory = "/home/tyler";
+
+    packages = with pkgs; [
+      # clang_17
+      # clang-tools
+      just
+    ];
+  };
 }

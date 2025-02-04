@@ -4,10 +4,7 @@
   pkgs,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
-
-  home.username = "tyler";
-  home.homeDirectory = "/home/tyler";
+  #nixpkgs.config.allowUnfree = true;
 
   home.enableNixpkgsReleaseCheck = false;
 
@@ -17,8 +14,6 @@
     ./shell.nix
     ./fish.nix
     ./nushell.nix
-    # ./nom.nix
-    # ./neovim.nix
   ];
 
   nixpkgs = {
@@ -31,7 +26,7 @@
   };
 
   home.packages = with pkgs; [
-    unstable.nix-output-monitor
+   # unstable.nix-output-monitor
 
     # dotfiles
     age
@@ -53,7 +48,7 @@
     git
 
     fzf
-    zoxide
+    just
 
     # Software Dev
     tig
@@ -114,6 +109,6 @@
     enable = true;
   };
 
-  home.stateVersion = "23.11";
+  # home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 }
