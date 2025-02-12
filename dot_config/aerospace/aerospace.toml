@@ -211,5 +211,5 @@ shift-down = ['volume set 0', 'mode main']
 
 [workspace-to-monitor-force-assignment]
 1 = 'built-in'
-2 = ['^DELL U2723QE \(1\)$']
-3 = ['^DELL U2723QE \(2\)$', '3']
+2 = ['^DELL U2723QE \(1\)$', 'BenQ EX2710 \(2\)$']
+3 = ['^DELL U2723QE \(2\)$', 'BenQ EX2710 \(1\)$']

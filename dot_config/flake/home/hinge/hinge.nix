@@ -29,14 +29,16 @@
       just
       yarn
       cocoapods
-      # android-tools
-      jdk17
     ];
 
     sessionVariables = {
       ANDROID_HOME = "/Users/tyler.mayoff/Library/Android/sdk";
       PATH = "$PATH:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
     };
+
+    file.".gnupg/gpg-agent.conf".text = ''
+      pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+    '';
   };
 
   home.stateVersion = "24.11";
