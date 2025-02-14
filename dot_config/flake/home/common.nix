@@ -77,6 +77,8 @@
 
   programs.zellij = {
     enable = true;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
   };
 
   programs.starship = {

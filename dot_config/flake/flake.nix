@@ -55,9 +55,8 @@
         ./home/hinge/darwin.nix
         home-manager.darwinModules.home-manager
         {
-	 # pkgs = allPkgs."aarch64-darwin";
-          #home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          home-manager.useGlobalPkgs = false;
+          home-manager.useUserPackages = false;
 
           home-manager.extraSpecialArgs = {inherit inputs outputs;};
           home-manager.users."tyler.mayoff" = import ./home/hinge/hinge.nix;
