@@ -74,7 +74,10 @@
       specialArgs = {inherit inputs;};
 
       modules = [
+        lix-module.nixosModules.default
+
         ./home/hinge/darwin.nix
+
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
