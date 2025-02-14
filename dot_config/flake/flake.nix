@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +24,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    lix-module,
     home-manager,
     darwin,
     helix,
@@ -44,6 +49,23 @@
       mal = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [./nixos/mal/configuration.nix];
+      };
+
+      wash = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          lix-module.nixosModules.default
+          ./nixos/wash/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+            home-manager.users.tyler = import ./home/wash/wash.nix;
+          }
+        ];
       };
     };
 
@@ -78,11 +100,11 @@
         modules = [./home/wash/wash.nix];
       };
 
-      "tyler@mal" = home-manager.lib.homeManagerConfiguration {
-        pkgs = allPkgs;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/mal/mal.nix];
-      };
+      # "tyler@mal" = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = allPkgs;
+      #   extraSpecialArgs = {inherit inputs outputs;};
+      #   modules = [./home/mal/mal.nix];
+      # };
 
       # "tyler.mayoff@MAC-C57KK2TC69" = home-manager.lib.homeManagerConfiguration {
       #   pkgs = allPkgs."aarch64-darwin";

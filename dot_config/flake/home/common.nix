@@ -26,7 +26,7 @@
   };
 
   home.packages = with pkgs; [
-   # unstable.nix-output-monitor
+    # unstable.nix-output-monitor
 
     # dotfiles
     age
@@ -66,6 +66,7 @@
 
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.system}.default;
   };
 
   programs.bat = {
