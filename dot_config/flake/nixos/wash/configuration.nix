@@ -106,6 +106,7 @@
 
   environment.systemPackages = with pkgs; [
     sqlite
+    vscode
   ];
 
   fonts.packages = with pkgs; [
