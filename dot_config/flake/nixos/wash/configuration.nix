@@ -73,6 +73,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.fprintd.enable = true;
+
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -89,6 +91,8 @@
     #media-session.enable = true;
   };
 
+  services.gnome.gnome-keyring.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -100,13 +104,22 @@
     shell = pkgs.fish;
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+    sqlite
   ];
 
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
+  # Install firefox.
+  programs.firefox.enable = true;
   programs.fish.enable = true;
+  programs.sway = {
+    enable = true;
+    # package = null;
+    wrapperFeatures.gtk = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
