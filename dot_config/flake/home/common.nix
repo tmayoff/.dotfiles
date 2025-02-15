@@ -1,25 +1,19 @@
 {
   inputs,
   outputs,
-  # lib,
-  # config,
   pkgs,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
-
-  home.username = "tyler";
-  home.homeDirectory = "/home/tyler";
+  #nixpkgs.config.allowUnfree = true;
 
   home.enableNixpkgsReleaseCheck = false;
 
   xdg.enable = true;
 
   imports = [
+    ./shell.nix
     ./fish.nix
     ./nushell.nix
-    # ./nom.nix
-    # ./neovim.nix
   ];
 
   nixpkgs = {
@@ -32,10 +26,7 @@
   };
 
   home.packages = with pkgs; [
-    # Fonts
-    #(nerdfonts.override {fonts = ["JetBrainsMono"];})
-
-    unstable.nix-output-monitor
+    # unstable.nix-output-monitor
 
     # dotfiles
     age
@@ -57,7 +48,7 @@
     git
 
     fzf
-    zoxide
+    just
 
     # Software Dev
     tig
@@ -128,6 +119,8 @@
   programs.zellij = {
     enable = true;
     package = pkgs.unstable.zellij;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
   };
 
   programs.starship = {
@@ -156,6 +149,10 @@
     shellWrapperName = "y";
   };
 
-  home.stateVersion = "23.11";
+  programs.zoxide = {
+    enable = true;
+  };
+
+  # home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 }
