@@ -68,7 +68,7 @@ in {
         "${mod}+q" = "kill";
 
         # Start launcher
-        "${mod}+d" = "exec ${menu}";
+        "${mod}+space" = "exec ${menu}";
 
         # Reload the configuration file
         "${mod}+Shift+c" = "reload";
