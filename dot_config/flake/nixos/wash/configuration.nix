@@ -8,6 +8,7 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
+    ../../home/stylix.nix
     ./hardware-configuration.nix
   ];
 
@@ -107,6 +108,7 @@
   environment.systemPackages = with pkgs; [
     sqlite
     vscode
+    lm_sensors
   ];
 
   fonts.packages = with pkgs; [

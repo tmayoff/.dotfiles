@@ -15,9 +15,12 @@ in {
     };
 
     enable = true;
+    autoEnable = false;
 
-    targets.alacritty.enable = false;
+    # targets.alacritty.enable = false;
     # targets.helix.enable = false;
-    targets.gtk.flatpakSupport.enable = false;
+    # targets.waybar.enable = true;
+    # targets.sway.enable = true;
+    # targets.gtk.flatpakSupport.enable = false;
   };
 }
