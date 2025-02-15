@@ -74,11 +74,14 @@
       specialArgs = {inherit inputs;};
 
       modules = [
+        lix-module.nixosModules.default
+
         ./home/hinge/darwin.nix
+
         home-manager.darwinModules.home-manager
         {
-          home-manager.useGlobalPkgs = false;
-          home-manager.useUserPackages = false;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
 
           home-manager.extraSpecialArgs = {inherit inputs outputs;};
           home-manager.users."tyler.mayoff" = import ./home/hinge/hinge.nix;

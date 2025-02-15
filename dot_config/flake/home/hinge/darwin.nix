@@ -1,4 +1,5 @@
 {
+  outputs,
   pkgs,
   lib,
   ...
@@ -7,7 +8,20 @@
 
   imports = [
     # ../fish.nix
+    ./sketchybar.nix
   ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   nix.extraOptions =
     ''
@@ -24,17 +38,25 @@
     shell = pkgs.fish;
   };
 
-  services.sketchybar.enable = true;
+  system.defaults.NSGlobalDomain._HIHideMenuBar = true;
 
-  system.stateVersion = 5;
+  security.pam.enableSudoTouchIdAuth = true;
 
   environment.systemPackages = with pkgs; [
     pinentry_mac
     llvmPackages_19.clang-tools
 
+    sketchybar
+    sbarlua
+
+    lua
+
     # android-tools
     jdk17
   ];
+
   programs.fish.enable = true;
   programs.zsh.enable = true;
+
+  system.stateVersion = 5;
 }
