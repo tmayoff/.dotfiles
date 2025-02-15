@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ../stylix.nix
     ../common.nix
     ../kitty.nix
   ];

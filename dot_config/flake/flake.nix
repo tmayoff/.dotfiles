@@ -14,6 +14,7 @@
     };
     nixgl.url = "github:nix-community/nixGL";
     helix.url = "github:helix-editor/helix/25.01.1";
+    stylix.url = "github:danth/stylix/release-24.11";
     darwin = {
       url = "github:lnl7/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
     home-manager,
     darwin,
     helix,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -55,15 +57,19 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           lix-module.nixosModules.default
-          ./nixos/wash/configuration.nix
+
+          stylix.nixosModules.stylix
+
+          ./machines/wash/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            # home-manager.backupFileExtension = "bak";
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
-            home-manager.users.tyler = import ./home/wash/wash.nix;
+            home-manager.users.tyler = import ./machines/wash/home.nix;
           }
         ];
       };
@@ -100,7 +106,7 @@
       "tyler@wash" = home-manager.lib.homeManagerConfiguration {
         pkgs = allPkgs."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/wash/wash.nix];
+        modules = [stylix.homeManagerModules.stylix ./home/wash/wash.nix];
       };
 
       # "tyler@mal" = home-manager.lib.homeManagerConfiguration {

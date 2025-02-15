@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   imports = [
-    ../stylix.nix
-    ../common.nix
+    ../../home/stylix.nix
+    ../../home/common.nix
 
-    ../waybar/mechabar
-    ../sway
+    ../../home/waybar/mechabar
+    ../../home/sway
 
-    ../home-backup.nix
-    ../gui.nix
+    ../../home/home-backup.nix
+    ../../home/gui.nix
   ];
 
   home = {

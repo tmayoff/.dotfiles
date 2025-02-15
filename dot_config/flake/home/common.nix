@@ -67,17 +67,60 @@
   programs.helix = {
     enable = true;
     package = inputs.helix.packages.${pkgs.system}.default;
+    settings = {
+      theme = "catppuccin_macchiato";
+      editor = {
+        auto-format = false;
+        #gutters = ["line-numbers", "diagnostics", "diff"]
+        end-of-line-diagnostics = "warning";
+
+        inline-diagnostics = {
+          cursor-line = "error";
+        };
+
+        statusline = {
+          left = ["mode" "spinner" "spacer" "version-control" "file-name"];
+        };
+        file-picker = {
+          # git-ignore = false
+        };
+
+        lsp = {
+          display-inlay-hints = true;
+          display-messages = true;
+        };
+
+        cursor-shape.insert = "bar";
+        soft-wrap.enable = true;
+      };
+
+      keys = {
+        normal = {
+          C-right = "move_next_word_start";
+          C-left = "move_prev_word_end";
+          a = "insert_mode";
+          i = "append_mode";
+          "=" = ":format";
+
+          space = {
+            F = "file_picker_in_current_buffer_directory";
+          };
+        };
+        insert = {
+          C-right = "move_next_word_start";
+          C-left = "move_prev_word_end";
+        };
+      };
+    };
   };
 
   programs.bat = {
     enable = true;
-    config = {
-      theme = "GitHub";
-    };
   };
 
   programs.zellij = {
     enable = true;
+    package = pkgs.unstable.zellij;
     enableFishIntegration = false;
     enableZshIntegration = false;
   };
