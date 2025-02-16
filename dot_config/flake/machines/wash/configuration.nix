@@ -63,7 +63,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -93,6 +93,15 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
+
+  services.avahi.enable = true;
+  services.geoclue2 = {
+    enable = true;
+    enableWifi = true;
+    geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
+
+    enableDemoAgent = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

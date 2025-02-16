@@ -1,11 +1,14 @@
 {pkgs, ...}: {
+  # Waybar dotfiles from https://github.com/sejjy/mechabar
+
   imports = [
     ./scripts.nix
     ./rofi.nix
   ];
 
   home.packages = with pkgs; [
-    rofi
+    rofi-wayland
+    bluetui
   ];
 
   programs.waybar = {
@@ -104,7 +107,7 @@
       }
 
       #workspaces button.active {
-        color: @active-fg;
+        color: @hover-fg;
         background: @hover-bg;
         text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
         box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);

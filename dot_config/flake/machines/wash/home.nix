@@ -3,6 +3,8 @@
     ../../home/stylix.nix
     ../../home/common.nix
 
+    ../../home/darkman.nix
+    
     ../../home/waybar/mechabar
     ../../home/sway
 
