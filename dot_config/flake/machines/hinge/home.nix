@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   imports = [
-    ../stylix.nix
-    ../common.nix
-    ../kitty.nix
+    # ../../home/stylix.nix
+    ../../home/common.nix
+    ../../home/kitty.nix
   ];
 
   # xdg.enable = lib.mkForce false;
@@ -41,6 +41,8 @@
       pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
     '';
   };
+
+  programs.home-manager.enable = true;
 
   home.stateVersion = "24.11";
 }

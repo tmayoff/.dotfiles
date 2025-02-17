@@ -16,14 +16,14 @@
     ./nushell.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-      inputs.helix.overlays.default
-    ];
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     outputs.overlays.additions
+  #     outputs.overlays.modifications
+  #     outputs.overlays.unstable-packages
+  #     inputs.helix.overlays.default
+  #   ];
+  # };
 
   home.packages = with pkgs; [
     # unstable.nix-output-monitor
