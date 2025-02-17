@@ -99,9 +99,9 @@
     enable = true;
     enableWifi = true;
     geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
-
-    enableDemoAgent = true;
   };
+
+  services.flatpak.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -115,6 +115,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # unstable.bitwarden-desktop
     sqlite
     vscode
     lm_sensors
@@ -131,6 +132,11 @@
     enable = true;
     # package = null;
     wrapperFeatures.gtk = true;
+  };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

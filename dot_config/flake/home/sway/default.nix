@@ -1,8 +1,11 @@
 {...}: let
   mod = "Mod4";
   term = "kitty";
-  menu = "wmenu-run";
 in {
+  imports = [
+    ./rofi.nix
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     checkConfig = true;
@@ -13,41 +16,20 @@ in {
       };
 
       startup = [
-        # {command = "swaybg -i .config/flake/wallpaper.jpg";}
+        ### Idle configuration
+        # This will lock your screen after 300 seconds of inactivity, then turn off
+        # your displays after another 300 seconds, and turn your screens back on when
+        # resumed. It will also lock your screen before your computer goes to sleep.
+        {command = "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' before-sleep 'swaylock -f -c 000000'";}
       ];
+
+      menu = "rofi -combi-modi window,drun,ssh -show combi -show-icons";
 
       # Home row direction keys, like vim
       up = "k";
       left = "h";
       down = "j";
       right = "l";
-
-      ### Idle configuration
-      #
-      # Example configuration:
-      #
-      # exec swayidle -w \
-      #          timeout 300 'swaylock -f -c 000000' \
-      #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-      #          before-sleep 'swaylock -f -c 000000'
-      #
-      # This will lock your screen after 300 seconds of inactivity, then turn off
-      # your displays after another 300 seconds, and turn your screens back on when
-      # resumed. It will also lock your screen before your computer goes to sleep.
-
-      ### Input configuration
-      #
-      # Example configuration:
-      #
-      #   input "2:14:SynPS/2_Synaptics_TouchPad" {
-      #       dwt enabled
-      #       tap enabled
-      #       natural_scroll enabled
-      #       middle_emulation enabled
-      #   }
-      #
-      # You can get the names of your inputs by running: swaymsg -t get_inputs
-      # Read `man 5 sway-input` for more information about this section.
 
       input = {
         "*" = {
@@ -68,7 +50,7 @@ in {
         "${mod}+q" = "kill";
 
         # Start launcher
-        "${mod}+space" = "exec ${menu}";
+        "${mod}+space" = "exec \"${menu}\"";
 
         # Reload the configuration file
         "${mod}+Shift+c" = "reload";
