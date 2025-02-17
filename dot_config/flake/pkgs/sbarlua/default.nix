@@ -1,62 +1,33 @@
 {
-  lib,
   stdenv,
+  clang,
   fetchFromGitHub,
   gcc,
-  lua,
-  nix-update-script,
-  apple-sdk_15,
-  versionCheckHook,
+  readline,
+  lua5_4,
 }: let
-  inherit (stdenv.hostPlatform) system;
-
-  target =
-    {
-      "aarch64-darwin" = "arm64";
-      "x86_64-darwin" = "x86";
-    }
-    .${system}
-    or (throw "Unsupported system: ${system}");
+  lua = lua5_4;
 in
-  stdenv.mkDerivation (
-    finalAttrs: {
-      pname = "SBarLua";
-      version = "437bd2031da38ccda75827cb7548e7baa4aa9978";
-      src = fetchFromGitHub {
-        repo = "SbarLua";
-        owner = "FelixKratz";
-        rev = "437bd2031da38ccda75827cb7548e7baa4aa9978";
-        hash = "sha256-F0UfNxHM389GhiPQ6/GFbeKQq5EvpiqQdvyf7ygzkPg=";
-      };
+  stdenv.mkDerivation {
+    pname = "SBarLua";
+    version = "unstable-2024-02-28";
 
-      nativeBuildInputs = [
-        gcc
-      ];
+    src = fetchFromGitHub {
+      owner = "FelixKratz";
+      repo = "SbarLua";
+      rev = "437bd2031da38ccda75827cb7548e7baa4aa9978";
+      hash = "sha256-F0UfNxHM389GhiPQ6/GFbeKQq5EvpiqQdvyf7ygzkPg=";
+    };
 
-      buildInputs = [
-        apple-sdk_15
-        lua
-      ];
+    nativeBuildInputs = [
+      clang
+      gcc
+    ];
 
-      # buildPhase = ''
-      #   make
-      # '';
+    buildInputs = [readline];
 
-      installPhase = ''
-        runHook preInstall
-
-        mkdir -p $out/bin
-
-        ls -la
-
-        cp ./bin/sbarlua $out/bin/sbarlua
-        
-        runHook postInstall
-      '';
-
-      meta = {
-        homepage = "https://github.com/FelixKratz/SbarLua";
-        platforms = lib.platforms.darwin;
-      };
-    }
-  )
+    installPhase = ''
+      mkdir -p $out/lib/lua/${lua.luaversion}/
+      cp -r bin/* "$out/lib/lua/${lua.luaversion}/"
+    '';
+  }
