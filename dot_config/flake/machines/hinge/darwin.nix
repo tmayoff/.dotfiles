@@ -1,11 +1,9 @@
 {
+  inputs,
   outputs,
   pkgs,
-  lib,
   ...
 }: {
-  # services.aerospace.enable = true;
-
   imports = [
     # ../fish.nix
     ./sketchybar.nix
@@ -16,21 +14,26 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      inputs.helix.overlays.default
     ];
 
     config = {
       allowUnfree = true;
     };
+
+    hostPlatform = "aarch64-darwin";
   };
 
-  nix.extraOptions =
-    ''
-      auto-optimise-store = true
-      experimental-features = nix-command flakes
-    ''
-    + lib.optionalString (pkgs.system == "aarch64-darwin") ''
-      extra-platforms = x86_64-darwin aarch64-darwin
-    '';
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # nix.extraOptions =
+  #   ''
+  #     auto-optimise-store = true
+  #     experimental-features = nix-command flakes
+  #   ''
+  #   + lib.optionalString (pkgs.system == "aarch64-darwin") ''
+  #     extra-platforms = x86_64-darwin aarch64-darwin
+  #   '';
 
   users.knownUsers = ["tyler.mayoff"];
   users.users."tyler.mayoff" = {
@@ -47,13 +50,15 @@
     llvmPackages_19.clang-tools
 
     sketchybar
-    sbarlua
+    # sbarlua
 
     lua
 
     # android-tools
     jdk17
   ];
+
+  # services.aerospace.enable = true;
 
   programs.fish.enable = true;
   programs.zsh.enable = true;

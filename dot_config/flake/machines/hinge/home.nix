@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   imports = [
-    ../stylix.nix
-    ../common.nix
-    ../kitty.nix
+    # ../../home/stylix.nix
+    ../../home/common.nix
+    ../../home/kitty.nix
   ];
 
   # xdg.enable = lib.mkForce false;
@@ -40,7 +40,22 @@
     file.".gnupg/gpg-agent.conf".text = ''
       pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
     '';
+
+    file.".config/sketchybar/sketchybarrc" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env lua
+
+        package.cpath = package.cpath .. ";${pkgs.sbarlua}/lib/lua/5.4/sketchybar.so"
+
+        -- Load the sketchybar-package and prepare the helper binaries
+        require("helpers")
+        require("init")
+      '';
+    };
   };
+
+  programs.home-manager.enable = true;
 
   home.stateVersion = "24.11";
 }

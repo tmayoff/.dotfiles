@@ -76,13 +76,12 @@
     };
 
     darwinConfigurations."MAC-C57KK2TC69" = darwin.lib.darwinSystem {
-      pkgs = allPkgs."aarch64-darwin";
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs outputs;};
 
       modules = [
         lix-module.nixosModules.default
 
-        ./home/hinge/darwin.nix
+        ./machines/hinge/darwin.nix
 
         home-manager.darwinModules.home-manager
         {
@@ -90,7 +89,7 @@
           home-manager.useUserPackages = true;
 
           home-manager.extraSpecialArgs = {inherit inputs outputs;};
-          home-manager.users."tyler.mayoff" = import ./home/hinge/hinge.nix;
+          home-manager.users."tyler.mayoff" = import ./machines/hinge/home.nix;
           users.users."tyler.mayoff".home = "/Users/tyler.mayoff";
         }
       ];
@@ -102,6 +101,12 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/guidebolt/guidebolt.nix];
       };
+
+      # "tyler.mayoff@MAC-C57KK2TC69" = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = allPkgs."aarch64-darwin";
+      #   extraSpecialArgs = {inherit inputs outputs;};
+      #   modules = [./home/wash/wash.nix];
+      # };
 
       "tyler@wash" = home-manager.lib.homeManagerConfiguration {
         pkgs = allPkgs."x86_64-linux";
