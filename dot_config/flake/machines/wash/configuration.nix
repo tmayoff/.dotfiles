@@ -28,7 +28,6 @@
   boot = {
     loader = {
       timeout = 0;
-    
       systemd-boot = {
         enable = true;
         configurationLimit = 5;
@@ -151,11 +150,16 @@
   # Install firefox.
   programs.firefox.enable = true;
   programs.fish.enable = true;
+
+  # Sway
   programs.sway = {
     enable = true;
     # package = null;
     wrapperFeatures.gtk = true;
   };
+
+  security.pam.services.swaylock = {};
+  security.pam.services.swaylock.fprintAuth = true;
 
   programs.appimage = {
     enable = true;
