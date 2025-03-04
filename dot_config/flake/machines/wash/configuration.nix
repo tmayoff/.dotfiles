@@ -25,10 +25,23 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 5;
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.plymouth = {
+    enable = true;
+    themePackages = [pkgs.catppuccin-plymouth];
+    theme = "catppuccin-macchiato";
+  };
+
+  # Nix options
+  nix.optimise.automatic = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.trustedUsers = ["tyler" "@wheel"];
 
   networking.hostName = "wash"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -117,13 +130,17 @@
   environment.systemPackages = with pkgs; [
     # unstable.bitwarden-desktop
     sqlite
-    vscode
+    vscode.fhs
     lm_sensors
+
+    pre-commit
   ];
 
   fonts.packages = with pkgs; [
     nerdfonts
   ];
+
+  programs.nix-ld.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;

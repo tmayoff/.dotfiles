@@ -1,10 +1,75 @@
-{...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   mod = "Mod4";
   term = "kitty";
+  menu = "rofi -combi-modi window,drun,ssh -show combi -show-icons";
+
+  image = pkgs.fetchurl {
+    url = "https://www.pixelstalk.net/wp-content/uploads/image11/Get-Glittery-blue-4K-wallpaper-with-a-calm-cool-sparkle.jpg";
+    sha256 = "sha256-inZkyQsiF+aqgj2IK2AKN9STYLJBzG+QQCzw/X7cdcw=";
+  };
 in {
   imports = [
     ./rofi.nix
   ];
+
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+
+    settings = {
+      image = "${image}";
+      effect-blur = "30x3";
+    };
+  };
+
+  services.swayidle = {
+    enable = true;
+    extraArgs = ["-w"];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${lib.getExe pkgs.swaylock-effects} -f";
+      }
+      {
+        event = "lock";
+        command = "${lib.getExe pkgs.swaylock-effects} -f";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 300;
+        command = "${lib.getExe pkgs.swaylock-effects} -f";
+      }
+      {
+        timeout = 305;
+        command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
+        resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
+      }
+      {
+        timeout = 600;
+        command = ''systemctl suspend'';
+      }
+      {
+        timeout = 1200;
+        command = ''systemctl hibernate'';
+      }
+    ];
+  };
+
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        # disabledTrayIcon = true;
+        showStartupLaunchMessage = false;
+        uiColor = "#24273a";
+      };
+    };
+  };
 
   wayland.windowManager.sway = {
     enable = true;
@@ -12,18 +77,10 @@ in {
     config = rec {
       output."*" = {
         scale = "1";
-        # bg = "${image} fill";
+        background = "${image} fill";
       };
 
-      startup = [
-        ### Idle configuration
-        # This will lock your screen after 300 seconds of inactivity, then turn off
-        # your displays after another 300 seconds, and turn your screens back on when
-        # resumed. It will also lock your screen before your computer goes to sleep.
-        {command = "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' before-sleep 'swaylock -f -c 000000'";}
-      ];
-
-      menu = "rofi -combi-modi window,drun,ssh -show combi -show-icons";
+      startup = [];
 
       # Home row direction keys, like vim
       up = "k";
@@ -120,6 +177,8 @@ in {
 
         # Make the current focus fullscreen
         "${mod}+f" = "fullscreen";
+
+        "Print" = "exec flameshot gui";
       };
 
       # Drag floating windows by holding down $mod and left mouse button.
