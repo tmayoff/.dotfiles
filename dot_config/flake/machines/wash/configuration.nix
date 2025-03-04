@@ -24,18 +24,24 @@
     };
   };
 
-  # Bootloader.
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 5;
-  };
+  # Bootloader
+  boot = {
+    loader = {
+      timeout = 0;
+    
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
 
-  boot.loader.efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-  boot.plymouth = {
-    enable = true;
-    themePackages = [pkgs.catppuccin-plymouth];
-    theme = "catppuccin-macchiato";
+    plymouth = {
+      enable = true;
+      themePackages = [pkgs.catppuccin-plymouth];
+      theme = "catppuccin-macchiato";
+    };
   };
 
   # Nix options
