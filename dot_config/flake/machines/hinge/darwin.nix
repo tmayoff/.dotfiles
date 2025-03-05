@@ -3,7 +3,9 @@
   outputs,
   pkgs,
   ...
-}: {
+}: let
+  py_ver = "3.10";
+in {
   imports = [
     # ../fish.nix
     ./sketchybar.nix
@@ -49,6 +51,8 @@
     pinentry_mac
     llvmPackages_19.clang-tools
 
+    pipenv
+
     sketchybar
     # sbarlua
 
@@ -56,7 +60,45 @@
 
     # android-tools
     jdk17
+
+    conan
   ];
+
+  homebrew = {
+    enable = true;
+
+    onActivation = {
+      autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
+      upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
+      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
+      cleanup = "zap";
+    };
+
+    brews = [
+      "autoconf"
+      "automake"
+      "fastlane"
+      "freetype"
+      "git-lfs"
+      "libtool"
+      "m4"
+      "nasm"
+      "pkg-config"
+      "python@${py_ver}"
+      "rsync"
+      "jq"
+      "ffmpeg"
+      "wget"
+      "ios-deploy"
+      "unzip"
+      "xz"
+    ];
+
+    casks = [
+      "firefox"
+      "gpg-suite"
+    ];
+  };
 
   # services.aerospace.enable = true;
 
