@@ -46,7 +46,7 @@
   # Nix options
   nix.optimise.automatic = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.trustedUsers = ["tyler" "@wheel"];
+  nix.settings.trusted-users = ["tyler" "@wheel"];
 
   networking.hostName = "wash"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
