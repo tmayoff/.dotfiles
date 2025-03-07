@@ -3,6 +3,8 @@
     # ../../home/stylix.nix
     ../../home/common.nix
     ../../home/kitty.nix
+
+    ../../home/helide
   ];
 
   # xdg.enable = lib.mkForce false;
@@ -12,7 +14,7 @@
     # homeDirectory = /Users/tyler.mayoff;
 
     packages = with pkgs; [
-      bazel_7
+      bazelisk
       cmake
       conan
 
@@ -34,7 +36,7 @@
 
     sessionVariables = {
       ANDROID_HOME = "/Users/tyler.mayoff/Library/Android/sdk";
-      PATH = "$PATH:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
+      PATH = "$PATH:/opt/homebrew/opt/llvm@18/bin:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
     };
 
     file.".gnupg/gpg-agent.conf".text = ''

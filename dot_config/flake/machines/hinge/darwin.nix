@@ -43,13 +43,11 @@ in {
     shell = pkgs.fish;
   };
 
-  system.defaults.NSGlobalDomain._HIHideMenuBar = true;
-
   security.pam.enableSudoTouchIdAuth = true;
 
   environment.systemPackages = with pkgs; [
     pinentry_mac
-    llvmPackages_19.clang-tools
+    # llvmPackages_19.clang-tools
 
     pipenv
 
@@ -92,6 +90,8 @@ in {
       "ios-deploy"
       "unzip"
       "xz"
+
+      "llvm@18"
     ];
 
     casks = [
