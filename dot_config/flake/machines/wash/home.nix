@@ -10,6 +10,8 @@
 
     ../../home/home-backup.nix
     ../../home/gui.nix
+
+    ../../home/helide
   ];
 
   home = {
