@@ -20,7 +20,6 @@
 
       # Get the running command in the current pane
       RUNNING_COMMAND=$(zellij action list-clients | awk 'NR==2 {print $3}')
-      echo $RUNNING_COMMAND > out.txt
 
       # Check if the command running in the current pane is helix (hx)
       # if echo "$RUNNING_COMMAND" | grep -q "hx$"; then
