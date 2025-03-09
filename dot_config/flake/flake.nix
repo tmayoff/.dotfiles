@@ -50,7 +50,20 @@
     nixosConfigurations = {
       mal = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/mal/configuration.nix];
+        modules = [
+          ./machines/mal/configuration.nix
+
+          lix-module.nixosModules.default
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+            home-manager.users.tyler = import ./machines/mal/home.nix;
+          }
+        ];
       };
 
       wash = nixpkgs.lib.nixosSystem {

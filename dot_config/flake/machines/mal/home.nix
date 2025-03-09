@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  imports = [../common.nix];
+  imports = [
+    ../../home/common.nix
+    ../../home/helide
+  ];
 
   home = {
     username = "tyler";
