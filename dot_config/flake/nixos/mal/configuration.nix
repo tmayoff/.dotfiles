@@ -122,6 +122,7 @@ in {
   # };
 
   systemd.timers."backup-serenity" = {
+    wantedBy = ["timers.target"];
     timerConfig = {
       OnCalendar = "monthly";
       Persistent = true;

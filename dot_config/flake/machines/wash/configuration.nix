@@ -112,7 +112,11 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.avahi.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  };
+
   services.geoclue2 = {
     enable = true;
     enableWifi = true;
