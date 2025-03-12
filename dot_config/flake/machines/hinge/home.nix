@@ -19,6 +19,7 @@
       conan
 
       black
+      ruff
 
       swiftlint
       unstable.helix-gpt

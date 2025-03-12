@@ -49,6 +49,8 @@ in {
     pinentry_mac
     # llvmPackages_19.clang-tools
 
+    fnm
+
     pipenv
 
     sketchybar
@@ -92,6 +94,7 @@ in {
       "xz"
 
       "llvm@18"
+      "llvm@19"
     ];
 
     casks = [
