@@ -47,18 +47,18 @@ in {
     ];
     timeouts = [
       {
-        timeout = 300;
+        timeout = 600;
         command = "${lib.getExe pkgs.swaylock-effects} -f";
       }
       {
-        timeout = 305;
+        timeout = 605;
         command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
         resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
       }
-      {
-        timeout = 600;
-        command = ''systemctl suspend'';
-      }
+      # {
+      #   timeout = 600;
+      #   command = ''systemctl suspend'';
+      # }
       {
         timeout = 1200;
         command = ''systemctl hibernate'';

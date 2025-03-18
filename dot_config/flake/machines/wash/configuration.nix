@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   outputs,
   pkgs,
@@ -21,6 +18,9 @@
 
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "fluffychat-linux-1.23.0"
+      ];
     };
   };
 
@@ -62,26 +62,27 @@
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_CA.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_ADDRESS = "en_CA.UTF-8";
+    LC_IDENTIFICATION = "en_CA.UTF-8";
+    LC_MEASUREMENT = "en_CA.UTF-8";
+    LC_MONETARY = "en_CA.UTF-8";
+    LC_NAME = "en_CA.UTF-8";
+    LC_NUMERIC = "en_CA.UTF-8";
+    LC_PAPER = "en_CA.UTF-8";
+    LC_TELEPHONE = "en_CA.UTF-8";
+    LC_TIME = "en_CA.UTF-8";
+    LC_ALL = "en_CA.UTF-8";
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -137,10 +138,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # unstable.bitwarden-desktop
+    unstable.bitwarden-desktop
     sqlite
     vscode.fhs
     lm_sensors
+    nautilus
 
     pre-commit
   ];
@@ -154,6 +156,11 @@
   # Install firefox.
   programs.firefox.enable = true;
   programs.fish.enable = true;
+
+  # programs.niri = {
+  #   enable = true;
+  #   package = pkgs.unstable.niri-unstable;
+  # };
 
   # Sway
   programs.sway = {
