@@ -21,6 +21,8 @@
       black
       ruff
 
+      unstable.copilot-language-server
+
       swiftlint
       unstable.helix-gpt
       unstable.lsp-ai

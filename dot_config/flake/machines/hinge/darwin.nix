@@ -62,6 +62,10 @@ in {
     jdk17
 
     conan
+
+    deno
+    lsp-ai
+    python312Packages.jedi-language-server
   ];
 
   homebrew = {
