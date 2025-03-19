@@ -74,6 +74,9 @@
         #gutters = ["line-numbers", "diagnostics", "diff"]
         end-of-line-diagnostics = "warning";
 
+        bufferline = "multiple";
+        line-number = "relative";
+
         inline-diagnostics = {
           cursor-line = "error";
         };
