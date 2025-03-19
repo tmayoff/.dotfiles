@@ -20,6 +20,7 @@
 
     packages = with pkgs; [
       ventoy
+      nom
       # (config.lib.nixGL.wrap renderdoc)
     ];
 
