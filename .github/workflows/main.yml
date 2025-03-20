@@ -6,6 +6,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
+        host: [wash, mal, hinge]
 
     runs-on: ${{ matrix.os }}
 
@@ -15,4 +16,4 @@ jobs:
 
     - run: |
         cd dot_config/flake
-        nix build
+        sudo nixos-rebuild switch --flake ~/.config/flake#${{ matrix.host }}
