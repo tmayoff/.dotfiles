@@ -19,6 +19,11 @@
       url = "github:lnl7/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -30,6 +35,7 @@
     darwin,
     helix,
     stylix,
+    cosmic,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -69,9 +75,11 @@
       wash = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
 
           stylix.nixosModules.stylix
+
+          cosmic.nixosModules.default
 
           ./machines/wash/configuration.nix
 
