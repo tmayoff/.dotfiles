@@ -47,6 +47,10 @@
   nix.optimise.automatic = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.trusted-users = ["tyler" "@wheel"];
+  nix.settings = {
+    substituters = ["https://cosmic.cachix.org/"];
+    trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+  };
 
   networking.hostName = "wash"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
