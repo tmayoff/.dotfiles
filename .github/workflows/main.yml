@@ -16,4 +16,4 @@ jobs:
 
     - run: |
         cd dot_config/flake
-        sudo nixos-rebuild switch --flake ~/.config/flake#wash
+        nix build .#wash
