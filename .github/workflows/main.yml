@@ -3,12 +3,12 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
-        host: [wash, mal, hinge]
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest, macOS-latest]
+  #       host: [wash, mal, hinge]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -16,4 +16,4 @@ jobs:
 
     - run: |
         cd dot_config/flake
-        sudo nixos-rebuild switch --flake ~/.config/flake#${{ matrix.host }}
+        sudo nixos-rebuild switch --flake ~/.config/flake#wash
