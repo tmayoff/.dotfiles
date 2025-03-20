@@ -15,5 +15,4 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@v16
 
     - run: |
-        cd dot_config/flake
-        nix build .#wash
+        nix build dot_config/flake#nixosConfigurations.wash.config.system.build.toplevel
