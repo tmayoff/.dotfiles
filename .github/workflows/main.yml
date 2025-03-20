@@ -11,6 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Maximize build space
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: 512
+        swap-size-mb: 1024
+        remove-dotnet: 'true'
+        remove-android: 'true'
+    - run: |
+          echo "Free space:"
+          df -h
     - uses: actions/checkout@v4
     - uses: DeterminateSystems/nix-installer-action@v16
     - uses: cachix/cachix-action@v16
@@ -18,5 +28,5 @@ jobs:
         name: tmayoff
         authToken: '${{ secrets.CACHIX_AUTH }}'
     - run: |
-        nix build ./dot_config/flake#nixosConfigurations.wash.config.system.build.toplevel
+        nix build ./dot_config/flake#nixosConfigurations.wash.config.system.build.toplevel --cores 1 -j1
         
