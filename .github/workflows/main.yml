@@ -13,7 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: DeterminateSystems/nix-installer-action@v16
-
+    - uses: cachix/cachix-action@v16
+      with:
+        name: tmayoff
+        authToken: '${{ secrets.CACHIX_AUTH }}'
     - run: |
         nix build ./dot_config/flake#nixosConfigurations.wash.config.system.build.toplevel
         
