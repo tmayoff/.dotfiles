@@ -66,7 +66,7 @@
 
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
+    # package = inputs.helix.packages.${pkgs.system}.default;
     settings = {
       theme = "catppuccin_macchiato";
       editor = {
