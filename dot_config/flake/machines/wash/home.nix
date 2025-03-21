@@ -4,9 +4,9 @@
     ../../home/common.nix
 
     ../../home/darkman.nix
-    
-    ../../home/waybar/mechabar
-    ../../home/sway
+
+    # ../../home/waybar/mechabar
+    # ../../home/sway
 
     ../../home/home-backup.nix
     ../../home/gui.nix

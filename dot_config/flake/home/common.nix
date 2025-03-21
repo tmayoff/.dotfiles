@@ -66,12 +66,12 @@
 
   programs.helix = {
     enable = true;
-    # package = inputs.helix.packages.${pkgs.system}.default;
+    package = inputs.helix.packages.${pkgs.system}.default;
     settings = {
       theme = "catppuccin_macchiato";
       editor = {
         auto-format = false;
-        #gutters = ["line-numbers", "diagnostics", "diff"]
+        # gutters = ["line-numbers", "diagnostics", "diff"]
         end-of-line-diagnostics = "warning";
 
         bufferline = "multiple";
