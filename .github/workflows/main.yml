@@ -5,30 +5,28 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
     steps:
-    # - name: Maximize build space
-    #   shell: bash
-    #   run: |
-    #       df -h
-    #       sudo rm -rf /usr/share/dotnet
-    #       sudo rm -rf /usr/local/lib/android
-    #       sudo rm -rf /opt/ghc
-    #       sudo rm -rf /opt/hostedtoolcache/CodeQL
-    #       sudo docker image prune --all --force
-    #       sudo docker builder prune -a
-    #       df -h
+    - name: Maximize build space
+      shell: bash
+      run: |
+          df -h
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force
+          sudo docker builder prune -a
+          df -h
     - uses: actions/checkout@v4
     - uses: DeterminateSystems/nix-installer-action@v16
     - uses: cachix/cachix-action@v16
       with:
         name: tmayoff
         authToken: '${{ secrets.CACHIX_AUTH }}'
-    - name: Install omnix
-      run: nix --accept-flake-config profile install "github:juspay/omnix"
     - run: |
-        cd dot_config/flake
-        om ci
+        nix build ./dot_config/flake#nixosConfigurations.wash.config.system.build.toplevel --cores 1 -j1
+        
