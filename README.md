@@ -7,7 +7,22 @@
 
 # Steps
 
+## Minimal NixOS install
+1. Set hostname to desired machine (mal, wash, etc...)
+2. `nix-shell -p chezmoi`
+3. `chezmoi init --apply https://github.com/tmayoff/.dotfiles.got`
+
+## Existing NixOS
+
 TODO
+
+## Non NixOS
+
+TODO
+
+## Darwin
+
+TODO 
 
 # Docs
 
