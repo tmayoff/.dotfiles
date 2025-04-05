@@ -1,5 +1,12 @@
 #!/usr/bin/env fish
 
+if test -e source ~/.config/fish/variables-$(hostname).fish
+    source ~/.config/fish/variables-$(hostname).fish
+else
+    echo "Failed to find back credentials in fish variables file"
+    exit 1
+end
+
 set current_date $(date +%Y-%m-%d)
 
 set log_dir "$XDG_STATE_HOME/logs/backups"

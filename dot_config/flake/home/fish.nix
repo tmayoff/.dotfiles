@@ -17,7 +17,7 @@ in {
       # fish_add_path /opt/homebrew/bin
       # fish_add_path /opt/homebrew/opt/llvm@18/bin
 
-      if test -e $HOME/.config/fish/variables-$(hostname)fish
+      if test -e $HOME/.config/fish/variables-$(hostname).fish
         source $HOME/.config/fish/variables-$(hostname).fish
       end
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
