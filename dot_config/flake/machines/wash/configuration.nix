@@ -1,4 +1,5 @@
 {
+  inputs,
   outputs,
   pkgs,
   ...
@@ -77,7 +78,7 @@
   };
 
   services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -134,7 +135,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.bitwarden-desktop
+    inputs.nixpkgs-bitwarden.legacyPackages.x86_64-linux.bitwarden-desktop
     sqlite
     vscode.fhs
     lm_sensors

@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs-bitwarden.url = "github:nixos/nixpkgs/6fd0382c80e18f0883709fb5a6bf9f40bc671a62";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
     cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
     };
@@ -30,12 +34,14 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    nixpkgs-bitwarden,
     lix-module,
     home-manager,
     darwin,
     helix,
     stylix,
     cosmic,
+    hyprland,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -88,7 +94,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            # home-manager.backupFileExtension = "bak";
+            home-manager.backupFileExtension = "bak";
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
             home-manager.users.tyler = import ./machines/wash/home.nix;
           }

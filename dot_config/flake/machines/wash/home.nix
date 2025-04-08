@@ -8,6 +8,8 @@
     # ../../home/waybar/mechabar
     # ../../home/sway
 
+    # ../../home/hyprland
+
     ../../home/home-backup.nix
     ../../home/gui.nix
 
@@ -25,5 +27,10 @@
     ];
 
     stateVersion = "23.11";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 }
