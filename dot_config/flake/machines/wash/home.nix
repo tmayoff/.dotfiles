@@ -28,9 +28,4 @@
 
     stateVersion = "23.11";
   };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
 }
