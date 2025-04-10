@@ -64,8 +64,7 @@ in {
     conan
 
     deno
-    lsp-ai
-    python312Packages.jedi-language-server
+    basedpyright
   ];
 
   homebrew = {

@@ -39,8 +39,8 @@ language-servers = [
 name = "python"
 language-servers = [
   "ruff",
-  "pylsp",
-  "gpt"
+  "basedpyright",
+  "gpt",
 ]
 
 [[language]]

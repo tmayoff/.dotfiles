@@ -100,10 +100,10 @@ alt-shift-down = 'focus down'
 alt-shift-up = 'focus up'
 alt-shift-right = 'focus right'
 
-ctrl-alt-shift-left = 'focus-monitor left --wrap-around'
-ctrl-alt-shift-right = 'focus-monitor right --wrap-around'
-ctrl-alt-shift-up = 'focus-monitor up --wrap-around'
-ctrl-alt-shift-down = 'focus-monitor down --wrap-around'
+ctrl-alt-shift-left = 'focus-monitor left'
+ctrl-alt-shift-right = 'focus-monitor right'
+ctrl-alt-shift-up = 'focus-monitor up'
+ctrl-alt-shift-down = 'focus-monitor down'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
