@@ -43,7 +43,6 @@
     fh
     fd
     glow
-    gitoxide
     lnav
     git
 
