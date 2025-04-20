@@ -110,6 +110,8 @@ in {
     git
     chezmoi
 
+    screen
+
     pinentry-curses
   ];
 
@@ -160,6 +162,8 @@ in {
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.qemuGuest.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

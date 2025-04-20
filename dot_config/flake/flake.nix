@@ -69,6 +69,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            # home-manager.backupFileExtension = "bak";
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
             home-manager.users.tyler = import ./machines/mal/home.nix;
           }

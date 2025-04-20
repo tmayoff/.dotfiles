@@ -33,6 +33,18 @@
     fsType = "9p";
   };
 
+  fileSystems."/nix" = {
+    depends = [
+      "/mnt/user"
+    ];
+
+    device = "/mnt/user/nix-store";
+    fsType = "none";
+    options = [
+      "bind"
+    ];
+  };
+
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
