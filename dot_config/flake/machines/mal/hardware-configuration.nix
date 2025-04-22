@@ -33,7 +33,7 @@
     fsType = "9p";
   };
 
-  fileSystems."/nix" = {
+  fileSystems."/nix/store" = {
     depends = [
       "/mnt/user"
     ];
