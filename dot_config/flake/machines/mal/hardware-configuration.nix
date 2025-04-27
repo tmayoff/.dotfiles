@@ -28,17 +28,17 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  fileSystems."/mnt/user" = {
-    device = "array";
+  fileSystems."/mnt/store" = {
+    device = "nix-store";
     fsType = "9p";
   };
 
   fileSystems."/nix/store" = {
     depends = [
-      "/mnt/user"
+      "/mnt/store"
     ];
 
-    device = "/mnt/user/nix-store";
+    device = "/mnt/store";
     fsType = "none";
     options = [
       "bind"
