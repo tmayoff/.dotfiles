@@ -9,10 +9,10 @@ in {
 
     base16Scheme = theme;
 
-    fonts.monospace = {
-      name = "JetBrainsMono Nerd Font";
-      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-    };
+    # fonts.monospace = {
+    #   name = "JetBrainsMono Nerd Font";
+      # package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+    # };
 
     enable = true;
     autoEnable = false;
