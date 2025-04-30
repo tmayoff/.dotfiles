@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../home/stylix.nix
+    # ../../home/stylix.nix
     ../../home/common.nix
 
     ../../home/darkman.nix

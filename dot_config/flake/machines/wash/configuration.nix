@@ -145,7 +145,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    # nerdfonts
   ];
 
   programs.nix-ld.enable = true;
