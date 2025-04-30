@@ -2,7 +2,6 @@
   description = "Home manager flake";
 
   inputs = {
-    # nixpkgs.follows = "nixos-cosmic/nixpkgs-stable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     lix-module = {
@@ -79,7 +78,7 @@
       wash = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # lix-module.nixosModules.default
+          lix-module.nixosModules.default
 
           stylix.nixosModules.stylix
 
@@ -92,7 +91,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.backupFileExtension = "bak";
+            # home-manager.backupFileExtension = "bak";
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
             home-manager.users.tyler = import ./machines/wash/home.nix;
           }
@@ -133,23 +132,12 @@
       #   modules = [./home/wash/wash.nix];
       # };
 
-      "tyler@wash" = home-manager.lib.homeManagerConfiguration {
-        pkgs = allPkgs."x86_64-linux";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [stylix.homeManagerModules.stylix ./home/wash/wash.nix];
-      };
-
-      # "tyler@mal" = home-manager.lib.homeManagerConfiguration {
-      #   pkgs = allPkgs;
+      # "tyler@wash" = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = allPkgs."x86_64-linux";
       #   extraSpecialArgs = {inherit inputs outputs;};
-      #   modules = [./home/mal/mal.nix];
+      #   modules = [stylix.homeManagerModules.stylix ./home/wash/wash.nix];
       # };
 
-      # "tyler.mayoff@MAC-C57KK2TC69" = home-manager.lib.homeManagerConfiguration {
-      #   pkgs = allPkgs."aarch64-darwin";
-      #   extraSpecialArgs = {inherit inputs outputs;};
-      #   modules = [./home/hinge/hinge.nix];
-      # };
-    };
+          };
   };
 }
