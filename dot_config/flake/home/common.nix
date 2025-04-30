@@ -32,6 +32,8 @@
     age
     unstable.chezmoi
 
+    nh
+
     # backup
     restic
     libnotify
