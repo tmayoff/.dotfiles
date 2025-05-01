@@ -61,7 +61,7 @@
         modules = [
           ./machines/mal/configuration.nix
 
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {

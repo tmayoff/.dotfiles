@@ -156,6 +156,38 @@ in {
     };
   };
 
+  systemd.services."restore-nextcloud" = {
+    script = ''
+      # Remove keys
+
+      ${secrets}
+
+      printf "\nRestore nextcloud \n"
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" restore latest -vvv --target /
+      # ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check -vvv
+    '';
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+    };
+  };
+
+  systemd.services."restore-backups" = {
+    script = ''
+      # Remove keys
+
+      ${secrets}
+
+      printf "\nRestore nextcloud \n"
+      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" restore latest -vvv --target /
+      # ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check -vvv
+    '';
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+    };
+  };
+
   programs.fish.enable = true;
 
   # List services that you want to enable:

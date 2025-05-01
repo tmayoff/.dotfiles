@@ -28,21 +28,9 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  fileSystems."/mnt/store" = {
-    device = "nix-store";
+  fileSystems."/mnt/user" = {
+    device = "array";
     fsType = "9p";
-  };
-
-  fileSystems."/nix/store" = {
-    depends = [
-      "/mnt/store"
-    ];
-
-    device = "/mnt/store";
-    fsType = "none";
-    options = [
-      "bind"
-    ];
   };
 
   swapDevices = [];
