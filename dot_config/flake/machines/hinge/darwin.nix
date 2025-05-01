@@ -21,6 +21,7 @@ in {
 
     config = {
       allowUnfree = true;
+      allowUnsupportedSystem = true;
     };
 
     hostPlatform = "aarch64-darwin";
@@ -43,7 +44,7 @@ in {
     shell = pkgs.fish;
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   environment.systemPackages = with pkgs; [
     pinentry_mac
@@ -61,10 +62,13 @@ in {
     # android-tools
     jdk17
 
+    # distrobox
+
     conan
 
     deno
     basedpyright
+    taplo
   ];
 
   homebrew = {
@@ -96,6 +100,8 @@ in {
       "unzip"
       "xz"
 
+      "podman"
+
       "llvm@18"
       "llvm@19"
     ];
@@ -103,7 +109,13 @@ in {
     casks = [
       "firefox"
       "gpg-suite"
+      "cursor"
     ];
+  };
+
+  services.jankyborders = {
+    enable = true;
+    active_color = "0xFF95bcf9";
   };
 
   services.aerospace = {
