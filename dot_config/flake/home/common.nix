@@ -53,7 +53,7 @@
 
     # Software Dev
     tig
-    mold
+    # mold
 
     # language servers
     efm-langserver
