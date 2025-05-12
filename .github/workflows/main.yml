@@ -22,9 +22,16 @@ jobs:
           sudo docker builder prune -a
           df -h
     - uses: actions/checkout@v4
-    - run: |
-        curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm
-        echo "trusted-users = root runner" | sudo tee -a /etc/nix/nix.conf && sudo pkill nix-daemon
+    - uses: DeterminateSystems/nix-installer-action@v17
+    - name: Switch to lix
+      run: |
+        sudo --preserve-env=PATH nix run \
+           --experimental-features "nix-command flakes" \
+           --extra-substituters https://cache.lix.systems --extra-trusted-public-keys "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o=" \
+           'git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.93.0' -- \
+           upgrade-nix \
+           --extra-substituters https://cache.lix.systems --extra-trusted-public-keys "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+
     - uses: cachix/cachix-action@v16
       with:
         name: tmayoff
