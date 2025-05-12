@@ -22,9 +22,9 @@ jobs:
           sudo docker builder prune -a
           df -h
     - uses: actions/checkout@v4
-    - uses: DeterminateSystems/nix-installer-action@v17
+    - uses: cachix/install-nix-action@v31
       with:
-        source-url: https://install.lix.systems/lix
+        install_url: https://install.lix.systems/lix
 
     - uses: cachix/cachix-action@v16
       with:
