@@ -23,15 +23,8 @@ jobs:
           df -h
     - uses: actions/checkout@v4
     - uses: DeterminateSystems/nix-installer-action@v17
-    - name: Switch to lix
-      run: |
-        nix run \
-           --experimental-features "nix-command flakes" \
-           --extra-substituters https://cache.lix.systems --extra-trusted-public-keys "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o=" \
-           'git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.93.0' -- \
-           upgrade-nix \
-           --extra-substituters https://cache.lix.systems --extra-trusted-public-keys "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-
+      with:
+        source_url: https://install.lix.systems/lix
     - uses: cachix/cachix-action@v16
       with:
         name: tmayoff
