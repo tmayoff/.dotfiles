@@ -22,7 +22,8 @@ jobs:
           sudo docker builder prune -a
           df -h
     - uses: actions/checkout@v4
-    - uses: DeterminateSystems/nix-installer-action@v16
+    - run: |
+        curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm
     - uses: cachix/cachix-action@v16
       with:
         name: tmayoff
