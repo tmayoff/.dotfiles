@@ -22,7 +22,8 @@ jobs:
           sudo docker builder prune -a
           df -h
     - uses: actions/checkout@v4
-    - uses: DeterminateSystems/nix-installer-action@v16
+    - uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
+    
     - uses: cachix/cachix-action@v16
       with:
         name: tmayoff

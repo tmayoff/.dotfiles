@@ -11,7 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
+      - run: |
+          curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm
       - uses: DeterminateSystems/update-flake-lock@v24  
         with:
           pr-title: "Update flake.lock" # Title of PR to be created

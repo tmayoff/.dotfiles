@@ -39,7 +39,7 @@
 
     sessionVariables = {
       ANDROID_HOME = "/Users/tyler.mayoff/Library/Android/sdk";
-      PATH = "$PATH:/opt/homebrew/opt/llvm@18/bin:/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
+      PATH = "/opt/homebrew/opt/llvm@20/bin:$PATH::/Users/tyler.mayoff/Library/Android/sdk/platform-tools";
     };
 
     file.".gnupg/gpg-agent.conf".text = ''

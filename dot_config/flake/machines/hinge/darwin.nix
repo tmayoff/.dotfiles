@@ -48,21 +48,16 @@ in {
 
   environment.systemPackages = with pkgs; [
     pinentry_mac
-    # llvmPackages_19.clang-tools
 
     fnm
 
     pipenv
 
     sketchybar
-    # sbarlua
 
     lua
 
-    # android-tools
     jdk17
-
-    # distrobox
 
     conan
 
@@ -100,10 +95,7 @@ in {
       "unzip"
       "xz"
 
-      "podman"
-
-      "llvm@18"
-      "llvm@19"
+      "llvm"
     ];
 
     casks = [
