@@ -21,10 +21,6 @@
     };
 
     nixpkgs-bitwarden.url = "github:nixos/nixpkgs/6fd0382c80e18f0883709fb5a6bf9f40bc671a62";
-
-    cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-    };
   };
 
   outputs = {
@@ -37,8 +33,7 @@
     darwin,
     helix,
     stylix,
-    cosmic,
-    ...
+     ...
   } @ inputs: let
     inherit (self) outputs;
 
@@ -137,7 +132,6 @@
       #   extraSpecialArgs = {inherit inputs outputs;};
       #   modules = [stylix.homeManagerModules.stylix ./home/wash/wash.nix];
       # };
-
-          };
+    };
   };
 }

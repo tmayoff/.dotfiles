@@ -20,7 +20,6 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
-        "fluffychat-linux-1.23.0"
       ];
     };
   };
