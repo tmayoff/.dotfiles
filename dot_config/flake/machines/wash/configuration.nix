@@ -154,6 +154,9 @@
     lm_sensors
     nautilus
 
+    jetbrains.rust-rover
+    jetbrains.rider
+
     pre-commit
   ];
 
