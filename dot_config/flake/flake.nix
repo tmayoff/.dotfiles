@@ -33,7 +33,7 @@
     darwin,
     helix,
     stylix,
-     ...
+    ...
   } @ inputs: let
     inherit (self) outputs;
 
@@ -76,8 +76,6 @@
           lix-module.nixosModules.default
 
           stylix.nixosModules.stylix
-
-          cosmic.nixosModules.default
 
           ./machines/wash/configuration.nix
 
