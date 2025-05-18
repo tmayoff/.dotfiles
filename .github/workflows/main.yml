@@ -5,7 +5,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest macos-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -23,7 +23,7 @@ jobs:
           df -h
     - uses: actions/checkout@v4
     - uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
-    
+
     - uses: cachix/cachix-action@v16
       with:
         name: tmayoff
