@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Maximize build space
-      if: ${{ matrix.os == "ubuntu-latest" }}
+      if: ${{ matrix.os }} == "ubuntu-latest"
       shell: bash
       run: |
           df -h
