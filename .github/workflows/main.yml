@@ -34,12 +34,18 @@ jobs:
         name: tmayoff
         authToken: '${{ secrets.CACHIX_AUTH }}'
 
-    - name: build nixos
+    - uses: workflow/nix-shell-action@v3
       if: runner.os == 'Linux'
-      run: |
-        nh os build ./dot_config/flake/ -- --cores 1 -j1
+      name: build nixos
+      with:
+        packages: nh
+        script: |
+          nh os build ./dot_config/flake/ -- --cores 1 -j1
 
-    - name: build darwin
+    - uses: workflow/nix-shell-action@v3
       if: runner.os == 'macOS'
-      run: |
-        nh darwin build ./dot_config/flake/ -- --cores 1 -j1 
+      name: build darwin
+      with:
+        packages: nh
+        script: |
+          nh darwin build ./dot_config/flake/ -- --cores 1 -j1 
