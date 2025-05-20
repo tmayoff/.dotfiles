@@ -40,7 +40,7 @@ jobs:
       with:
         packages: nh
         script: |
-          nh os build ./dot_config/flake/ -- --cores 1 -j1
+          nh os build ./dot_config/flake#${{matrix.hostname}} -- --cores 1 -j1
 
     - uses: workflow/nix-shell-action@v3
       if: runner.os == 'macOS'
@@ -48,4 +48,4 @@ jobs:
       with:
         packages: nh
         script: |
-          nh darwin build ./dot_config/flake/ -- --cores 1 -j1 
+          nh darwin build ./dot_config/flake#${{matrix.hostname}} -- --cores 1 -j1 
