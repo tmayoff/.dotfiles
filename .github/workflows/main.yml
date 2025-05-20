@@ -12,7 +12,7 @@ jobs:
             hostname: MAC-C57KK2TC69
 
     runs-on: ${{ matrix.os }}
-
+    continue-on-error: false
     steps:
     - name: Maximize build space
       if: runner.os == 'Linux'
