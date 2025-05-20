@@ -5,7 +5,11 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            hostname: wash
+          - os: macos-latest
+            hostname: MAC-C57KK2TC69
 
     runs-on: ${{ matrix.os }}
 
@@ -29,6 +33,13 @@ jobs:
       with:
         name: tmayoff
         authToken: '${{ secrets.CACHIX_AUTH }}'
-    - run: |
-        nix build ./dot_config/flake#nixosConfigurations.wash.config.system.build.toplevel --cores 1 -j1
-        
+
+    - name: build nixos
+      if: runner.os == 'Linux'
+      run: |
+        nh os build ./dot_config/flake/ -- --cores 1 -j1
+
+    - name: build darwin
+      if: runner.os == 'macOS'
+      run: |
+        nh darwin build ./dot_config/flake/ -- --cores 1 -j1 
