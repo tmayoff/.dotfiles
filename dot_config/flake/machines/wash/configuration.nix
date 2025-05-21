@@ -76,9 +76,12 @@
     LC_ALL = "en_CA.UTF-8";
   };
 
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.cosmic.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # services.xserver = {
   #   desktopManager.gnome.enable = true;

@@ -13,6 +13,8 @@
     ../../home/home-backup.nix
     ../../home/gui.nix
 
+    ../../home/gnome.nix
+
     ../../home/helide
   ];
 
