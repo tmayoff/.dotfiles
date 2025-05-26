@@ -157,6 +157,8 @@
     lm_sensors
     nautilus
 
+    ghostty
+
     jetbrains.rust-rover
     jetbrains.rider
 
