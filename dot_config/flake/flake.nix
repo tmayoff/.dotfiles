@@ -16,7 +16,7 @@
     helix.url = "github:helix-editor/helix/25.01.1";
     stylix.url = "github:danth/stylix/release-24.11";
     darwin = {
-      url = "github:lnl7/nix-darwin/master";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

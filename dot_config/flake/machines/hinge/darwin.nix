@@ -43,6 +43,7 @@ in {
     uid = 502;
     shell = pkgs.fish;
   };
+  system.primaryUser = "tyler.mayoff";
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -99,6 +100,7 @@ in {
     ];
 
     casks = [
+      "ghostty"
       "firefox"
       "gpg-suite"
       "cursor"
