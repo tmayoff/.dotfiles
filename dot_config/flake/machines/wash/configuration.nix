@@ -151,7 +151,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.nixpkgs-bitwarden.legacyPackages.x86_64-linux.bitwarden-desktop
+
+    bitwarden-desktop
     sqlite
     vscode.fhs
     lm_sensors

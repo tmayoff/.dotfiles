@@ -19,8 +19,6 @@
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixpkgs-bitwarden.url = "github:nixos/nixpkgs/6fd0382c80e18f0883709fb5a6bf9f40bc671a62";
   };
 
   outputs = {
