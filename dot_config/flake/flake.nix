@@ -25,7 +25,6 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
-    nixpkgs-bitwarden,
     lix-module,
     home-manager,
     darwin,
