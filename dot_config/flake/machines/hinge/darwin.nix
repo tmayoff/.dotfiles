@@ -61,6 +61,8 @@ in {
     jdk17
 
     conan
+    gcovr
+    lcov
 
     deno
     basedpyright
