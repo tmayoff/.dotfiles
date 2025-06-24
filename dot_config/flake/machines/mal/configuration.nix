@@ -178,7 +178,7 @@ in {
 
       ${secrets}
 
-      printf "\nRestore nextcloud \n"
+      printf "\nRestore restore \n"
       ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" restore latest -vvv --target /
       # ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check -vvv
     '';
