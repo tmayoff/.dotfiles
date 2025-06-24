@@ -6,7 +6,6 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ../../home/stylix.nix
     ./hardware-configuration.nix
   ];
 

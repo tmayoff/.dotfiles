@@ -1,16 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./kitty.nix
   ];
-
-  nixGL.packages = inputs.nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
-  # nixGL.offloadWrapper = "nvidiaPrime";
-  nixGL.installScripts = ["mesa"];
 
   home.packages = with pkgs; [
     adw-gtk3
@@ -20,20 +11,16 @@
     # Office
     libreoffice
     obsidian
-
-    # (config.lib.nixGL.wrap unstable.onagre)
   ];
 
   # programs.vscode.enable = true;
 
   # programs.alacritty = {
   #   enable = true;
-  #   package = config.lib.nixGL.wrap pkgs.alacritty;
   # };
 
   # programs.wezterm = {
   #   enable = false;
-  #   package = config.lib.nixGL.wrap pkgs.wezterm;
   #   extraConfig = ''
   #     return {
   #       font_size=9.25,
