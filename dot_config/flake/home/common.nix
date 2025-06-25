@@ -102,8 +102,8 @@
         normal = {
           C-right = "move_next_word_start";
           C-left = "move_prev_word_end";
-          a = "insert_mode";
-          i = "append_mode";
+          # a = "insert_mode";
+          # i = "append_mode";
           "=" = ":format";
 
           space = {
