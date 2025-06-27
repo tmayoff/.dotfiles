@@ -1,5 +1,4 @@
 {
-  inputs,
   outputs,
   pkgs,
   ...
@@ -7,6 +6,11 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ../../modules/nixos/boot.nix
+
+    ../../modules/nixos/gnome.nix
+    ../../modules/nixos/android-studio.nix
   ];
 
   nixpkgs = {
@@ -20,25 +24,6 @@
       allowUnfree = true;
       permittedInsecurePackages = [
       ];
-    };
-  };
-
-  # Bootloader
-  boot = {
-    loader = {
-      timeout = 0;
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 5;
-      };
-
-      efi.canTouchEfiVariables = true;
-    };
-
-    plymouth = {
-      enable = true;
-      themePackages = [pkgs.catppuccin-plymouth];
-      theme = "catppuccin-macchiato";
     };
   };
 
@@ -75,18 +60,6 @@
     LC_ALL = "en_CA.UTF-8";
   };
 
-  # services.desktopManager.cosmic.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # services.xserver = {
-  #   desktopManager.gnome.enable = true;
-  #   displayManager.gdm.enable = true;
-  # };
-
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     # plasma-browser-integration
     konsole
@@ -115,15 +88,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  services.gnome.gnome-keyring.enable = true;
 
   services.avahi = {
     enable = true;
@@ -150,7 +115,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-
     bitwarden-desktop
     sqlite
     vscode.fhs
@@ -166,26 +130,17 @@
   ];
 
   fonts.packages = with pkgs; [
-    # nerdfonts
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.nix-ld.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
+
   programs.fish.enable = true;
 
   programs.steam.enable = true;
-
-  # Sway
-  # programs.sway = {
-  #   enable = true;
-  #   # package = null;
-  #   wrapperFeatures.gtk = true;
-  # };
-
-  security.pam.services.swaylock = {};
-  security.pam.services.swaylock.fprintAuth = true;
 
   programs.appimage = {
     enable = true;
