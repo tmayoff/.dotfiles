@@ -139,8 +139,8 @@ in {
       ${secrets}
 
       printf "\nBacking up nextcloud \n"
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" backup -vvv --no-scan /mnt/user/NextCloud
-      ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check -vvv
+      # ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" backup -vvv --no-scan /mnt/user/NextCloud
+      # ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/NextCloud" check -vvv
 
       printf "\nBacking up Backups \n"
       ${pkgs.restic}/bin/restic -r "$RESTIC_REPOSITORY/Backups" backup -vvv --no-scan /mnt/user/Backups
