@@ -100,6 +100,7 @@ in {
     ];
 
     casks = [
+      "notunes"
       "ghostty"
       "firefox"
       "gpg-suite"
