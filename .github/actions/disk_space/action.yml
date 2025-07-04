@@ -16,10 +16,12 @@ runs:
         df -h | grep /\$ | cut -d ' ' -f 5,9
 
     - name: Detailed usage
+      shell: bash
       run: |
         du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
 
     - name: Clear
+      shell: bash
       run: |
         sudo rm -rf /usr/share/dotnet
         sudo rm -rf /usr/share/swift
@@ -41,5 +43,6 @@ runs:
         df -h | grep /\$ | cut -d ' ' -f 5,9
 
     - name: Detailed usage
+      shell: bash
       run: |
         du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
