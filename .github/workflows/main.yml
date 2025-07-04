@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: Maximize build space
       if: runner.os == 'Linux'
-      uses: ./.github/actions/build
+      uses: ./.github/actions/disk_space
 
     - uses: actions/checkout@v4
 
