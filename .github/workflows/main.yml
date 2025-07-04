@@ -20,7 +20,7 @@ jobs:
       shell: bash
       run: |
           df -h
-          du -h -d1 / 2>/dev/null | sort -hr | head -n 20
+          du -h -d1 / 2>/dev/null | sort -hr | head -n 20 || true
           find / -type f -exec du -h {} + 2>/dev/null | sort -hr | head -n 1000
           sudo rm -rf /usr/share/dotnet
           sudo rm -rf /usr/share/swift
@@ -34,6 +34,8 @@ jobs:
           sudo docker image prune --all --force
           sudo docker builder prune -a
           df -h
+          du -h -d1 / 2>/dev/null | sort -hr | head -n 20 || true
+          find / -type f -exec du -h {} + 2>/dev/null | sort -hr | head -n 1000
     - uses: actions/checkout@v4
     - uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
 
