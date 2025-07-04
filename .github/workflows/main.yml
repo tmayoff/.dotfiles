@@ -9,8 +9,10 @@ jobs:
         include:
           - os: ubuntu-latest
             hostname: wash
+            arch: x86_64-linux
           - os: macos-latest
             hostname: MAC-C57KK2TC69
+            arch: aarch64-darwin
 
     runs-on: ${{ matrix.os }}
     continue-on-error: false
@@ -39,7 +41,11 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: install nix
-      uses: canidae-solutions/lix-quick-install-action@v3
+      uses: DeterminateSystems/nix-installer-action@main
+      with:
+        source-url: "${{ format('https://install.lix.systems/lix/lix-installer-{0}', inputs.arch) }}"
+        diagnostic-endpoint: ""
+        backtrace: "true"
 
     - uses: cachix/cachix-action@v16
       with:
