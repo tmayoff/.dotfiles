@@ -5,6 +5,21 @@ inputs:
     description: Enabling this will print before and after disk sizes
     default: false
     required: false
+  paths:
+    description: List of paths to clear
+    required: false
+    paths:
+      - /opt/microsoft
+      - /usr/share/dotnet
+      - /usr/share/swift
+      - /usr/lib/jvm
+      - /usr/local/.ghcup
+      - /home/runner/.rustup
+      - /usr/local/share/chromium
+      - /usr/local/lib/android
+      - /opt/ghc
+      - /opt/hostedtoolcache
+      - /usr/lib/llvm-18
 
 runs:
   using: "composite"
@@ -24,15 +39,7 @@ runs:
     - name: Clear
       shell: bash
       run: |
-        sudo rm -rf /usr/share/dotnet
-        sudo rm -rf /usr/share/swift
-        sudo rm -rf /usr/lib/jvm
-        sudo rm -rf /usr/local/.ghcup
-        sudo rm -rf /home/runner/.rustup
-        sudo rm -rf /usr/local/share/chromium
-        sudo rm -rf /usr/local/lib/android
-        sudo rm -rf /opt/ghc
-        sudo rm -rf /opt/hostedtoolcache/CodeQL
+        sudo rm -rf ${{ inputs.paths }}
         sudo docker system prune -af || true
         sudo docker image prune -af || true
         sudo docker builder prune -af || true
