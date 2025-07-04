@@ -39,7 +39,11 @@ runs:
     - name: Clear
       shell: bash
       run: |
-        sudo rm -rf ${{ inputs.paths }}
+        SAVEIFS=$IFS
+        IFS=$'\n'
+        paths=${{ inputs.paths }}
+        IFS=$SAVEIFS
+        sudo rm -rf $paths
         sudo docker system prune -af || true
         sudo docker image prune -af || true
         sudo docker builder prune -af || true
