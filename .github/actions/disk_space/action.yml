@@ -12,13 +12,14 @@ runs:
     - name: Get disk usage
       shell: bash
       run: |
-        df -h | head -n 1 | cut -d ' ' -f 3,5
-        df -h | grep /\$ | cut -d ' ' -f 3,5
+        # df -h | head -n 1 | cut -d ' ' -f 3,5
+        # df -h | grep /\$ | cut -d ' ' -f 3,5
+        df -h
 
     - name: Detailed usage
       shell: bash
       run: |
-        du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
+        du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
 
     - name: Clear
       shell: bash
@@ -40,9 +41,10 @@ runs:
       shell: bash
       run: |
         echo "used    use%"
-        df -h | grep /\$ | cut -d ' ' -f 5,9
+        # df -h | grep /\$ | cut -d ' ' -f 5,9
+        df -h
 
     - name: Detailed usage
       shell: bash
       run: |
-        du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
+        du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
