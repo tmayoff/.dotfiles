@@ -1,0 +1,45 @@
+name: "Clear disk space"
+description: "Frees disk space in the GHA runner"
+inputs:
+  debug:
+    description: Enabling this will print before and after disk sizes
+    default: false
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get disk usage
+      shell: bash
+      run: |
+        echo "used    use%"
+        df -h | grep /\$ | cut -d ' ' -f 5,9
+
+    - name: Detailed usage
+      run: |
+        du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
+
+    - name: Clear
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/share/swift
+        sudo rm -rf /usr/lib/jvm
+        sudo rm -rf /usr/local/.ghcup
+        sudo rm -rf /home/runner/.rustup
+        sudo rm -rf /usr/local/share/chromium
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /opt/hostedtoolcache/CodeQL
+        sudo docker system prune -af || true
+        sudo docker image prune -af || true
+        sudo docker builder prune -af || true
+
+    - name: Get disk usage
+      shell: bash
+      run: |
+        echo "used    use%"
+        df -h | grep /\$ | cut -d ' ' -f 5,9
+
+    - name: Detailed usage
+      run: |
+        du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true

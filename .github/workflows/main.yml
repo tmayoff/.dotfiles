@@ -19,24 +19,7 @@ jobs:
     steps:
     - name: Maximize build space
       if: runner.os == 'Linux'
-      shell: bash
-      run: |
-          df -h
-          du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /usr/share/swift
-          sudo rm -rf /usr/lib/jvm
-          sudo rm -rf /usr/local/.ghcup
-          sudo rm -rf /home/runner/.rustup
-          sudo rm -rf /usr/local/share/chromium
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /opt/hostedtoolcache/CodeQL
-          sudo docker system prune -af || true
-          sudo docker image prune -af || true
-          sudo docker builder prune -af || true
-          df -h
-          du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
+      uses: ./.github/actions/build
 
     - uses: actions/checkout@v4
 
