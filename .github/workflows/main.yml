@@ -17,11 +17,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     continue-on-error: false
     steps:
+    - uses: actions/checkout@v4
+
     - name: Maximize build space
       if: runner.os == 'Linux'
       uses: ./.github/actions/disk_space
-
-    - uses: actions/checkout@v4
 
     - name: install nix
       uses: DeterminateSystems/nix-installer-action@main
