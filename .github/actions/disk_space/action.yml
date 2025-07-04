@@ -12,8 +12,8 @@ runs:
     - name: Get disk usage
       shell: bash
       run: |
-        echo "used    use%"
-        df -h | grep /\$ | cut -d ' ' -f 5,9
+        df -h | head -n 1 | cut -d ' ' -f 3,5
+        df -h | grep /\$ | cut -d ' ' -f 3,5
 
     - name: Detailed usage
       shell: bash
