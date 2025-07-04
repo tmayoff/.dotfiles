@@ -20,7 +20,7 @@ jobs:
       shell: bash
       run: |
           df -h
-          du -h -d2 / 2>/dev/null | sort -hr | head -n 20
+          du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
           sudo rm -rf /usr/share/dotnet
           sudo rm -rf /usr/share/swift
           sudo rm -rf /usr/lib/jvm
@@ -33,7 +33,7 @@ jobs:
           sudo docker image prune --all --force
           sudo docker builder prune -a
           df -h
-          du -h -d2 / 2>/dev/null | sort -hr | head -n 20
+          du -h -d2 / 2>/dev/null | sort -hr | head -n 20 || true
     - uses: actions/checkout@v4
 
     - name: install nix
