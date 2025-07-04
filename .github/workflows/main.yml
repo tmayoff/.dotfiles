@@ -20,6 +20,8 @@ jobs:
       shell: bash
       run: |
           df -h
+          du -h -d1 / | sort -hr | head -n 20
+          find / -type f -exec du -h {} + 2>/dev/null | sort -hr | head -n 1000
           sudo rm -rf /usr/share/dotnet
           sudo rm -rf /usr/share/swift
           sudo rm -rf /usr/lib/jvm
