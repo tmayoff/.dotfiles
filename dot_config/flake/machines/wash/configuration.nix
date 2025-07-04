@@ -27,10 +27,16 @@
     };
   };
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   # Nix options
   nix.optimise.automatic = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.settings.trusted-users = ["tyler" "@wheel"];
+  nix.settings.trusted-users = ["tyler" "@wheel" "docker"];
   nix.settings = {
     substituters = ["https://cosmic.cachix.org/"];
     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
@@ -131,6 +137,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    noto-fonts
   ];
 
   programs.nix-ld.enable = true;
