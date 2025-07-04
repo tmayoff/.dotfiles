@@ -43,7 +43,7 @@ jobs:
     - name: install nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        source-url: "${{ format('https://install.lix.systems/lix/lix-installer-{0}', inputs.arch) }}"
+        source-url: "${{ format('https://install.lix.systems/lix/lix-installer-{0}', matrix.arch) }}"
         diagnostic-endpoint: ""
         backtrace: "true"
 
