@@ -50,3 +50,10 @@ jobs:
         packages: nh
         script: |
           nh darwin build ./dot_config/flake#darwinConfigurations.${{matrix.hostname}} --no-nom -- --cores 1 -j1 
+
+    - name: Upload artifact
+      uses: actions/cache@v4
+      with:
+        key: ${{ matrix.hostname }}-${{ matrix.arch }}
+        path: |
+          result
