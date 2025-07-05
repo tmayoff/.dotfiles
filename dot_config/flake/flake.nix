@@ -4,10 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # lix-module = {
+    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3.tar.gz";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    inputs.determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +25,8 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
-    lix-module,
+    # lix-module,
+    determinate,
     home-manager,
     darwin,
     helix,
@@ -68,8 +70,9 @@
       wash = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
 
+          determinate.nixosModules.default
           ./machines/wash/configuration.nix
 
           home-manager.nixosModules.home-manager
@@ -89,7 +92,9 @@
       specialArgs = {inherit inputs outputs;};
 
       modules = [
-        lix-module.nixosModules.default
+        # lix-module.nixosModules.default
+
+        determinate.nixosModules.default
 
         ./machines/hinge/darwin.nix
 
