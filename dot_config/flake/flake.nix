@@ -8,7 +8,7 @@
     #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3.tar.gz";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    inputs.determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
