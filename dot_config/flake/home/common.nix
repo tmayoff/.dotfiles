@@ -1,11 +1,4 @@
-{
-  inputs,
-  outputs,
-  pkgs,
-  ...
-}: {
-  #nixpkgs.config.allowUnfree = true;
-
+{pkgs, ...}: {
   home.enableNixpkgsReleaseCheck = false;
 
   xdg.enable = true;
@@ -16,22 +9,10 @@
     ./nushell.nix
   ];
 
-  # nixpkgs = {
-  #   overlays = [
-  #     outputs.overlays.additions
-  #     outputs.overlays.modifications
-  #     outputs.overlays.unstable-packages
-  #     inputs.helix.overlays.default
-  #   ];
-  # };
-
   home.packages = with pkgs; [
-    # unstable.nix-output-monitor
-
     # dotfiles
     age
     unstable.chezmoi
-
     nh
 
     # backup
@@ -39,31 +20,22 @@
     libnotify
 
     # Shell
-    bash-language-server
     starship
     btop
     ripgrep
     fh
     fd
     glow
-    lnav
     git
 
     fzf
     just
 
-    # Software Dev
-    tig
-    # mold
-
     # language servers
-    efm-langserver
+    bash-language-server
+    taplo
     sumneko-lua-language-server
     nil
-    alejandra
-    lemminx
-    pylyzer
-    ltex-ls # Spell checker
   ];
 
   programs.helix = {
@@ -73,7 +45,6 @@
       theme = "catppuccin_macchiato";
       editor = {
         auto-format = false;
-        # gutters = ["line-numbers", "diagnostics", "diff"]
         end-of-line-diagnostics = "warning";
 
         bufferline = "multiple";
@@ -87,7 +58,6 @@
           left = ["mode" "spinner" "spacer" "version-control" "file-name"];
         };
         file-picker = {
-          # git-ignore = false
         };
 
         lsp = {
@@ -103,8 +73,6 @@
         normal = {
           C-right = "move_next_word_start";
           C-left = "move_prev_word_end";
-          # a = "insert_mode";
-          # i = "append_mode";
           "=" = ":format";
 
           space = {
