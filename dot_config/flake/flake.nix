@@ -51,9 +51,8 @@
       mal = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
+          determinate.nixosModules.default
           ./machines/mal/configuration.nix
-
-          # lix-module.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {
@@ -70,8 +69,6 @@
       wash = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # lix-module.nixosModules.default
-
           determinate.nixosModules.default
           ./machines/wash/configuration.nix
 
@@ -92,10 +89,6 @@
       specialArgs = {inherit inputs outputs;};
 
       modules = [
-        # lix-module.nixosModules.default
-
-        determinate.nixosModules.default
-
         ./machines/hinge/darwin.nix
 
         home-manager.darwinModules.home-manager
