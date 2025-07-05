@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 paths=(
   "/home/runner/.rustup"
   "/usr/share/dotnet"
@@ -13,6 +15,7 @@ paths=(
   "/usr/local/lib/android"
   "/usr/local/julia1.11.5"
   "/opt/ghc"
+  "/opt/az"
   "/opt/microsoft"
   "/opt/hostedtoolcache"
 )
