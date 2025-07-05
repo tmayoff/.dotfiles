@@ -64,7 +64,8 @@ jobs:
         path: last-result
 
     - name: diff
-      run: nix run nixpkgs#nvd -- diff last-result result
+      run: |
+        nix run nixpkgs#nvd -- diff last-result result || true
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
