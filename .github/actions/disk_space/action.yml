@@ -18,7 +18,7 @@ runs:
       if: inputs.debug == 'true'
       shell: bash
       run: |
-        du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
+        du -h -d5 / 2>/dev/null | sort -hr | head -n 20 || true
 
     - name: Clear
       shell: bash
@@ -37,4 +37,4 @@ runs:
       if: inputs.debug == 'true'
       shell: bash
       run: |
-        du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
+        du -h -d5 / 2>/dev/null | sort -hr | head -n 20 || true
