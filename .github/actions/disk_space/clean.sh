@@ -21,8 +21,11 @@ paths=(
   /opt/az
   /opt/pipx
   /opt/microsoft
+  /opt/google
   /opt/hostedtoolcache
   /etc/skel/.rustup
 )
 
 sudo rm -rf "${paths[@]}"
+
+exit 0
