@@ -3,7 +3,7 @@ name: Update flake.lock
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
-    - cron: '0 0 * * 0' # runs weekly on Sunday at 00:00
+    - cron: '0 0 * * 5' # runs weekly on Sunday at 00:00
 
 jobs:
   build:
@@ -12,15 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: install nix
+        uses: DeterminateSystems/determinate-nix-action@v3.5.2
+        with:
+          extra-conf: "lazy-trees = true"
 
-    - name: install nix
-      uses: DeterminateSystems/determinate-nix-action@v3.5.2
-      with:
-        extra-conf: "lazy-trees = true"
-
-    - uses: DeterminateSystems/magic-nix-cache-action@main
-      with:
-        use-flakehub: false
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+        with:
+          use-flakehub: false
 
       - uses: DeterminateSystems/update-flake-lock@v24  
         with:
