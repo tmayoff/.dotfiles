@@ -39,6 +39,7 @@
     libnotify
 
     # Shell
+    bash-language-server
     starship
     btop
     ripgrep

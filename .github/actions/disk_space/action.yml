@@ -17,6 +17,7 @@ runs:
         df -h
 
     - name: Detailed usage
+      if: inputs.debug
       shell: bash
       run: |
         du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
@@ -37,6 +38,7 @@ runs:
         df -h
 
     - name: Detailed usage
+      if: inputs.debug
       shell: bash
       run: |
         du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
