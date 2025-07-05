@@ -19,12 +19,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: install nix
+      uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
+
     - name: Maximize build space
       if: runner.os == 'Linux'
       uses: ./.github/actions/disk_space
-
-    - name: install nix
-      uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
+      with:
+        debug: true
 
     - uses: cachix/cachix-action@v16
       with:
