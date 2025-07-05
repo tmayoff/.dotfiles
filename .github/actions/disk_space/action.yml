@@ -3,7 +3,7 @@ description: "Frees disk space in the GHA runner"
 inputs:
   debug:
     description: Enabling this will print before and after disk sizes
-    default: false
+    default: 'false'
     required: false
 
 runs:
@@ -15,7 +15,7 @@ runs:
         df -h
 
     - name: Detailed usage
-      if: inputs.debug == true
+      if: inputs.debug == 'true'
       shell: bash
       run: |
         du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
@@ -34,7 +34,7 @@ runs:
         df -h
 
     - name: Detailed usage
-      if: inputs.debug == true
+      if: inputs.debug == 'true'
       shell: bash
       run: |
         du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
