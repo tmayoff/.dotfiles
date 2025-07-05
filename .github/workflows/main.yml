@@ -24,11 +24,7 @@ jobs:
       uses: ./.github/actions/disk_space
 
     - name: install nix
-      uses: DeterminateSystems/nix-installer-action@main
-      with:
-        source-url: "${{ format('https://install.lix.systems/lix/lix-installer-{0}', matrix.arch) }}"
-        diagnostic-endpoint: ""
-        backtrace: "true"
+      uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
 
     - uses: cachix/cachix-action@v16
       with:
