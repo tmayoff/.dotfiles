@@ -15,7 +15,7 @@ runs:
         df -h
 
     - name: Detailed usage
-      if: inputs.debug
+      if: inputs.debug == true
       shell: bash
       run: |
         du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
@@ -31,12 +31,10 @@ runs:
     - name: Get disk usage
       shell: bash
       run: |
-        echo "used    use%"
-        # df -h | grep /\$ | cut -d ' ' -f 5,9
         df -h
 
     - name: Detailed usage
-      if: inputs.debug
+      if: inputs.debug == true
       shell: bash
       run: |
         du -h -d3 / 2>/dev/null | sort -hr | head -n 20 || true
