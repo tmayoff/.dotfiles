@@ -28,6 +28,8 @@ jobs:
       with:
         extra-conf: "lazy-trees = true"
     - uses: DeterminateSystems/magic-nix-cache-action@main
+      with:
+        use-flakehub: false
 
     - name: Maximize build space
       if: runner.os == 'Linux'
