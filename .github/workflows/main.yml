@@ -57,9 +57,18 @@ jobs:
         script: |
           nh darwin build ./dot_config/flake#darwinConfigurations.${{matrix.hostname}} --no-nom -- --cores 1 -j1 
 
-    - name: Upload artifact
-      uses: actions/cache@v4
+    - name: Download artifact
+      uses: actions/download-artifact@v4
       with:
-        key: ${{ matrix.hostname }}-${{ matrix.arch }}
+        id: ${{ matrix.hostname }}-${{ matrix.arch }}
+        path: last-result
+
+    - name: diff
+      run: nix run nixpkgs#nvd -- diff last-result result
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        id: ${{ matrix.hostname }}-${{ matrix.arch }}
         path: |
           result
