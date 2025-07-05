@@ -12,8 +12,6 @@ runs:
     - name: Get disk usage
       shell: bash
       run: |
-        # df -h | head -n 1 | cut -d ' ' -f 3,5
-        # df -h | grep /\$ | cut -d ' ' -f 3,5
         df -h
 
     - name: Detailed usage
@@ -25,7 +23,7 @@ runs:
     - name: Clear
       shell: bash
       run: |
-        ./clean.sh
+        ${{ github.action_path }}/clean.sh
         sudo docker system prune -af || true
         sudo docker image prune -af || true
         sudo docker builder prune -af || true
