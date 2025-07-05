@@ -5,21 +5,6 @@ inputs:
     description: Enabling this will print before and after disk sizes
     default: false
     required: false
-  paths:
-    description: List of paths to clear
-    required: false
-    default:
-      - /opt/microsoft
-      - /usr/share/dotnet
-      - /usr/share/swift
-      - /usr/lib/jvm
-      - /usr/local/.ghcup
-      - /home/runner/.rustup
-      - /usr/local/share/chromium
-      - /usr/local/lib/android
-      - /opt/ghc
-      - /opt/hostedtoolcache
-      - /usr/lib/llvm-18
 
 runs:
   using: "composite"
@@ -39,11 +24,7 @@ runs:
     - name: Clear
       shell: bash
       run: |
-        SAVEIFS=$IFS
-        IFS=$'\n'
-        paths=${{ inputs.paths }}
-        IFS=$SAVEIFS
-        sudo rm -rf $paths
+        ./clean.sh
         sudo docker system prune -af || true
         sudo docker image prune -af || true
         sudo docker builder prune -af || true
