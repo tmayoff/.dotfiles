@@ -11,8 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm
+
+
+    - name: install nix
+      uses: DeterminateSystems/determinate-nix-action@v3.5.2
+      with:
+        extra-conf: "lazy-trees = true"
+
+    - uses: DeterminateSystems/magic-nix-cache-action@main
+      with:
+        use-flakehub: false
+
       - uses: DeterminateSystems/update-flake-lock@v24  
         with:
           pr-title: "Update flake.lock" # Title of PR to be created

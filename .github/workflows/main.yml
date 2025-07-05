@@ -27,6 +27,7 @@ jobs:
       uses: DeterminateSystems/determinate-nix-action@v3.5.2
       with:
         extra-conf: "lazy-trees = true"
+
     - uses: DeterminateSystems/magic-nix-cache-action@main
       with:
         use-flakehub: false
