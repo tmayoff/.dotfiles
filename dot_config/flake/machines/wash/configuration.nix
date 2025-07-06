@@ -109,6 +109,14 @@
 
   services.flatpak.enable = true;
 
+  services.power-profiles-daemon.enable = true;
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+    SuspendState=mem
+  '';
+  boot.kernelParams = ["mem_sleep_default=deep"];
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
