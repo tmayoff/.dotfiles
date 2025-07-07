@@ -65,11 +65,15 @@ jobs:
 
     - name: diff
       run: |
+        tar -xvf result.tar.gz last-result
         nix run nixpkgs#nvd -- diff last-result result || true
+
+    - name: compress result
+      run: tar -czvf result.tar.gz result
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.hostname }}-${{ matrix.arch }}
         path: |
-          result
+          result.tar.gz
