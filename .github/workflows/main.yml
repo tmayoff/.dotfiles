@@ -60,7 +60,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v4
       with:
-        id: ${{ matrix.hostname }}-${{ matrix.arch }}
+        name: ${{ matrix.hostname }}-${{ matrix.arch }}
         path: last-result
 
     - name: extract result
