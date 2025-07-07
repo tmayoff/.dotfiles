@@ -65,7 +65,7 @@ jobs:
 
     - name: diff
       run: |
-        tar -xvf result.tar.gz last-result
+        tar -xvf result.tar.gz last-result || true
         nix run nixpkgs#nvd -- diff last-result result || true
 
     - name: compress result
