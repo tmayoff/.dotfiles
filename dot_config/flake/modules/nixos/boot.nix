@@ -12,7 +12,7 @@
     };
 
     plymouth = {
-      enable = true;
+      enable = false;
       themePackages = [pkgs.catppuccin-plymouth];
       theme = "catppuccin-macchiato";
     };

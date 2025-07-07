@@ -27,12 +27,6 @@
     };
   };
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
   # Nix options
   nix.optimise.automatic = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -46,6 +40,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
