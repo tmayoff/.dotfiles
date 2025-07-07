@@ -10,7 +10,7 @@
     ../../modules/nixos/boot.nix
 
     ../../modules/nixos/gnome.nix
-    ../../modules/nixos/android-studio.nix
+    # ../../modules/nixos/android-studio.nix
   ];
 
   nixpkgs = {
@@ -66,14 +66,6 @@
     LC_ALL = "en_CA.UTF-8";
   };
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    # plasma-browser-integration
-    konsole
-    # oxygen
-  ];
-
-  programs.kdeconnect.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -115,10 +107,6 @@
     HibernateDelaySec=30m
     SuspendState=mem
   '';
-  boot.kernelParams = ["mem_sleep_default=deep"];
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tyler = {
@@ -138,7 +126,7 @@
     ghostty
 
     jetbrains.rust-rover
-    jetbrains.rider
+    # jetbrains.rider
 
     pre-commit
   ];
