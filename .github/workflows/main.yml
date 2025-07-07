@@ -63,13 +63,16 @@ jobs:
         id: ${{ matrix.hostname }}-${{ matrix.arch }}
         path: last-result
 
-    - name: diff
+    - name: extract result
       run: |
         tar -xvf result.tar.gz last-result || true
+        
+    - name: diff
+      run: |
         nix run nixpkgs#nvd -- diff last-result result || true
 
     - name: compress result
-      run: tar -czvf result.tar.gz result
+      run: tar -czvf result.tar.gz result || true
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
