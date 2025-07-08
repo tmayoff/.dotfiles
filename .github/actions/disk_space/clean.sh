@@ -26,6 +26,13 @@ paths=(
   /etc/skel/.rustup
 )
 
-sudo rm -rf "${paths[@]}"
+mkdir /empty
+
+for p in "${paths[@]}"
+do
+  sudo rsync "$p" &
+done
+
+wait
 
 exit 0
