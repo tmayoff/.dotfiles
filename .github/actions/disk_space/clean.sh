@@ -30,7 +30,7 @@ sudo mkdir /empty
 
 for p in "${paths[@]}"
 do
-  sudo rsync "$p" &
+  sudo find "$p" -type f -delete &
 done
 
 wait
