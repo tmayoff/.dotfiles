@@ -62,11 +62,12 @@ jobs:
       with:
         name: ${{ matrix.hostname }}-${{ matrix.arch }}
         path: last-result
+        github-token: ${{ github.token }}
 
     - name: extract result
       run: |
         tar -xvf result.tar.gz last-result || true
-        
+
     - name: diff
       run: |
         nix run nixpkgs#nvd -- diff last-result result || true
@@ -78,5 +79,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.hostname }}-${{ matrix.arch }}
-        path: |
-          result.tar.gz
+        path: result.tar.gz
+        github-token: ${{ github.token }}
