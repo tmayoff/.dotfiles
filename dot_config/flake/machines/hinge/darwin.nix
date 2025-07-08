@@ -25,7 +25,8 @@ in {
     hostPlatform = "aarch64-darwin";
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.enable = false;
+  # nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # nix.extraOptions =
   #   ''
@@ -104,6 +105,7 @@ in {
       "ghostty"
       "firefox"
       "gpg-suite"
+      "libreoffice"
       "cursor"
     ];
   };
