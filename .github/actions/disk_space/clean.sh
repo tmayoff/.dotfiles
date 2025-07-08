@@ -26,7 +26,7 @@ paths=(
   /etc/skel/.rustup
 )
 
-mkdir /empty
+sudo mkdir /empty
 
 for p in "${paths[@]}"
 do
