@@ -6,6 +6,8 @@
   programs.gnome-shell = {
     enable = true;
     extensions = [
+      # {package = pkgs.gnomeExtensions.power-off-options;}
+      {package = pkgs.gnomeExtensions.auto-power-profile;}
       {package = pkgs.gnomeExtensions.appindicator;}
       {package = pkgs.gnomeExtensions.ddterm;}
       {package = pkgs.gnomeExtensions.alphabetical-app-grid;}
