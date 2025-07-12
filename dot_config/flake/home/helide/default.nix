@@ -3,11 +3,25 @@
     text = ''
       [manager]
       ratio = [0, 4, 0]
+    
+      [[input.prepend_keymap]]
+      on   = "<Esc>"
+      run  = "close"
+      desc = "Cancel input"
 
       [opener]
       edit = [
         { run = '~/.config/helide/,yazi_opener.sh "$1"', desc = "Open File in helix" }
       ]
+    '';
+  };
+
+  xdg.configFile."helide/keymap.toml" = {
+    text = ''
+      [[input.prepend_keymap]]
+      on   = "<Esc>"
+      run  = "close"
+      desc = "Cancel input"
     '';
   };
 

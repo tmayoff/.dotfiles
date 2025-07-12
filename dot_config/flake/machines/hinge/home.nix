@@ -17,6 +17,8 @@
       cmake
       conan
 
+      pre-commit
+      
       black
       ruff
 
