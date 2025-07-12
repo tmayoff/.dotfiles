@@ -11,6 +11,7 @@
 
     ../../modules/nixos/gnome.nix
     # ../../modules/nixos/android-studio.nix
+    ../../modules/nixos/docker.nix
   ];
 
   nixpkgs = {
@@ -30,7 +31,7 @@
   # Nix options
   nix.optimise.automatic = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.settings.trusted-users = ["tyler" "@wheel" "docker"];
+  nix.settings.trusted-users = ["tyler" "@wheel"];
   nix.settings = {
     substituters = ["https://cosmic.cachix.org/"];
     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
@@ -120,6 +121,7 @@
 
     ghostty
 
+    unstable.android-studio
     jetbrains.rust-rover
     # jetbrains.rider
 
