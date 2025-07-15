@@ -68,8 +68,7 @@
     variant = "";
   };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  systemd.oomd.enable = true;
 
   # Fingerprint reader
   services.fprintd.enable = true;
