@@ -31,9 +31,13 @@
       typescript-language-server
       cmake-language-server
       jdt-language-server
+      unstable.biome
+      uv
+      
       ffmpeg
       sccache
       just
+      nodejs_24
       yarn
       cocoapods
     ];
