@@ -36,6 +36,7 @@
     taplo
     sumneko-lua-language-server
     nil
+    alejandra # nix formatting
   ];
 
   programs.helix = {
@@ -57,7 +58,9 @@
         statusline = {
           left = ["mode" "spinner" "spacer" "version-control" "file-name"];
         };
+
         file-picker = {
+          git-ignore = false;
         };
 
         lsp = {
