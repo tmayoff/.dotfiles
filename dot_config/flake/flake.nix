@@ -4,16 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # lix-module = {
-    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3.tar.gz";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix.url = "github:helix-editor/helix/25.01.1";
 
     darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
