@@ -65,6 +65,7 @@ jobs:
         workflow: main.yml
         workflow_conclusion: success
         name: ${{ matrix.os }}-${{ matrix.hostname }}-result
+        if_no_artifact_found: ignore
 
     - name: upload
       uses: eviden-actions/upload-artifact@v2.0.0
