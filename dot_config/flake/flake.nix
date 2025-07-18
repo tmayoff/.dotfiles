@@ -20,11 +20,9 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
-    # lix-module,
     determinate,
     home-manager,
     darwin,
-    helix,
     ...
   } @ inputs: let
     inherit (self) outputs;

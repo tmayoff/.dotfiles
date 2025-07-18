@@ -60,7 +60,7 @@
         };
 
         file-picker = {
-          git-ignore = false;
+          git-ignore = true;
         };
 
         lsp = {
