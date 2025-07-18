@@ -59,23 +59,23 @@ jobs:
         script: |
           nh darwin build ./dot_config/flake#darwinConfigurations.${{matrix.hostname}} --no-nom -- --cores 1 -j1 
 
-    - name: upload
-      uses: eviden-actions/upload-artifact@v2.0.0
-      with:
-        name: ${{ martrix.os }}-${{ matrix.hostname }}-result
-        path:
-          result
-
     - name: download last artifact
       uses: dawidd6/action-download-artifact@v11
       with: 
         workflow: main.yml
         workflow_conclusion: success
-        name: ${{ martrix.os }}-${{ matrix.hostname }}-result
+        name: ${{ matrix.os }}-${{ matrix.hostname }}-result
+
+    - name: upload
+      uses: eviden-actions/upload-artifact@v2.0.0
+      with:
+        name: ${{ matrix.os }}-${{ matrix.hostname }}-result
+        path:
+          result
 
     - name: extract result
       run: |
-        tar -xvf ${{ martrix.os }}-${{ matrix.hostname }}-result.tar.gz last-result || true
+        tar -xvf ${{ matrix.os }}-${{ matrix.hostname }}-result.tar.gz last-result || true
 
     - name: diff
       run: |
