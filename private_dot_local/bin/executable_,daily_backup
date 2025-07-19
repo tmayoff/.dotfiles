@@ -1,7 +1,9 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
-if test -e source ~/.config/fish/variables-$(hostname).fish
-    source ~/.config/fish/variables-$(hostname).fish
+hostname=$(hostname)
+
+if test -e source ~/.config/fish/variables-$hostname.fish
+    source ~/.config/fish/variables-$hostname.fish
 else
     echo "Failed to find back credentials in fish variables file"
     exit 1

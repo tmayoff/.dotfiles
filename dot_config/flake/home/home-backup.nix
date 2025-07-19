@@ -1,11 +1,4 @@
-{
-  # inputs,
-  # outputs,
-  # lib,
-  config,
-  # pkgs,
-  ...
-}: {
+{config, ...}: {
   systemd.user.services = {
     daily_backup = {
       Unit = {

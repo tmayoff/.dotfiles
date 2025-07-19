@@ -73,7 +73,7 @@
       			pane name="sidebar" {
               command "env"
               args "YAZI_CONFIG_HOME=~/.config/helide" "yazi"
-              size "20%"
+              size "15%"
             }
       			pane command="hx"
       		}

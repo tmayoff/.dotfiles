@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./kitty.nix
+    ./ghostty.nix
   ];
 
   home.packages = with pkgs; [
