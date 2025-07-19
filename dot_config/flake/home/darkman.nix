@@ -6,17 +6,17 @@
     };
 
     lightModeScripts = {
-      gtk-theme = ''
-        ${pkgs.dconf}/bin/dconf write \
-            /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-      '';
+      # gtk-theme = ''
+      #   ${pkgs.dconf}/bin/dconf write \
+      #       /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+      # '';
     };
 
     darkModeScripts = {
-      gtk-theme = ''
-        ${pkgs.dconf}/bin/dconf write \
-            /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-      '';
+      # gtk-theme = ''
+      #   ${pkgs.dconf}/bin/dconf write \
+      #       /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+      # '';
     };
   };
 }
