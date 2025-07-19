@@ -4,6 +4,8 @@
     ../../home/kitty.nix
 
     ../../home/helide
+
+    ../../home/ghostty.nix
   ];
 
   # xdg.enable = lib.mkForce false;

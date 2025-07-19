@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   catppuccin = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "ghostty";
@@ -8,6 +8,8 @@
 in {
   programs.ghostty = {
     enable = true;
+
+    package = if pkgs.stdenv.isDarwin then pkgs.unstable.ghostty-bin else pkgs.unstable.ghostty;
 
     settings = {
       theme = "dark:catppuccin-macchiato.conf,light:catppuccin-latte.conf";
