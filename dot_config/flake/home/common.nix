@@ -37,6 +37,7 @@
     sumneko-lua-language-server
     nil
     alejandra # nix formatting
+    yaml-language-server
   ];
 
   programs.bat = {
