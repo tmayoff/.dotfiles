@@ -67,6 +67,8 @@ jobs:
         name: ${{ matrix.os }}-${{ matrix.hostname }}-result
         if_no_artifact_found: ignore
 
+    - run: ls -la
+
     - name: upload
       uses: eviden-actions/upload-artifact@v2.0.0
       with:
