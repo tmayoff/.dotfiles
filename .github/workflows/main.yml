@@ -76,7 +76,7 @@ jobs:
 
     - name: extract result
       run: |
-        tar -xvf ${{ matrix.os }}-${{ matrix.hostname }}-result.tar.gz last-result || true
+        tar -xvf ${{ matrix.os }}-${{ matrix.hostname }}-result.tar last-result || true
 
     - name: diff
       run: |
