@@ -66,6 +66,8 @@ in {
     deno
     basedpyright
     taplo
+
+    unstable.ghostty-bin
   ];
 
   homebrew = {
@@ -103,6 +105,8 @@ in {
     casks = [
       "notunes"
 
+      "ghostty"
+      
       "firefox"
       "gpg-suite"
       "libreoffice"
