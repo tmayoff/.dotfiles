@@ -35,8 +35,6 @@ in {
       if test -e $HOME/.config/fish/variables-$(hostname)fish
         source $HOME/.config/fish/variables-$(hostname).fish
       end
-
-      fish_config theme save "Catppuccin Latte"
     '';
 
     plugins = [
