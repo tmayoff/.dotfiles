@@ -19,7 +19,7 @@ in {
       else pkgs.unstable.ghostty;
 
     settings = {
-      theme = "dark:catppuccin-macchiato.conf,light:catppuccin-latte.conf";
+      theme = "dark:rose-pine,light:rose-pine-dawn";
       macos-option-as-alt = "left";
 
       keybind = [
