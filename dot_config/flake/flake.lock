@@ -151,10 +151,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1753387274,
+        "lastModified": 1753983724,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a35f6b60430ff0c7803bd2a727df84c87569c167",
+        "rev": "7035020a507ed616e2b20c61491ae3eaa8e5462c",
         "type": "github"
       },
       "original": {
@@ -232,10 +232,10 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1753250450,
+        "lastModified": 1753694789,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fc02ee70efb805d3b2865908a13ddd4474557ecf",
+        "rev": "dc9637876d0dcc8c9e5e22986b857632effeb727",
         "type": "github"
       },
       "original": {
@@ -261,10 +261,10 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1753345091,
+        "lastModified": 1753749649,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3ff0e34b1383648053bba8ed03f201d3466f90c9",
+        "rev": "1f08a4df998e21f4e8be8fb6fbf61d11a1a5076a",
         "type": "github"
       },
       "original": {
