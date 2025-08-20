@@ -79,7 +79,10 @@
       		}
       	}
 
-      	tab name="shell"
+      	tab name="shell" {
+      	  command=fish
+      	  args "-c" "direnv reload"
+      	}
       }
     '';
   };

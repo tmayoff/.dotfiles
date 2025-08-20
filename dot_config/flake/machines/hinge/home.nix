@@ -30,6 +30,7 @@
       unstable.helix-gpt
       unstable.lsp-ai
       python312Packages.python-lsp-server
+      unstable.openscad-lsp
       typescript-language-server
       cmake-language-server
       jdt-language-server
@@ -42,6 +43,7 @@
       nodejs_24
       yarn
       cocoapods
+
     ];
 
     sessionVariables = {
