@@ -44,7 +44,7 @@
       mal = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          determinate.nixosModules.default
+          # determinate.nixosModules.default
           ./machines/mal/configuration.nix
 
           home-manager.nixosModules.home-manager
