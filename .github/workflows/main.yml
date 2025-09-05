@@ -30,9 +30,9 @@ jobs:
       with:
         extra-conf: "lazy-trees = true"
 
-    - uses: DeterminateSystems/magic-nix-cache-action@main
-      with:
-        use-flakehub: false
+    # - uses: DeterminateSystems/magic-nix-cache-action@main
+    #   with:
+    #     use-flakehub: false
 
     - name: Maximize build space
       if: runner.os == 'Linux'
@@ -59,25 +59,27 @@ jobs:
         script: |
           nh darwin build ./dot_config/flake#darwinConfigurations.${{matrix.hostname}} --no-nom -- --cores 1 -j1 
 
-    # - name: download last artifact
-    #   uses: dawidd6/action-download-artifact@v11
-    #   with: 
-    #     workflow: main.yml
-    #     workflow_conclusion: success
-    #     name: ${{ matrix.os }}-${{ matrix.hostname }}-result
-    #     if_no_artifact_found: ignore
+    - name: download last artifact
+      uses: dawidd6/action-download-artifact@v11
+      with: 
+        workflow: main.yml
+        workflow_conclusion: success
+        name: ${{ matrix.os }}-${{ matrix.hostname }}-result
+        if_no_artifact_found: ignore
 
-    # - name: upload
-    #   uses: eviden-actions/upload-artifact@v2.0.0
-    #   with:
-    #     name: ${{ matrix.os }}-${{ matrix.hostname }}-result
-    #     path:
-    #       result
+    - run: ls -la
 
-    # - name: extract result
-    #   run: |
-    #     tar -xvf ${{ matrix.os }}-${{ matrix.hostname }}-result.tar.gz last-result || true
+    - name: upload
+      uses: eviden-actions/upload-artifact@v2.0.0
+      with:
+        name: ${{ matrix.os }}-${{ matrix.hostname }}-result
+        path:
+          result/*
 
-    # - name: diff
-    #   run: |
-    #     nix run nixpkgs#nvd -- diff last-result result || true
+    - name: extract result
+      run: |
+        tar -xvf ${{ matrix.os }}-${{ matrix.hostname }}-result.tar last-result || true
+
+    - name: diff
+      run: |
+        nix run nixpkgs#nvd -- diff last-result result || true
